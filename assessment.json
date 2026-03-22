@@ -1,0 +1,104 @@
+{
+  "description": "Reference data for TFF Training Plan Skill. Question sequence is defined in SKILL.md — this file contains options, formulas and validation details only.",
+
+  "goal_options": ["Running / Endurance", "Strength / Muscle Building", "Both (Mixed)"],
+
+  "running_distance_options": [
+    "5k / 10k (speed and VO2max focus)",
+    "Half Marathon",
+    "Marathon",
+    "Trail / Ultra",
+    "General fitness running (no race)"
+  ],
+
+  "fitness_level_options": [
+    "Beginner (less than 6 months consistent training)",
+    "Intermediate (6 months – 2 years)",
+    "Advanced (2+ years consistent training)"
+  ],
+
+  "equipment_options": [
+    "Full gym",
+    "Home gym (dumbbells / barbell)",
+    "Minimal (bodyweight only)",
+    "Outdoor only"
+  ],
+
+  "hr_zones_source_options": [
+    "Yes — lab test (spiroergometry / lactate threshold test)",
+    "Yes — field test (20-min max effort test)",
+    "Yes — device estimate (Garmin, Polar, etc.) — note: may be off by 10-20 bpm",
+    "No — calculate from my age and resting HR"
+  ],
+
+  "wearable_options": ["Garmin", "Polar", "Apple Watch", "WHOOP", "Oura Ring", "Other", "No wearable"],
+
+  "plan_duration_options": ["4 weeks", "8 weeks", "12 weeks", "Ongoing"],
+
+  "hr_zone_calculation": {
+    "karvonen": {
+      "use_when": "Resting HR is known",
+      "max_hr": "220 - age",
+      "formula": "Zone bpm = Resting HR + (% × (Max HR - Resting HR))",
+      "zones": {
+        "Z1": "50-60% — Recovery",
+        "Z2": "60-70% — Aerobic base / easy runs",
+        "Z3": "70-80% — Aerobic endurance / tempo",
+        "Z4": "80-90% — Threshold / hard tempo",
+        "Z5": "90-100% — VO2max / intervals"
+      }
+    },
+    "age_based": {
+      "use_when": "Resting HR unknown",
+      "max_hr": "220 - age",
+      "formula": "Zone bpm = % × Max HR",
+      "zones": {
+        "Z1": "50-60% Max HR",
+        "Z2": "60-70% Max HR",
+        "Z3": "70-80% Max HR",
+        "Z4": "80-90% Max HR",
+        "Z5": "90-100% Max HR"
+      }
+    },
+  },
+
+  "examples": {
+    "_note": "These examples illustrate correct assumption-stating behavior and output constraints. Reference these when applying Rule 9 (assumption transparency) and the complementary-declined case.",
+    "running_partial_info_pace_unknown": {
+      "scenario": "User provides goal, age, days, and duration but does not mention current 5k time or pace.",
+      "correct_behavior": "State the assumption explicitly before proceeding. Do NOT silently estimate. Example output: 'You didn't mention your current pace — based on your intermediate fitness level, I'll estimate your easy pace at ~7:00/km (from the assessment reference table). I'll note this in the plan and you should adjust after your first session if it feels off.' Then continue with the next block."
+    },
+    "strength_complementary_declined": {
+      "scenario": "User explicitly declines complementary cardio when asked in Block 5.",
+      "correct_behavior": "Accept the answer and proceed to plan generation. At the very end of the completed plan (after all weekly sessions are shown), add exactly ONE line: 'Note: Adding 10 min of calf and hip stability work per week significantly reduces injury risk — recommended if you change your mind.' Do NOT add any other references to complementary training, cardio sessions, or injury prevention notes anywhere else in the plan body."
+    }
+  },
+
+  "pace_estimation_when_unknown": {
+    "_instruction": "Use these ranges when user skips pace or has no race data. Always state the estimate clearly. NEVER estimate above the max_easy_pace_cap — anything slower is walking, not running.",
+    "beginner": {
+      "easy_pace": "8:00-10:00/km",
+      "max_easy_pace_cap": "10:00/km",
+      "5k_estimate": "40-55 min",
+      "10k_estimate": "85-115 min",
+      "half_estimate": "3:00-4:00h",
+      "note": "Walk-run intervals likely needed. Use lower end of range if user reports running continuously."
+    },
+    "intermediate": {
+      "easy_pace": "6:00-7:30/km",
+      "max_easy_pace_cap": "7:30/km",
+      "5k_estimate": "30-40 min",
+      "10k_estimate": "62-85 min",
+      "half_estimate": "2:15-3:00h",
+      "note": "Running continuously, building aerobic base. NEVER estimate above 7:30/km for intermediate — that is beginner territory."
+    },
+    "advanced": {
+      "easy_pace": "4:30-6:00/km",
+      "max_easy_pace_cap": "6:00/km",
+      "5k_estimate": "20-30 min",
+      "10k_estimate": "42-62 min",
+      "half_estimate": "1:35-2:15h",
+      "note": "Consistent training history, race experience likely."
+    }
+  }
+}

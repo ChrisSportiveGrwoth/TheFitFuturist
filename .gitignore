@@ -1,28 +1,21 @@
-# Python
+# Eval infrastructure — not for public release
+*.py
+eval-log.md
+eval-rubric*.md
+eval-summary.md
+eval_results.json
+eval_conversational_results.json
+eval_comparison_v211.json
+phase3_results.json
+test-personas.json
+CLAUDE.md
+PRINCIPLES.md
+SKILL-v*.md
+transcripts/
+tff-training-skill-release/
 __pycache__/
 *.pyc
 *.pyo
 .pytest_cache/
-
-# Eval outputs (not for release)
-eval-log.md
-eval-summary.md
-eval_comparison_v211.json
-eval_conversational_results.json
-eval_results.json
-run_eval.py
-run_eval_conversational.py
-generate_sample_plans.py
-test-personas.json
-eval-rubric.md
-eval-rubric-strength.md
-transcripts/
-PRINCIPLES.md
-SKILL-v*.md
-
-# Release artifacts (built, not source)
-tff-training-skill-release/
-*.zip
-
-# Local
+.env
 *.local.md

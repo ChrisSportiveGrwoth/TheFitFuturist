@@ -3,7 +3,7 @@ name: tff-training-plan-basic
 description: "Creates personalized training plans for runners, strength athletes, and mixed training goals."
 author: TheFitFuturist
 author_url: https://www.thefitfuturist.com
-version: 2.3.2
+version: 2.3.3
 license: CC BY-NC 4.0 — Free to use and adapt for personal use. Not for commercial use without permission.
 ---
 
@@ -252,6 +252,7 @@ Triggered when training-log.md exists in Knowledge.
 
 | Pattern | Action |
 |---|---|
+| Same pain 1× | Log in health-flags.md (Count: 1). Do NOT modify the plan. Acknowledge briefly: *"I've noted this — let me know if it comes up again."* |
 | Same pain 2× | Flag recurring, modify exercise |
 | Same pain 3×+ | Strong warning, recommend professional, remove exercise |
 | 2+ sessions skipped | Reduce volume -20% |

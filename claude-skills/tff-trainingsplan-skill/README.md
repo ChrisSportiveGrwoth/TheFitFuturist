@@ -1,6 +1,6 @@
-# TFF Training Plan Skill (Basic) — v2.3.2
+# TFF Training Plan Skill (Basic) — v2.3.3
 
-A ready-to-use Claude skill for personalized, evidence-based training plans. Paste into your Claude Project Instructions — Claude will run a structured assessment and generate a plan tailored to your goal, fitness level, schedule, and health history.
+A ready-to-use Claude skill for personalized, evidence-based training plans. Upload the ZIP to Claude — Claude will run a structured assessment and generate a plan tailored to your goal, fitness level, schedule, and health history.
 
 ## What it does
 
@@ -20,39 +20,33 @@ Guides Claude through a 6-block conversational assessment before generating any 
 
 ## Download
 
-**Option A — Direct download (recommended for most users):**
-Download the ZIP, unpack, then follow the setup instructions below.
-→ [tff-training-skill-v2.3.2.zip](./tff-training-skill-v2.3.2.zip)
-
-**Option B — Clone the repo:**
-For developers who want to track updates via Git.
-```bash
-git clone https://github.com/ChrisSportiveGrwoth/TheFitFuturist.git
-```
+→ [tff-training-skill-v2.3.3.zip](./tff-training-skill-v2.3.3.zip)
 
 ## Setup
 
-**Step 1 — Project Instructions**
+### Prerequisites
+- Any Claude account (free or paid)
+- "Code execution and file creation" enabled in Settings → Capabilities
 
-Copy the full contents of `SKILL.md` into your Claude Project's *Instructions* field.
+### Installation (2 minutes)
 
-**Step 2 — Project Knowledge**
+**Option A — Direct download (recommended):**
+1. Download [tff-training-skill-v2.3.3.zip](./tff-training-skill-v2.3.3.zip)
+2. In Claude, go to **Settings → Customize → Skills**
+3. Upload the ZIP file
+4. Start a new chat and describe your training goal — Claude recognizes the skill automatically
 
-Upload all of the following to your Claude Project's *Knowledge* section:
-- `assessment.json`
-- `goals/runner.md`
-- `goals/strength.md`
-- `goals/mixed.md`
+**Option B — Clone the repo:**
+```bash
+git clone https://github.com/ChrisSportiveGrwoth/TheFitFuturist.git
+```
+Then ZIP the `claude-skills/tff-trainingsplan-skill/` folder and upload via Settings → Customize → Skills.
 
-> You can upload all three goal files or just the one matching your goal. Claude only loads the relevant file per Rule 4.
-
-**Step 3 — Start a conversation**
-
-Open a new chat in the project. Claude will automatically detect mode (New Plan / Update / Analysis) and begin the assessment.
+> Note: The ZIP must contain the skill folder at the root, not just the contents.
 
 ## Tracking your training
 
-After your plan is generated, Claude outputs three files to save to Project Knowledge:
+After your plan is generated, Claude outputs three files you can save for future sessions:
 
 | File | Purpose |
 |------|---------|
@@ -61,20 +55,6 @@ After your plan is generated, Claude outputs three files to save to Project Know
 | `current-plan.md` | Active plan summary (phase, pace, HR zones, next session) |
 
 In subsequent chats, Claude reads these files and enters Update Mode automatically — adjusting load based on what you report.
-
-## File structure
-
-```
-tff-training-skill-v2.3.2/
-├── SKILL.md              ← Paste into Project Instructions
-├── assessment.json       ← Upload to Project Knowledge
-├── README.md
-├── CHANGELOG.md
-└── goals/
-    ├── runner.md         ← Upload to Project Knowledge
-    ├── strength.md       ← Upload to Project Knowledge
-    └── mixed.md          ← Upload to Project Knowledge
-```
 
 ## License
 

@@ -2,9 +2,8 @@
 
 Open-source Claude skills built and tested by [TheFitFuturist](https://www.thefitfuturist.com).
 
-Each skill is a ready-to-use instruction set for Claude Projects.
-Paste SKILL.md into your Project Instructions, upload the knowledge
-files — done.
+Each skill is a ready-to-use ZIP you upload to Claude via
+Settings → Customize → Skills. Done in 2 minutes.
 
 ## About TheFitFuturist
 
@@ -26,7 +25,7 @@ but tested.
 ### [TFF Training Plan Skill](./claude-skills/tff-trainingsplan-skill/)
 Personalized training plans for runners, strength athletes, and mixed goals.
 Tested against 41 personas across running, strength, and mixed training.
-Version: v2.3.2
+Version: v2.3.3
 
 → [Read the full development story on Substack](https://thefitfuturist.substack.com)
 

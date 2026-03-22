@@ -2,6 +2,17 @@
 
 Format: append only. Never delete entries.
 
+## v2.3.3 — 2026-03-22 — Update Mode: explicit Count:1 pain rule
+
+### SKILL.md
+- UPDATE MODE pattern table: Added new row for **Same pain 1×** (first occurrence):
+  "Log in health-flags.md (Count: 1). Do NOT modify the plan. Acknowledge briefly: 'I've noted this — let me know if it comes up again.'"
+  Inserted BEFORE the existing "Same pain 2×" row. Count:2 and Count:3 rows unchanged.
+- Root cause: without an explicit Count:1 rule, model escalated to Count:2 action on first pain mention — adding plan modifications when only monitoring was required.
+- Verified: P45 Update 2 re-run scored ≥60/70 after fix.
+
+---
+
 ## v2.3.2 — 2026-03-22 — Targeted best practices patch
 
 ### SKILL.md

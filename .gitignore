@@ -1,5 +1,7 @@
 # Eval infrastructure — not for public release
 *.py
+# ...except the release consistency checks, which belong in the repo
+!claude-skills/tff-trainingsplan-skill/check-consistency.py
 eval-log.md
 eval-rubric*.md
 eval-summary.md

@@ -16,7 +16,7 @@ Running is not one goal — it is a spectrum. A 5k runner and a marathon runner 
 - Trail / Ultra → extreme volume, elevation-specific work, strength critical
 - General fitness → health and consistency, no performance target
 
-Then: derive intensity distribution, periodization, and session types from the distance-specific principles below. Strength training is mandatory for all runner types — integrate it using the sequencing rules in Principle 5.
+Then: derive intensity distribution, periodization, and session types from the distance-specific principles below. Strength training is strongly recommended for every runner type — integrate it using the sequencing rules in Principle 5. The user is offered an explicit opt-out in Block 5 of the assessment; if they decline, respect that answer and follow the single-line note rule in SKILL.md instead of arguing the point through the plan.
 
 ---
 
@@ -81,13 +81,26 @@ Calculate available weeks from today to event date, then:
 | Base | 40% | Volume, Z1-2 only, build aerobic engine |
 | Build | 35% | Introduce quality sessions, increase volume |
 | Peak | 15% | Reduce volume, sharpen race-specific intensity |
-| Taper | 10% (min 2 weeks) | Drastically reduce volume, keep some intensity |
+| Taper | 10% | Drastically reduce volume, keep some intensity |
 
 **Distance-specific taper length:**
 - 5k/10k: 1-2 weeks taper
 - Half Marathon: 2 weeks
 - Marathon: 2-3 weeks
 - Ultra: 2-3 weeks (but less intensity reduction — keep legs moving)
+
+**Renormalization for plans under 20 weeks — apply this, do not use the percentages directly:**
+
+The percentage split above describes the shape of a long build-up. Taken literally it only works from 20 weeks upward: a 10 % taper on a 12-week plan is 1.2 weeks, which contradicts the distance-specific taper lengths right below it. For anything shorter, allocate in this order:
+
+1. **Taper first, in absolute weeks** from the distance-specific list above (5k/10k 1 | HM 2 | Marathon 2 | Ultra 2). Cap it at 25 % of the plan — a 6-week plan does not get a 2-week taper; use 1 week.
+2. **Peak** = 15 % of total, rounded to whole weeks, minimum 1, maximum 3.
+3. **Split the remainder** between Base and Build at roughly 55 / 45 in favour of Base.
+4. **Round to whole weeks**, give any leftover week to Base, and name every phase in the plan.
+
+Worked examples: 12-week marathon → Base 4 / Build 4 / Peak 2 / Taper 2. 8-week 10k → Base 3 / Build 3 / Peak 1 / Taper 1. 16-week half → Base 7 / Build 5 / Peak 2 / Taper 2.
+
+If the resulting Base phase is shorter than 3 weeks, the plan is too short for the distance — check it against the minimum preparation table in SKILL.md before continuing.
 
 **Volume progression rule:**
 Never increase total weekly volume by more than 10% per week. Never increase volume AND intensity in the same week.
@@ -103,11 +116,47 @@ If a user doesn't know their current pace or race times, estimate from fitness l
 
 | Fitness level | Easy pace (Z2) | 5k estimate | 10k estimate | Half estimate |
 |---|---|---|---|---|
-| Beginner | 7:30-9:00/km | 40-55 min | 85-115 min | 3:00-4:00h |
+| Beginner | 8:00-10:00/km | 40-55 min | 85-115 min | 3:00-4:00h |
 | Intermediate | 6:00-7:30/km | 30-40 min | 62-85 min | 2:15-3:00h |
 | Advanced | 4:30-6:00/km | 20-30 min | 42-62 min | 1:35-2:15h |
 
+These values are the single source together with `assessment.json` → `pace_estimation_when_unknown`; both must always say the same thing. Never estimate slower than the per-level `max_easy_pace_cap` (Beginner 10:00/km | Intermediate 7:30/km | Advanced 6:00/km).
+
+**Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is no meaningfully slower "easy" gear left. When the estimate approaches the 10:00/km cap, plan walk-run intervals instead of continuous easy runs, and set the running segments by time, not by pace.
+
 Always state in the plan: "Estimated easy pace: ~X min/km based on your fitness level. Adjust after your first session — if it feels too easy or too hard, report back and I'll recalibrate."
+
+---
+
+## Principle 2c: From a Known Race Time to Target Pace and Training Paces
+
+**The principle:**
+When the user states a recent race time, do not fall back on the fitness-level table — derive everything from that result. This is the most common case for anyone with a training history, and without it the plan has no pace anchors.
+
+**Step 1 — Equivalent time at another distance (Riegel):**
+
+`T2 = T1 × (D2 / D1)^1.06`
+
+Worked example: 10 km in 48:00 → half marathon = 48 × (21.1 / 10)^1.06 ≈ 106 min ≈ 1:46.
+
+Honest limits — state them when you use it: the exponent 1.06 is a population average, individual endurance varies. The formula is reliable when the two distances are within roughly a factor of two of each other and the runner has the endurance base for the longer distance. Extrapolating 5k → marathon systematically predicts times that are too fast for runners without marathon-specific volume. For the marathon, treat the Riegel result as a ceiling, not a target.
+
+**Step 2 — Sanity-check the user's goal time** against the Riegel equivalent. If the goal is more than ~5 % faster than the equivalent, apply the "Goal pace >30 % faster" and "ambitious goal" validation rules in SKILL.md — flag it once, plan against the more conservative pace, and say so.
+
+**Step 3 — Derive training paces from race pace.** Anchor everything on the current 10k race pace (measured or Riegel-derived):
+
+| Training pace | Derivation | Use |
+|---|---|---|
+| Easy / Z2 | 10k pace + 75–105 s/km | Most of the weekly volume |
+| Long run | 10k pace + 75–120 s/km, slower end as distance grows | Long run |
+| Marathon pace | 10k pace + 25–40 s/km | Marathon-specific work |
+| Threshold / tempo (Z3-4) | 10k pace + 10–20 s/km — roughly the pace holdable for one hour | Tempo and threshold sessions |
+| Interval / VO2max (Z5) | 10k pace − 10–15 s/km, i.e. around 5k pace | 3–5 min intervals |
+| Strides / neuromuscular | Clearly faster than 5k pace, controlled, 20–30 s | End of easy runs |
+
+These offsets are approximations that hold for recreational runners; they widen for slower runners and compress for fast ones. Always present them alongside the HR zones, state that the ranges are derived from the stated race time, and tell the user to correct them after the first two weeks based on feel and HR.
+
+**Step 4 — Fill the pace column of the HR zone table (Principle 6) from this table.** Zones and paces must be shown together — a bpm range alone is not executable, and pace alone ignores day-to-day condition.
 
 ---
 
@@ -166,7 +215,7 @@ Build the weekly plan from these blocks — assign based on distance priority, n
 
 ---
 
-## Principle 5: Strength & Plyometric Training (Mandatory for All Runner Types)
+## Principle 5: Strength & Plyometric Training (Strongly Recommended for All Runner Types)
 
 **The principle:**
 Strength training and plyometric training both improve running economy. Combined is most effective. Heavy, low-rep strength (≥80% 1RM) improves economy primarily at higher speeds. Plyometrics improve economy at lower speeds (≤12 km/h). For most recreational runners, a combination session works best.
@@ -256,17 +305,24 @@ Always reference it explicitly in the plan. Examples:
 - More accurate than the older 220-age rule, which overestimates Max HR in younger adults and underestimates it with increasing age (~10 bpm difference by age 70)
 - Zones as % of Max HR
 
-**Always show this table in the plan:**
+**⚠️ The percentage column must name the method it belongs to. The two systems are not interchangeable:**
 
-| Zone | Name | % (Karvonen) | bpm (calculated) | Feel |
-|---|---|---|---|---|
-| Z1 | Recovery | 50-60% | XX-XX bpm | Fully conversational |
-| Z2 | Aerobic base | 60-70% | XX-XX bpm | Easy, can hold conversation |
-| Z3 | Aerobic endurance | 70-80% | XX-XX bpm | Harder, short sentences |
-| Z4 | Threshold | 80-90% | XX-XX bpm | Hard, can't talk much |
-| Z5 | VO2max | 90-100% | XX-XX bpm | Maximum, unsustainable |
+- Karvonen → the percentages are **% of heart rate reserve (% HRR)**. Header: `% HRR (Karvonen)`.
+- Age-based → the percentages are **% of maximum HR (% max HR)**. Header: `% max HR`.
 
-Replace XX-XX with actual calculated values. State which formula was used.
+The same number produces different bpm. Age 42, resting HR 58, Tanaka max HR 179: Z2 at 60–70 % HRR = 130–142 bpm; 60–70 % of max HR = 107–125 bpm. That is a 23 bpm gap — a full zone. Never put a "% max HR" label on Karvonen-derived bpm values, and never let the user carry the percentages over into a device that uses the other method. The bpm values are the deliverable; the percentages only document how they were derived.
+
+**Always show this table in the plan — use the header row matching the method actually used:**
+
+| Zone | Name | % HRR (Karvonen) *or* % max HR | bpm (calculated) | Pace (min/km) | Feel |
+|---|---|---|---|---|---|
+| Z1 | Recovery | 50-60% | XX-XX bpm | X:XX-X:XX | Fully conversational |
+| Z2 | Aerobic base | 60-70% | XX-XX bpm | X:XX-X:XX | Easy, can hold conversation |
+| Z3 | Aerobic endurance | 70-80% | XX-XX bpm | X:XX-X:XX | Harder, short sentences |
+| Z4 | Threshold | 80-90% | XX-XX bpm | X:XX-X:XX | Hard, can't talk much |
+| Z5 | VO2max | 90-100% | XX-XX bpm | X:XX-X:XX | Maximum, unsustainable |
+
+Replace XX-XX with actual calculated values. Fill the pace column from Principle 2c (race time known) or Principle 2b (estimated). State which formula was used, and add: *"The bpm values are what counts — enter those into your watch. If your device asks for percentages, check whether it works from max HR or from heart rate reserve; the same percentage means different things in each."*
 
 ---
 
@@ -297,13 +353,16 @@ Recommend cross-training when: injury risk is high, user is coming back from inj
 
 ## Principle 8: Red Flags
 
-| Signal | Reasoning | Action |
-|---|---|---|
-| Knee pain during/after runs | Possible IT band, patellar overuse | Reduce volume 50%, no downhill, add hip abductor work |
-| Shin pain | Possible shin splints | Reduce to 2x/week, add calf work, check footwear |
-| Achilles/calf tightness | Tendon overload | Add eccentric calf work, reduce volume, no speedwork |
-| Persistent fatigue >5 days | Overtraining or illness | Immediate deload week |
-| Chest pain or dizziness | Medical emergency | Stop all training, refer to doctor immediately |
+**When these actions apply:** the overuse rows below take effect on the **second report of the same complaint, or on the first report if the user describes it as persistent, worsening, or present at rest** — this matches the count logic in SKILL.md UPDATE MODE, where a single, mild, first-time complaint is logged rather than acted on. The **emergency row is different: it acts immediately, on the first mention, regardless of count**, and is part of the SAFETY TRIAGE list in SKILL.md.
+
+| Signal | Reasoning | Action | Trigger |
+|---|---|---|---|
+| Knee pain during/after runs | Possible IT band, patellar overuse | Reduce volume 50%, no downhill, add hip abductor work | 2nd report, or 1st if persistent/worsening |
+| Shin pain | Possible shin splints | Reduce to 2x/week, add calf work, check footwear | 2nd report, or 1st if persistent/worsening |
+| Achilles/calf tightness | Tendon overload | Add eccentric calf work, reduce volume, no speedwork | 2nd report, or 1st if persistent/worsening |
+| Persistent fatigue >5 days | Overtraining or illness | Immediate deload week | Immediately |
+| Chest pain, dizziness, fainting, palpitations, disproportionate breathlessness | Possible cardiac event | Stop all training, refer to doctor immediately; emergency services if at rest or with arm/jaw pain, sweating or nausea | ⚠️ Immediately, first mention, no exceptions |
+| Calf pain with swelling, warmth or redness | Possible thrombosis | Stop training, same-day medical assessment | ⚠️ Immediately, first mention |
 
 ---
 

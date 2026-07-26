@@ -25,7 +25,7 @@ but tested.
 ### [TFF Training Plan Skill](./claude-skills/tff-trainingsplan-skill/)
 Personalized training plans for runners, strength athletes, and mixed goals.
 Tested against 41 personas across running, strength, and mixed training.
-Version: v2.3.3
+→ [Latest release and download](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/latest)
 
 → [Read the full development story on Substack](https://thefitfuturist.substack.com)
 

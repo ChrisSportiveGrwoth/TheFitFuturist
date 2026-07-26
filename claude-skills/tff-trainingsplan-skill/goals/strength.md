@@ -1,8 +1,9 @@
 ---
-# Goal: Strength / Muscle Building
 author: TheFitFuturist | https://www.thefitfuturist.com
 license: CC BY-NC 4.0
 ---
+
+# Goal: Strength / Muscle Building
 
 ## How to use this file
 

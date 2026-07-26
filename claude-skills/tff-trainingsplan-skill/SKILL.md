@@ -1,9 +1,9 @@
 ---
 name: tff-training-plan-basic
-description: "Creates personalized training plans for runners, strength athletes, and mixed training goals."
+description: "Creates personalized, evidence-based training plans for running, strength, and mixed (concurrent) goals. Runs a structured assessment first, then generates the plan, and adapts it from session feedback. Use when the user asks for a training plan, a workout schedule, a weekly training structure, a running plan for 5k / 10k / half marathon / marathon / ultra, a strength or hypertrophy program, or wants an existing plan reviewed and improved. Also applies to German requests such as Trainingsplan, Trainingsplan erstellen, Laufplan, Halbmarathon, Marathon, Krafttraining, Hypertrophie, or Trainingsplan überprüfen."
 author: TheFitFuturist
 author_url: https://www.thefitfuturist.com
-version: 2.3.3
+version: 2.3.4
 license: CC BY-NC 4.0 — Free to use and adapt for personal use. Not for commercial use without permission.
 ---
 
@@ -24,7 +24,7 @@ Training plan assistant with a sports science background. Creates evidence-based
 4. **Load ONLY the goal file matching the user's goal. Never load all three simultaneously.**
 5. **Always include personal HR zones with actual bpm values in every running plan.**
 6. **Never assume plan duration** — ask if no event date given.
-7. **Always estimate pace if unknown** — state the estimate clearly. Use assessment.json pace_estimation_when_unknown anchors: Beginner = easy pace 8:00–10:00/km | Intermediate = 6:00–7:30/km | Advanced = 4:30–6:00/km. Never estimate above 9:00/km for Intermediate or Advanced — anything slower is walking pace, not running.
+7. **Always estimate pace if unknown** — state the estimate clearly. Use assessment.json pace_estimation_when_unknown anchors: Beginner = easy pace 8:00–10:00/km | Intermediate = 6:00–7:30/km | Advanced = 4:30–6:00/km. Never estimate slower than the per-level cap in assessment.json (`max_easy_pace_cap`): Beginner 10:00/km | Intermediate 7:30/km | Advanced 6:00/km — anything slower is walking pace, not running.
 8. **Always write ✓ Logged and output all three Knowledge files after generating or updating a plan. The full training plan (weekly structure, sessions, phases) MUST appear BEFORE the Knowledge files. Never output Knowledge files as a substitute for the plan — if the plan content is missing, the response is incomplete.**
 9. **Always check health-flags.md for patterns before adjusting any plan.**
 10. **Validate impossible combinations** — flag and ask clarifying questions one-at-a-time. Do not refuse outright.
@@ -148,7 +148,7 @@ Ask: **"Do you use a wearable? It helps me personalize your training zones."**
 | No/Skip | Continue without data |
 
 Also ask: **"Do you know your resting HR, or do you have calibrated HR zones from a lab or field test?"**
-→ Resting HR known: Karvonen formula | Lab/field test: use directly | Device estimate: use, flag ±10–20 bpm | None/skip: 220-age formula
+→ Resting HR known: Karvonen formula | Lab/field test: use directly | Device estimate: use, flag ±10–20 bpm | None/skip: Tanaka formula (Max HR = 208 − 0.7 × age)
 
 ---
 
@@ -211,7 +211,7 @@ For **soft contradictions** (fitness level vs pace, ambitious goal pace, fitness
 
 3. Generate plan from goal file principles. Derive structure from inputs — no fixed templates. **Name each phase explicitly (Base / Build / Peak / Taper for event plans; Base / Build for general plans).**
 
-4. **Running plans:** Include HR zone table with **ALL FIVE zones (Z1–Z5)**: name, % max HR range, bpm range, effort feel. State formula used (Karvonen or 220-age). Do not abbreviate — all five rows required.
+4. **Running plans:** Include HR zone table with **ALL FIVE zones (Z1–Z5)**: name, % max HR range, bpm range, effort feel. State formula used (Karvonen, or Tanaka 208 − 0.7 × age when resting HR is unknown). Do not abbreviate — all five rows required.
 
 5. **Complementary sessions:** Select exercises per Rule 14. Reference goal file for category principles. **For strength plans with no complementary training:** immediately after the plan overview, include an "Injury Prevention Anchors" section listing the minimum exercises by name (e.g., "Single-leg calf raise 3×8 with 3s lowering | Nordic curl / sofa curl 3×6 | Clamshell 3×12") before the weekly breakdown.
 

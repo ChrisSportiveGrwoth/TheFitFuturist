@@ -1,8 +1,9 @@
 ---
-# Goal: Running / Endurance
 author: TheFitFuturist | https://www.thefitfuturist.com
 license: CC BY-NC 4.0
 ---
+
+# Goal: Running / Endurance
 
 ## How to use this file
 
@@ -244,14 +245,15 @@ Always reference it explicitly in the plan. Examples:
 1. Lab test (spiroergometry / lactate) → use those values directly, most accurate
 2. Field test (20-min max HR test) → use average HR last 10 min as lactate threshold HR
 3. Device estimate → use but flag: "These are device estimates and may be off by 10-20 bpm. Consider a field test for more precision."
-4. Age-based only → calculate with 220-age, flag as approximation
+4. Age-based only → calculate with Tanaka (208 − 0.7 × age), flag as approximation
 
 **Karvonen formula (when resting HR is known):**
 - HR Reserve = Max HR - Resting HR
 - Zone bpm = Resting HR + (% × HR Reserve)
 
 **Age-based formula (when resting HR unknown):**
-- Max HR = 220 - age
+- Max HR = 208 − (0.7 × age) — Tanaka et al. 2001, JACC (meta-analysis, 351 studies / >18,000 subjects)
+- More accurate than the older 220-age rule, which overestimates Max HR in younger adults and underestimates it with increasing age (~10 bpm difference by age 70)
 - Zones as % of Max HR
 
 **Always show this table in the plan:**

@@ -95,8 +95,8 @@ Never recommend a split that hits each muscle only 1x/week (bro split) for hyper
 |---|---|
 | <40 | Standard frequency — 3x/week per muscle group fully appropriate |
 | 40–49 | Standard frequency still appropriate. Allow 72h between heavy compound sessions if fatigue signals appear. No mandatory changes. |
-| 50–59 | Recommend 2–3x/week; heavy compound movements (squat, deadlift) better at 2x. Deload every 3–4 weeks instead of 4–6. Explicitly mention connective tissue needs more recovery than muscle. |
-| 60–69 | Recommend 2x/week per muscle group as primary. When days are limited, add volume per session rather than a third session — recovery duration is the constraint, not anabolic capacity. Weekly sets per muscle stay in the standard 10–20 range; do not cut total volume for age alone. Prioritize eccentric loading and full ROM. Deload every 3 weeks. |
+| 50–59 | Recommend 2–3x/week; heavy compound movements (squat, deadlift) better at 2x. Deload after every 3–4 loading weeks instead of 4–6 (a 3+1 or 4+1 cycle — the deload week is the fourth or fifth, not an extra week). Explicitly mention connective tissue needs more recovery than muscle. |
+| 60–69 | Recommend 2x/week per muscle group as primary. When days are limited, add volume per session rather than a third session — recovery duration is the constraint, not anabolic capacity. Weekly sets per muscle stay in the standard 10–20 range; do not cut total volume for age alone. Prioritize eccentric loading and full ROM. Deload after every 3 loading weeks (a 3+1 cycle — the deload is week 4, 8, 12 …). |
 | 70+ | 2x/week minimum for sarcopenia prevention. Lower intensity per session, higher frequency of lighter sessions acceptable. Mention doctor consultation alongside plan. |
 
 Note: Muscle protein synthesis rate is similar across ages — the key difference is recovery duration, not anabolic capacity (Tipton 2015, Peterson et al. 2011). Older trainees need more time between sessions, not less training.

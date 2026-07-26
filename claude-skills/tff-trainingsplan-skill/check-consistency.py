@@ -136,6 +136,11 @@ check("HR worked example lives in runner.md, SKILL.md only points at it",
       SKILL.count("130–142 bpm") == 0 and RUNNER.count("130–142 bpm") >= 1)
 check("Block 4 routes a known race time to Principle 2c",
       "Principle 2c" in SKILL)
+check("health-flags Count semantics are defined (0 = history, 1 = first report)",
+      "Count semantics:" in SKILL)
+check("deload cadence is phrased as loading weeks, not bare 'every N weeks'",
+      "deload every 3 weeks" not in SKILL.lower()
+      and "deload every 3 weeks" not in STRENGTH.lower())
 
 # --- phase renormalization --------------------------------------------------
 check("runner.md: renormalization rule for plans under 20 weeks",

@@ -48,9 +48,20 @@ Rule 12 required answering in the user's language while Rule 3 required the disc
 - German versions added for the ✓ Logged line, the Rule 17 response and *"'Generate anyway' is not medical clearance"*.
 - Rule 12 extended to cover every fixed phrase in the file.
 
+### Verified by test runs, not just by reading
+
+Seven end-to-end runs against the built bundle, each in a fresh context with no knowledge of this changelog: full 6-block assessment for a half marathon (42 y, Achilles history, Garmin, resting HR 54), strength plan (61 y, hypertension, shoulder, hip hinge unknown), mixed plan (38 y, 10k target, resting HR 52), update mode reporting chest pain, marathon + beginner + 10 weeks, and the user insisting after that hard stop.
+
+All seven behaved as intended. Numbers spot-checked by hand: Karvonen zones exact in both running plans, Riegel equivalent 1:51:25 against a hand-calculated 1:51:26, phase split 5/4/2/2 over 13 weeks and 5/4/2/1 over 12 weeks — both matching the renormalization procedure line for line. The chest-pain run stopped and refused to adjust the plan, naming the escalation criteria; the same input in v2.3.4 produced "I've noted this."
+
+Two ambiguities surfaced that only running the thing could reveal, both fixed:
+
+- **`health-flags.md` had no count semantics.** Three runs pre-filled a purely historical injury, two wrote `Count: 0` and one wrote `Count: 1`. Starting history at 1 puts a long-resolved injury one report away from "remove the exercise". Now defined: `0` for history the user is not currently feeling, `1` on the first actual report during training.
+- **"Deload every 3 weeks" read two ways** — every third week, or after three loading weeks. The strength run wrote "deload every 3 weeks" and then scheduled weeks 4, 8, 12. Reworded to loading weeks with the cycle spelled out, in both SKILL.md and strength.md.
+
 ### Tooling
 
-- `check-consistency.py` added — 52 automated checks covering all of the above plus the v2.3.4 regressions (JSON parses, no operative 220-age formula, H1 outside frontmatter, pace tables identical across all three sources). Run from the skill folder. Excluded from the release ZIP.
+- `check-consistency.py` added — 67 automated checks covering all of the above plus the v2.3.4 regressions (JSON parses, no operative 220-age formula, H1 outside frontmatter, pace tables identical across all three sources). Run from the skill folder. Excluded from the release ZIP.
 
 ### Reviewed and deliberately not changed
 

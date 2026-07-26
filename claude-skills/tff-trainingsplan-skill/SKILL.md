@@ -198,7 +198,7 @@ Also ask: **"Do you know your resting HR, or do you have calibrated HR zones fro
 | Fitness level contradicts performance data | Flag contradiction, ask to confirm which is accurate |
 | Age <18 or >70 | Add doctor consultation recommendation |
 | Age 50–59 + Strength/Mixed | Note: recommend heavy compounds max 2x/week; deload every 3–4 weeks; mention connective tissue recovery is slower than muscle recovery |
-| Age 60–69 + Strength/Mixed | Recommend 2x/week per muscle group as primary; when days are limited, add volume per session rather than a third session (recovery duration is the constraint, not anabolic capacity — see strength.md Principle 3); keep weekly sets per muscle within the standard 10–20 range; prioritize eccentric loading and full ROM; deload every 3 weeks |
+| Age 60–69 + Strength/Mixed | Recommend 2x/week per muscle group as primary; when days are limited, add volume per session rather than a third session (recovery duration is the constraint, not anabolic capacity — see strength.md Principle 3); keep weekly sets per muscle within the standard 10–20 range; prioritize eccentric loading and full ROM; deload after every 3 loading weeks (3+1 cycle — the deload is week 4, 8, 12 …) |
 | Age 70+ | Add doctor consultation note; 2x/week minimum; lower intensity; mention sarcopenia prevention as a goal |
 | Health issue ≠ none | Add modifications + professional consultation note |
 | Pregnancy | ⚠️ HARD STOP — see pregnancy protocol below. |
@@ -267,6 +267,7 @@ For **soft contradictions** (fitness level vs pace, ambitious goal pace, fitness
 **training-log.md:** `YYYY-MM-DD | Session type | Notes`
 
 **health-flags.md:** `YYYY-MM-DD | Body part | Description | Count: X` — pre-fill from assessment.
+**Count semantics:** `Count: 0` for history the user mentions but is not currently feeling (an old injury, a resolved complaint) — it informs exercise selection but has not been reported as a symptom yet. `Count: 1` the first time the user actually reports the complaint during training. The UPDATE MODE pattern table counts from there. Never start a purely historical entry at 1 — that would move a resolved injury one step closer to "remove the exercise" before anything has happened.
 
 **current-plan.md:**
 ```

@@ -76,13 +76,21 @@ for lvl in ("beginner", "intermediate", "advanced"):
           j.replace("-", "–") in SKILL or j in SKILL, f"expected {j!r} in SKILL.md")
 
 # --- safety triage (v2.3.5) -------------------------------------------------
-check("SKILL.md: SAFETY TRIAGE section exists", "SAFETY TRIAGE" in SKILL)
+check("SAFETY TRIAGE is its own top-level section, not buried in one mode",
+      "## SAFETY TRIAGE" in SKILL)
+check("SAFETY TRIAGE sits above the three modes",
+      SKILL.index("## SAFETY TRIAGE") < SKILL.index("## NEW PLAN MODE"))
+triage = SKILL.split("## SAFETY TRIAGE", 1)[-1].split("\n## ", 1)[0]
+for symptom in ("Chest pain", "Dizziness", "thrombosis", "Acute trauma",
+                "Palpitations", "neurological", "breath"):
+    check(f"triage covers: {symptom}", symptom.lower() in triage.lower())
+check("triage states it applies in every mode", "every mode" in triage.lower())
 update_mode = SKILL.split("## UPDATE MODE", 1)[-1].split("## ANALYSIS MODE", 1)[0]
 check("UPDATE MODE: triage precedes the pattern table",
       "SAFETY TRIAGE" in update_mode
       and update_mode.index("SAFETY TRIAGE") < update_mode.index("| Same pain 1×"))
-for symptom in ("Chest pain", "Dizziness", "thrombosis", "Acute trauma"):
-    check(f"UPDATE MODE triage covers: {symptom}", symptom.lower() in update_mode.lower())
+check("triage table is defined once, not duplicated per mode",
+      SKILL.count("| Palpitations / irregular heartbeat during or after training |") == 1)
 check("UPDATE MODE loads the goal file", "goal file" in update_mode.lower())
 check("Rule 13 is not scoped to plan generation only",
       "before generating any plan" not in SKILL.split("14.")[0])
@@ -111,6 +119,23 @@ check("runner.md red flags carry a Trigger column", "| Trigger |" in RUNNER)
 check("strength.md red flags carry a Trigger column", "| Trigger |" in STRENGTH)
 check("SKILL.md age 60–69 no longer says 'lower per-session volume'",
       "lower per-session volume" not in SKILL)
+
+# --- single source of truth within SKILL.md (no restated instructions) ------
+check("goal-file loading is stated once (Rule 4), generation step defers to it",
+      "Load the goal file(s) per Rule 4." in SKILL
+      and "Load goal file: Running →" not in SKILL)
+check("disclaimer step is language-aware, not blanket 'verbatim'",
+      "DISCLAIMER block in the user's language" in SKILL)
+check("Rule 10 does not contradict the hard stops",
+      "Do not refuse outright." not in SKILL and "Never a bare refusal" in SKILL)
+check("acute injury row is marked as a hard stop like the others",
+      "| Acute injury (surgery <6 weeks, broken bone) | ⚠️ **HARD STOP.**" in SKILL)
+check("no redundant marathon session-time row alongside the long-run rule",
+      "<30 min/session + marathon" not in SKILL)
+check("HR worked example lives in runner.md, SKILL.md only points at it",
+      SKILL.count("130–142 bpm") == 0 and RUNNER.count("130–142 bpm") >= 1)
+check("Block 4 routes a known race time to Principle 2c",
+      "Principle 2c" in SKILL)
 
 # --- phase renormalization --------------------------------------------------
 check("runner.md: renormalization rule for plans under 20 weeks",

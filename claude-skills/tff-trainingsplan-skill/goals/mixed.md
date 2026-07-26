@@ -7,7 +7,7 @@ license: CC BY-NC 4.0
 
 ## How to use this file
 
-These are principles for concurrent training. Load both `runner.md` and `strength.md` alongside this file — the principles in both apply. This file adds the interference management layer on top.
+These are principles for concurrent training. This file is **not self-sufficient**: load `runner.md` and `strength.md` alongside it — the principles in both apply, and this file adds the interference management layer on top. This is the one case where SKILL.md Rule 4 expects more than one goal file; for a single-modality goal, only that goal's file is loaded.
 
 ---
 

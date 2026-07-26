@@ -2,6 +2,63 @@
 
 Format: append only. Never delete entries.
 
+## v2.3.5 — 2026-07-26 — Safety triage, HR zone labelling, validation gaps
+
+Source: an independent adversarial review of the v2.3.4 release ZIP (full read of all six files, one live plan generation, seven edge cases). Every finding below was re-verified against the file text before being fixed.
+
+### Safety — the two defects with actual consequences
+
+- **Chest pain in UPDATE MODE resolved to "noted".** The pattern table filtered by frequency only (`Same pain 1× → Do NOT modify the plan`), with no severity filter. Three nets failed at once: Rule 13 was scoped to "before generating any plan" and never fired during an update; runner.md Principle 8 ("Chest pain or dizziness → stop all training") was not in context because UPDATE MODE step 1 loaded only the three Knowledge files; and Rule 9 pointed back at the same count logic. That is the standard presentation path of exertional angina.
+  Fixed by a **SAFETY TRIAGE gate that runs before the pattern table on every update**, acting on first mention regardless of count: chest pain/pressure, dizziness/syncope, disproportionate breathlessness, palpitations, calf pain with swelling (thrombosis), acute trauma, new neurological symptoms, unusual exertional headache. UPDATE MODE step 1 now loads the goal file as well, Rule 13 applies in all three modes, and Rule 9 puts triage ahead of the count logic. ANALYSIS MODE routes through the same gate.
+- **Marathon + beginner + too few weeks passed every validation.** Rows existed for "Marathon + ≤2 days", "Ultra + Beginner" and "<30 min + marathon", but not for "Marathon + Beginner", and nothing compared target distance against available weeks. The enforcement rule listed hard stops exhaustively, so the default was: generate. Related blind spot: `session_duration` was never checked against the long-run requirement — a 45-minute session cap cleared the 30-minute rule while making a marathon long run impossible.
+  Added: a **Marathon + Beginner hard stop**, a **minimum preparation time table** (5k 6 wk · 10k 8 · half 12 · marathon 16–20 · ultra 20, each with the assumed starting base and the longest session the plan must fit), and a **long-run vs. session-duration hard stop**. All three are in the enforcement list.
+
+### Heart rate zones — the numbers were mislabelled in every running plan
+
+SKILL.md step 4 demanded a column headed "% max HR range" while the bpm values came from Karvonen — which works from heart rate **reserve**. A row reading `Z2 | 60–70 % max HR | 130–142 bpm` is internally false: for age 42 with a resting HR of 58 (Tanaka max 179), 60–70 % HRR is 130–142 bpm but 60–70 % of max HR is 107–125 bpm. A 23 bpm gap, roughly a full zone — and anyone transferring those percentages into their watch trained one zone off. runner.md labelled its column correctly ("% (Karvonen)"), SKILL.md did not, and nothing anywhere said the two systems are not interchangeable.
+
+- The percentage column must now be labelled with the method used: `% HRR (Karvonen)` or `% max HR`, never mixed.
+- The worked 42-year-old example is stated in SKILL.md, runner.md and assessment.json so the trap is visible wherever the model is reading.
+- Every plan now carries a line telling the user the bpm values are the deliverable and that a device asking for percentages may mean the other quantity.
+- `assessment.json` gained a `_warning` on `hr_zone_calculation` and a `percent_of` field on both methods.
+
+### Pace and periodization — what the model previously had to invent
+
+- **Race time → training paces (new runner.md Principle 2c).** Nothing converted a stated race result into a target pace, so a runner naming their 10k PB got fitness-level guesswork instead. Added the Riegel equivalence `T2 = T1 × (D2/D1)^1.06` with its honest limits (population-average exponent, reliable within roughly a factor of two, systematically optimistic when extrapolating to the marathon — treat as a ceiling), a goal-time sanity check, and race-pace offsets for easy / long / marathon / threshold / interval / strides.
+- **HR zone table gained a pace column.** Sessions are prescribed by zone; a bpm range alone is not executable.
+- **Phase percentages renormalized.** Base 40 / Build 35 / Peak 15 / Taper 10 % with "taper min 2 weeks" is only satisfiable from 20 weeks upward — a 12-week plan produced a 1.2-week taper, contradicting the distance-specific taper lengths directly beneath it. Added an allocation procedure for plans under 20 weeks: absolute taper first (capped at 25 % of the plan), then peak at 15 % (1–3 weeks), then the remainder split 55/45 in favour of base. Worked examples included; a base phase under 3 weeks now routes back to the minimum-preparation check.
+- **Starting volume anchored.** Block 4 asked about the current routine but nothing tied the answer to week 1. A runner on 20 km/week and one on 60 km/week opened at the same volume. Week 1 now starts from the user's current weekly volume, capped by the existing +10 %/week rule.
+
+### Cross-file contradictions
+
+| Conflict | Resolution |
+|---|---|
+| Beginner easy pace: 8:00–10:00/km in SKILL.md + assessment.json vs. 7:30–9:00/km in runner.md | runner.md aligned to 8:00–10:00/km (v2.3.4 fixed the cap but missed the range table). Added the beginner caveat that easy and race pace converge at this level — walk-run intervals instead of a slower "easy" gear. |
+| Rule 4 "never load all three" vs. mixed.md "load both runner.md and strength.md" — one rule was broken by every mixed plan | Rule 4 rewritten to name the per-goal file set explicitly, with mixed as the documented multi-file case. |
+| runner.md "strength training is mandatory for all runner types" vs. Block 5 offering "No — running only" | Wording changed to "strongly recommended", with an explicit pointer to the opt-out and the single-line note rule. |
+| Rule 11 "always ask about wearables" vs. Block 6 "skip entirely for Strength-only" | Rule 11 scoped to Running/Mixed. |
+| Knee pain 1×: SKILL.md "do not modify" vs. runner.md "−50 % volume" vs. strength.md "remove the exercise" | Both goal-file red-flag tables gained a **Trigger** column. Overuse rows fire on the 2nd report (or the 1st if persistent/worsening); emergency rows fire immediately and are cross-referenced to the triage list. |
+| Age 60–69: SKILL.md "lower per-session volume" vs. strength.md "volume per session more important than frequency" | Harmonized: 2×/week, add per-session volume rather than a third session, weekly sets stay in the 10–20 range. Total volume is not cut for age alone. |
+
+### Language
+
+Rule 12 required answering in the user's language while Rule 3 required the disclaimer "verbatim" — and the disclaimer existed only in English. Same for "✓ Logged…", the Rule 17 refusal and the pregnancy protocol line.
+
+- German disclaimer added; "verbatim" now explicitly means *within a language* — never shortened or softened, and faithful translation required for languages not shipped.
+- German versions added for the ✓ Logged line, the Rule 17 response and *"'Generate anyway' is not medical clearance"*.
+- Rule 12 extended to cover every fixed phrase in the file.
+
+### Tooling
+
+- `check-consistency.py` added — 52 automated checks covering all of the above plus the v2.3.4 regressions (JSON parses, no operative 220-age formula, H1 outside frontmatter, pace tables identical across all three sources). Run from the skill folder. Excluded from the release ZIP.
+
+### Reviewed and deliberately not changed
+
+- `author` / `author_url` / `version` / `license` in the frontmatter. Only `name` and `description` are required; extra keys are not forbidden and the current frontmatter uploads successfully. Unchanged for the same reason as in v2.3.4.
+- The percentage bands themselves (50-60 / 60-70 / …). Both are conventional within their own method; the defect was the labelling, not the numbers.
+
+---
+
 ## v2.3.4 — 2026-07-26 — Consistency audit: discovery, contradictions, HR formula
 
 ### SKILL.md

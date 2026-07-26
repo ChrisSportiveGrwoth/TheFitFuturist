@@ -48,8 +48,10 @@
   "plan_duration_options": ["4 weeks", "8 weeks", "12 weeks", "Ongoing"],
 
   "hr_zone_calculation": {
+    "_warning": "The two methods below use the same percentage bands but those percentages refer to DIFFERENT quantities: Karvonen percentages are % of heart rate reserve (% HRR), age_based percentages are % of maximum HR (% max HR). They are not interchangeable. Example — age 42, resting HR 58, Tanaka max HR 179: Z2 at 60-70% HRR = 130-142 bpm, while 60-70% of max HR = 107-125 bpm (23 bpm apart, roughly a full zone). Always label the percentage column in the plan with the method actually used, and tell the user the bpm values are what they enter into their device.",
     "karvonen": {
       "use_when": "Resting HR is known",
+      "percent_of": "heart rate reserve (% HRR) — label the column '% HRR (Karvonen)'",
       "max_hr": "208 - (0.7 × age)",
       "max_hr_note": "Tanaka et al. 2001 (JACC) — meta-analysis of 351 studies, >18,000 subjects. More accurate than 220-age, which overestimates in younger adults and underestimates with increasing age (~10 bpm difference at age 70).",
       "formula": "Zone bpm = Resting HR + (% × (Max HR - Resting HR))",
@@ -63,6 +65,7 @@
     },
     "age_based": {
       "use_when": "Resting HR unknown",
+      "percent_of": "maximum HR (% max HR) — label the column '% max HR'",
       "max_hr": "208 - (0.7 × age)",
       "formula": "Zone bpm = % × Max HR",
       "zones": {
@@ -88,7 +91,8 @@
   },
 
   "pace_estimation_when_unknown": {
-    "_instruction": "Use these ranges when user skips pace or has no race data. Always state the estimate clearly. NEVER estimate above the max_easy_pace_cap — anything slower is walking, not running.",
+    "_instruction": "Use these ranges ONLY when the user has no race data. If a recent race time is known, derive paces from it via goals/runner.md Principle 2c (Riegel + race-pace offsets) instead — that is the more accurate path. Always state the estimate clearly. NEVER estimate above the max_easy_pace_cap — anything slower is walking, not running.",
+    "_consistency": "These values must stay identical to the estimation table in goals/runner.md Principle 2b.",
     "beginner": {
       "easy_pace": "8:00-10:00/km",
       "max_easy_pace_cap": "10:00/km",

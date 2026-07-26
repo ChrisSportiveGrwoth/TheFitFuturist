@@ -96,7 +96,7 @@ Never recommend a split that hits each muscle only 1x/week (bro split) for hyper
 | <40 | Standard frequency — 3x/week per muscle group fully appropriate |
 | 40–49 | Standard frequency still appropriate. Allow 72h between heavy compound sessions if fatigue signals appear. No mandatory changes. |
 | 50–59 | Recommend 2–3x/week; heavy compound movements (squat, deadlift) better at 2x. Deload every 3–4 weeks instead of 4–6. Explicitly mention connective tissue needs more recovery than muscle. |
-| 60–69 | Recommend 2x/week per muscle group as primary. Volume per session more important than frequency. Prioritize eccentric loading and full ROM. Deload every 3 weeks. |
+| 60–69 | Recommend 2x/week per muscle group as primary. When days are limited, add volume per session rather than a third session — recovery duration is the constraint, not anabolic capacity. Weekly sets per muscle stay in the standard 10–20 range; do not cut total volume for age alone. Prioritize eccentric loading and full ROM. Deload every 3 weeks. |
 | 70+ | 2x/week minimum for sarcopenia prevention. Lower intensity per session, higher frequency of lighter sessions acceptable. Mention doctor consultation alongside plan. |
 
 Note: Muscle protein synthesis rate is similar across ages — the key difference is recovery duration, not anabolic capacity (Tipton 2015, Peterson et al. 2011). Older trainees need more time between sessions, not less training.
@@ -179,13 +179,18 @@ Muscle adaptation happens during recovery, not during training. Insufficient rec
 
 ## Principle 7: Red Flags — Adapt or Stop
 
-| Signal | Reasoning | Action |
-|---|---|---|
-| Joint pain (not muscle soreness) | Possible overuse or injury | Remove the movement, do not push through |
-| Lower back pain during squat/deadlift | Technical breakdown or overload | Reduce load significantly, check form cues |
-| Shoulder pain during pressing | Rotator cuff or impingement | Check grip width, add face pulls and external rotation work |
-| Strength plateau >3 weeks | Adaptation stall | Deload, then change rep range or split |
-| Persistent fatigue | Overtraining or under-recovery | Deload immediately, assess sleep and nutrition |
+**When these actions apply:** the rows below take effect on the **second report of the same complaint, or on the first report if the user describes it as persistent, worsening, or present outside training** — this matches the count logic in SKILL.md UPDATE MODE, where a single, mild, first-time complaint is logged rather than acted on. The **emergency rows act immediately, on the first mention, regardless of count**, and are part of the SAFETY TRIAGE list in SKILL.md.
+
+| Signal | Reasoning | Action | Trigger |
+|---|---|---|---|
+| Joint pain (not muscle soreness) | Possible overuse or injury | Remove the movement, do not push through | 2nd report, or 1st if persistent/worsening |
+| Lower back pain during squat/deadlift | Technical breakdown or overload | Reduce load significantly, check form cues | 2nd report, or 1st if persistent/worsening |
+| Shoulder pain during pressing | Rotator cuff or impingement | Check grip width, add face pulls and external rotation work | 2nd report, or 1st if persistent/worsening |
+| Strength plateau >3 weeks | Adaptation stall | Deload, then change rep range or split | Immediately |
+| Persistent fatigue | Overtraining or under-recovery | Deload immediately, assess sleep and nutrition | Immediately |
+| Chest pain or pressure, dizziness, fainting, palpitations, disproportionate breathlessness | Possible cardiac event | Stop all training, refer to doctor immediately; emergency services if at rest or with arm/jaw pain, sweating or nausea | ⚠️ Immediately, first mention, no exceptions |
+| Acute trauma: sudden pop/snap, unable to bear weight, visible deformity | Structural injury | Stop the affected training, doctor/physio before resuming | ⚠️ Immediately, first mention |
+| New numbness, tingling, radiating pain or loss of strength | Possible nerve involvement | Stop the affected training, see a doctor before resuming | ⚠️ Immediately, first mention |
 
 ---
 

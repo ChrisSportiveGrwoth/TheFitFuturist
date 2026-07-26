@@ -1,4 +1,4 @@
-# TFF Training Plan Skill (Basic) — v2.3.4
+# TFF Training Plan Skill (Basic) — v2.3.5
 
 A ready-to-use Claude skill for personalized, evidence-based training plans. Upload the ZIP to Claude — Claude will run a structured assessment and generate a plan tailored to your goal, fitness level, schedule, and health history.
 
@@ -20,7 +20,7 @@ Guides Claude through a 6-block conversational assessment before generating any 
 
 ## Download
 
-→ [tff-training-skill-v2.3.4.zip](./tff-training-skill-v2.3.4.zip)
+→ [tff-training-skill.zip — always the latest release](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/latest/download/tff-training-skill.zip)
 
 ## Setup
 
@@ -31,7 +31,7 @@ Guides Claude through a 6-block conversational assessment before generating any 
 ### Installation (2 minutes)
 
 **Option A — Direct download (recommended):**
-1. Download [tff-training-skill-v2.3.4.zip](./tff-training-skill-v2.3.4.zip)
+1. Download [tff-training-skill.zip](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/latest/download/tff-training-skill.zip)
 2. In Claude, go to **Settings → Customize → Skills**
 3. Upload the ZIP file
 4. Start a new chat and describe your training goal — Claude recognizes the skill automatically

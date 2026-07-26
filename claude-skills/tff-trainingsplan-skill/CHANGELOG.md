@@ -2,6 +2,37 @@
 
 Format: append only. Never delete entries.
 
+## v2.3.4 — 2026-07-26 — Consistency audit: discovery, contradictions, HR formula
+
+### SKILL.md
+- **Frontmatter `description` rewritten.** The previous description stated only what the skill does, not when to use it — the field Claude matches requests against. It now names concrete triggers (training plan, workout schedule, 5k/10k/half/marathon/ultra, strength/hypertrophy, plan review) and, importantly, German trigger terms (Trainingsplan, Laufplan, Halbmarathon, Krafttraining). The skill is used by a German-speaking audience and Rule 12 already mandates German exercise names, but discovery matched against English-only text.
+- **Rule 7 pace cap contradiction resolved.** Rule 7 capped Intermediate/Advanced estimates at 9:00/km while `assessment.json` capped Intermediate at 7:30/km and Advanced at 6:00/km. Two different caps for the same case meant the model could pick either — a 90 s/km spread on every estimated plan. Rule 7 now defers to the per-level `max_easy_pace_cap` values in assessment.json.
+
+### Max HR formula: 220-age → Tanaka (SKILL.md, assessment.json, goals/runner.md)
+- Replaced `220 - age` with `208 − (0.7 × age)` in all six places.
+- Source: Tanaka, Monahan & Seals, *J Am Coll Cardiol* 2001 — meta-analysis of 351 studies, >18,000 subjects.
+- Rationale: 220-age overestimates Max HR in younger adults and increasingly underestimates it with age (~10 bpm difference by age 70). The skill carries dedicated rules for ages 50–59, 60–69 and 70+, so the old formula was least accurate exactly in the cohorts the skill treats most carefully — and Rule 5 pushes those bpm values into every running plan.
+
+### assessment.json
+- **Fixed invalid JSON** — a trailing comma after the `age_based` block made the file unparseable (`json.load` failed at line 62). Claude reads the file as text so plans were unaffected in practice, but any tooling or validator parsing it would break.
+- Fixed stale cross-reference: the examples block pointed at "Rule 9 (assumption transparency)"; Rule 9 is the health-flags check. The assumption-transparency rule is Rule 16.
+- Added `max_hr_note` with the Tanaka citation.
+
+### goals/runner.md, goals/strength.md, goals/mixed.md
+- Moved the `# Goal: …` heading out of the YAML frontmatter block. It sat above the `author` key, where `#` makes it a YAML comment — the file's own title was formally not content.
+
+### Release packaging
+- ZIP root folder renamed to `tff-training-plan-basic/`, matching the `name` field in the frontmatter (Anthropic's convention is directory name == skill name). Previously the ZIP root was `tff-training-skill-release/`, a third name alongside the repo folder and the skill name.
+- `CHANGELOG.md` removed from the release ZIP — repo-only from now on. It is a 25 KB file with no value inside the skill bundle.
+
+### README.md
+- Documented that the three Knowledge files must go into a **Claude Project** for Update Mode to work, and what happens if you skip that (Claude generates a fresh plan instead of adapting), plus the manual paste-in fallback.
+
+### Deliberately NOT changed
+- `author`, `author_url` and `version` remain in the frontmatter. Only `name` and `description` are required by the spec, extra keys are not forbidden, and the current frontmatter demonstrably uploads — no reason to risk a working install for tidiness.
+
+---
+
 ## v2.3.3 — 2026-03-22 — Update Mode: explicit Count:1 pain rule
 
 ### SKILL.md

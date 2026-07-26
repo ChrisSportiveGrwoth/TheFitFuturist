@@ -1,8 +1,9 @@
 ---
-# Goal: Mixed (Strength + Endurance)
 author: TheFitFuturist | https://www.thefitfuturist.com
 license: CC BY-NC 4.0
 ---
+
+# Goal: Mixed (Strength + Endurance)
 
 ## How to use this file
 

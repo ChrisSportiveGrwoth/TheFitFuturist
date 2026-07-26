@@ -1,7 +1,11 @@
 {
   "description": "Reference data for TFF Training Plan Skill. Question sequence is defined in SKILL.md — this file contains options, formulas and validation details only.",
 
-  "goal_options": ["Running / Endurance", "Strength / Muscle Building", "Both (Mixed)"],
+  "goal_options": [
+    "Running / Endurance",
+    "Strength / Muscle Building",
+    "Both (Mixed)"
+  ],
 
   "running_distance_options": [
     "5k / 10k (speed and VO2max focus)",
@@ -31,14 +35,23 @@
     "No — calculate from my age and resting HR"
   ],
 
-  "wearable_options": ["Garmin", "Polar", "Apple Watch", "WHOOP", "Oura Ring", "Other", "No wearable"],
+  "wearable_options": [
+    "Garmin",
+    "Polar",
+    "Apple Watch",
+    "WHOOP",
+    "Oura Ring",
+    "Other",
+    "No wearable"
+  ],
 
   "plan_duration_options": ["4 weeks", "8 weeks", "12 weeks", "Ongoing"],
 
   "hr_zone_calculation": {
     "karvonen": {
       "use_when": "Resting HR is known",
-      "max_hr": "220 - age",
+      "max_hr": "208 - (0.7 × age)",
+      "max_hr_note": "Tanaka et al. 2001 (JACC) — meta-analysis of 351 studies, >18,000 subjects. More accurate than 220-age, which overestimates in younger adults and underestimates with increasing age (~10 bpm difference at age 70).",
       "formula": "Zone bpm = Resting HR + (% × (Max HR - Resting HR))",
       "zones": {
         "Z1": "50-60% — Recovery",
@@ -50,7 +63,7 @@
     },
     "age_based": {
       "use_when": "Resting HR unknown",
-      "max_hr": "220 - age",
+      "max_hr": "208 - (0.7 × age)",
       "formula": "Zone bpm = % × Max HR",
       "zones": {
         "Z1": "50-60% Max HR",
@@ -59,11 +72,11 @@
         "Z4": "80-90% Max HR",
         "Z5": "90-100% Max HR"
       }
-    },
+    }
   },
 
   "examples": {
-    "_note": "These examples illustrate correct assumption-stating behavior and output constraints. Reference these when applying Rule 9 (assumption transparency) and the complementary-declined case.",
+    "_note": "These examples illustrate correct assumption-stating behavior and output constraints. Reference these when applying Rule 16 (assumption transparency) and the complementary-declined case.",
     "running_partial_info_pace_unknown": {
       "scenario": "User provides goal, age, days, and duration but does not mention current 5k time or pace.",
       "correct_behavior": "State the assumption explicitly before proceeding. Do NOT silently estimate. Example output: 'You didn't mention your current pace — based on your intermediate fitness level, I'll estimate your easy pace at ~7:00/km (from the assessment reference table). I'll note this in the plan and you should adjust after your first session if it feels off.' Then continue with the next block."

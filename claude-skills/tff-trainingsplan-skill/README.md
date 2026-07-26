@@ -1,4 +1,4 @@
-# TFF Training Plan Skill (Basic) — v2.3.3
+# TFF Training Plan Skill (Basic) — v2.3.4
 
 A ready-to-use Claude skill for personalized, evidence-based training plans. Upload the ZIP to Claude — Claude will run a structured assessment and generate a plan tailored to your goal, fitness level, schedule, and health history.
 
@@ -20,7 +20,7 @@ Guides Claude through a 6-block conversational assessment before generating any 
 
 ## Download
 
-→ [tff-training-skill-v2.3.3.zip](./tff-training-skill-v2.3.3.zip)
+→ [tff-training-skill-v2.3.4.zip](./tff-training-skill-v2.3.4.zip)
 
 ## Setup
 
@@ -31,7 +31,7 @@ Guides Claude through a 6-block conversational assessment before generating any 
 ### Installation (2 minutes)
 
 **Option A — Direct download (recommended):**
-1. Download [tff-training-skill-v2.3.3.zip](./tff-training-skill-v2.3.3.zip)
+1. Download [tff-training-skill-v2.3.4.zip](./tff-training-skill-v2.3.4.zip)
 2. In Claude, go to **Settings → Customize → Skills**
 3. Upload the ZIP file
 4. Start a new chat and describe your training goal — Claude recognizes the skill automatically
@@ -46,7 +46,7 @@ Then ZIP the `claude-skills/tff-trainingsplan-skill/` folder and upload via Sett
 
 ## Tracking your training
 
-After your plan is generated, Claude outputs three files you can save for future sessions:
+After your plan is generated, Claude outputs three files. **Save them to a Claude Project** — that is what makes the plan a living plan instead of a one-off output:
 
 | File | Purpose |
 |------|---------|
@@ -54,7 +54,9 @@ After your plan is generated, Claude outputs three files you can save for future
 | `health-flags.md` | Pain/injury tracking with recurrence counts |
 | `current-plan.md` | Active plan summary (phase, pace, HR zones, next session) |
 
-In subsequent chats, Claude reads these files and enters Update Mode automatically — adjusting load based on what you report.
+Create a Claude Project, add the three files to its Project Knowledge, and start every follow-up chat inside that Project. Claude then reads them and enters Update Mode automatically — adjusting load based on what you report.
+
+Without a Project, Claude has no memory of the previous chat: it will generate a fresh plan instead of adapting the existing one. If you prefer to work without a Project, paste the contents of `current-plan.md` and `training-log.md` into the new chat manually.
 
 ## License
 

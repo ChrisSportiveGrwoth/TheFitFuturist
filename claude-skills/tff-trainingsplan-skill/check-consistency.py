@@ -171,6 +171,22 @@ check("triage names the return-to-training criterion, not just 'rest'",
       "symptom-free" in triage_block.lower())
 check("SKILL.md states a fever is never trained through",
       "never train through a fever" in SKILL.lower())
+# v2.4.1: the blanket "do not generate or adjust a plan" lead-in collided with the
+# fever row, whose own action prescribes a graded return. One test run wrote the
+# return ladder, a stricter reading would have withheld it — so the lead-in now
+# separates referral rows from the fever row explicitly.
+check("triage separates referral rows from the fever row",
+      "Referral rows" in triage_block and "The fever row" in triage_block)
+check("referral rows forbid writing a return ladder",
+      "no return ladder" in triage_block)
+check("fever row names the graded return as the deliverable",
+      "graded return" in triage_block and "is the deliverable" in triage_block.replace("**", ""))
+check("fever row reverts to referral on cardiac symptoms",
+      "reverts to a referral row" in triage_block)
+check("fever return is steered by HR, not the plan's paces",
+      "heart rate and feel" in triage_block)
+check("fever return forbids making up missed volume",
+      "Never make up missed volume" in triage_block)
 check("UPDATE MODE illness row defers to the triage fever check",
       re.search(r"\|\s*Illness[^|]*triage", SKILL) is not None)
 check("UPDATE MODE illness row prescribes a graded return, not a bare easy week",

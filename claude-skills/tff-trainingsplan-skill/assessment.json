@@ -93,6 +93,7 @@
   "pace_estimation_when_unknown": {
     "_instruction": "Use these ranges ONLY when the user has no race data. If a recent race time is known, derive paces from it via goals/runner.md Principle 2c (Riegel + race-pace offsets) instead — that is the more accurate path. Always state the estimate clearly. NEVER estimate above the max_easy_pace_cap — anything slower is walking, not running.",
     "_consistency": "These values must stay identical to the estimation table in goals/runner.md Principle 2b.",
+    "_source": "Coaching heuristic calibrated against the spread of recreational finisher times. NOT a measurement and NOT a literature finding — unlike Tanaka (max HR), Riegel (race-time equivalence) and Lauersen (injury reduction), these bands have no primary source, because none exists for 'what pace does an intermediate runner hold'. Present them as a starting bracket the first two weeks will correct, never as a norm the user should measure themselves against.",
     "beginner": {
       "easy_pace": "8:00-10:00/km",
       "max_easy_pace_cap": "10:00/km",

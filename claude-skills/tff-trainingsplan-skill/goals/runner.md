@@ -110,7 +110,9 @@ Never increase total weekly volume by more than 10% per week. Never increase vol
 ## Principle 2b: Pace Estimation (when user doesn't know their times)
 
 **The principle:**
-If a user doesn't know their current pace or race times, estimate from fitness level and target distance. Always state this is an estimate and adjust based on first sessions.
+This table is the **last resort**, used only when the user has no race or time-trial result at all. If any result exists, Principle 2c supersedes this entirely — a measured time beats a level label every time. When the table is used, always state that the number is an estimate and recalibrate after the first sessions.
+
+**Where these numbers come from — state this honestly if asked.** They are a coaching heuristic calibrated against the spread of recreational finisher times, not a measurement and not a finding from the literature. Unlike every other numeric table in this skill (Tanaka for max HR, Riegel for race-time equivalence, Lauersen for injury reduction), they carry no primary source, because none exists for "what pace does an intermediate runner hold". Treat them as a starting bracket that the first two weeks of training will correct — never present them as a norm the user should measure themselves against, and never let a user conclude they are "behind" because they fall outside a band.
 
 **Estimation table:**
 
@@ -361,8 +363,11 @@ Recommend cross-training when: injury risk is high, user is coming back from inj
 | Shin pain | Possible shin splints | Reduce to 2x/week, add calf work, check footwear | 2nd report, or 1st if persistent/worsening |
 | Achilles/calf tightness | Tendon overload | Add eccentric calf work, reduce volume, no speedwork | 2nd report, or 1st if persistent/worsening |
 | Persistent fatigue >5 days | Overtraining or illness | Immediate deload week | Immediately |
+| Weight falling while training volume rises; or fatigue plus any of: periods stopped or became irregular, a second bone stress injury, unusually frequent infections, performance declining despite correct training | Possible low energy availability / RED-S — the body is running on an energy deficit, which is why bone, hormones and immunity give way before the legs do | Hold volume where it is, do not progress the plan. Say plainly that more training is not the answer here and that the pattern needs a doctor or sports dietitian. **Stay in scope: name the signal, do not prescribe calories, macros or an eating plan.** | ⚠️ First mention — this pattern does not need a second report |
+| Bone pain that is sharply localized, worse with impact and eases with rest | Possible bone stress injury / stress fracture | Stop running on it. Doctor or physio before resuming — this is not a "train through it" complaint | ⚠️ Immediately, first mention |
 | Chest pain, dizziness, fainting, palpitations, disproportionate breathlessness | Possible cardiac event | Stop all training, refer to doctor immediately; emergency services if at rest or with arm/jaw pain, sweating or nausea | ⚠️ Immediately, first mention, no exceptions |
 | Calf pain with swelling, warmth or redness | Possible thrombosis | Stop training, same-day medical assessment | ⚠️ Immediately, first mention |
+| Fever or systemic infection, now or in the last few days | Cardiac risk (myocarditis), not a performance question | No training until fever-free and ≥24–48 h symptom-free, then graded return — see the SAFETY TRIAGE fever row in SKILL.md, which governs | ⚠️ Immediately, first mention |
 
 ---
 

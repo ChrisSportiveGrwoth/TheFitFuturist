@@ -161,6 +161,65 @@ check("SKILL.md: disclaimer 'verbatim' is scoped to a language",
 check("SKILL.md: ✓ Logged has a German version", "✓ Notiert" in SKILL)
 check("SKILL.md: Rule 12 covers fixed phrases", "fixed phrases quoted in this file" in SKILL)
 
+# --- illness / fever (v2.4.0) ----------------------------------------------
+# v2.3.5 handled illness with one UPDATE MODE row ("Illness | Reset to easy week"),
+# below the count logic and outside the triage gate. Training through a fever is a
+# cardiac risk, so it belongs in triage, on first mention, in every mode.
+triage_block = SKILL.split("## SAFETY TRIAGE")[1].split("## NEW PLAN MODE")[0]
+check("triage covers fever / systemic infection", "fever" in triage_block.lower())
+check("triage names the return-to-training criterion, not just 'rest'",
+      "symptom-free" in triage_block.lower())
+check("SKILL.md states a fever is never trained through",
+      "never train through a fever" in SKILL.lower())
+check("UPDATE MODE illness row defers to the triage fever check",
+      re.search(r"\|\s*Illness[^|]*triage", SKILL) is not None)
+check("UPDATE MODE illness row prescribes a graded return, not a bare easy week",
+      "Graded return" in SKILL)
+for label, text in (("runner.md", RUNNER), ("strength.md", STRENGTH), ("mixed.md", MIXED)):
+    check(f"{label}: red flags carry the fever row", "myocarditis" in text.lower())
+
+# --- low energy availability (v2.4.0) --------------------------------------
+# RED-S was absent from every file: the scope line ("no nutrition advice") had
+# silently taken the training-side red flag with it.
+for label, text in (("runner.md", RUNNER), ("strength.md", STRENGTH), ("mixed.md", MIXED)):
+    check(f"{label}: low energy availability is a red flag",
+          "low energy availability" in text.lower())
+    check(f"{label}: LEA row holds volume instead of prescribing food",
+          re.search(r"low energy availability.*?(calories|eating plan)", text,
+                    re.I | re.S) is not None)
+check("SKILL.md scope keeps the under-fuelling red flag in scope",
+      "does not mute the under-fuelling red flags" in SKILL)
+check("UPDATE MODE pattern table carries the LEA row",
+      "Low energy availability signals" in SKILL)
+
+# --- pace table: precedence and provenance (v2.4.0) ------------------------
+check("Rule 7 states that a known race time supersedes the level table",
+      re.search(r"^7\..*race time.*(wins|supersede)", SKILL, re.M | re.I) is not None)
+check("Rule 7 names Principle 2c as the path for a known result",
+      re.search(r"^7\..*Principle 2c", SKILL, re.M) is not None)
+check("runner.md 2b declares itself the last resort, not the default",
+      "last resort" in RUNNER)
+check("pace bands carry their provenance in runner.md",
+      "no primary source" in RUNNER)
+check("pace bands carry their provenance in assessment.json",
+      "_source" in assess.get("pace_estimation_when_unknown", {}))
+
+# --- assessment flow (v2.4.0) ----------------------------------------------
+# Rule 1 + 15 forbade bundling and skipping, so a user who supplied everything
+# up front was walked through all six blocks again. Nothing said "already answered".
+check("Rule 18 exists: supplied fields are not re-asked",
+      re.search(r"^18\..*Never re-ask", SKILL, re.M) is not None)
+check("Rule 18 keeps Block 2 gated rather than inferring age/health",
+      re.search(r"^18\..*Block 2", SKILL, re.M) is not None)
+check("Rule 18 forbids counting an inferred value as collected",
+      re.search(r"^18\..*never if you inferred", SKILL, re.M) is not None)
+check("NEW PLAN MODE header points at Rule 18",
+      "see Rule 18" in SKILL)
+rules_block = SKILL.split("## MANDATORY RULES")[1].split("## ROUTING")[0]
+rule_numbers = [int(n) for n in re.findall(r"^(\d+)\.\s", rules_block, re.M)]
+check("rule numbering has no duplicates and no gaps",
+      rule_numbers == list(range(1, 19)), str(rule_numbers))
+
 # --- report -----------------------------------------------------------------
 failed = [(n, d) for n, ok, d in results if not ok]
 for name, ok, detail in results:

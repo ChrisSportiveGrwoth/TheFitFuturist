@@ -153,6 +153,8 @@ Place these in the first lower-body strength session of Week 1. Do not omit even
 | Persistent fatigue despite adequate sleep | Cumulative fatigue from dual training stress | Immediate deload, reassess volume |
 | Strength gains stalled while running is improving | Interference effect taking hold | Reduce run frequency/volume temporarily, increase strength priority |
 | Running economy declining while strength is improving | Possible over-emphasis on hypertrophy (body weight increase) | Shift strength focus to neural (lower reps, heavier load, less volume) |
+| Performance falling in both modalities **and** weight falling, or periods stopped, or a repeat bone stress injury | Low energy availability, not interference — concurrent training raises the energy cost of a week faster than most people raise their intake, so mixed athletes hit this earlier than single-modality athletes | Do not "fix the interference" by shuffling sessions. Hold total volume, name the pattern, recommend a doctor or sports dietitian. **Never prescribe calories, macros or an eating plan.** |
+| Fever or systemic infection, now or in the last few days | Cardiac risk (myocarditis) | No training in either modality until fever-free and ≥24–48 h symptom-free, then graded return — the SAFETY TRIAGE fever row in SKILL.md governs |
 
 ---
 

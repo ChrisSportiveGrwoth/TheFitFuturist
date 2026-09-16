@@ -2,6 +2,69 @@
 
 Format: append only. Never delete entries.
 
+## v2.4.0 — 2026-09-17 — Illness, under-fuelling, pace provenance, assessment flow
+
+Source: a second independent review of the v2.3.5 release ZIP, prompted by a third-party LLM critique of the same bundle. That critique raised four points; three did not survive a read of the file text and are recorded at the bottom of this entry, because a rejected finding is worth as much as an accepted one. Re-reading the bundle to check them surfaced two gaps nobody had raised — both safety — which is what this release is mostly about.
+
+### Safety — illness was one table row in the wrong place
+
+`| Illness | Reset to easy week |` was the only illness handling in the skill. It sat in the UPDATE MODE pattern table, which means: below the count logic, outside the triage gate, invisible in NEW PLAN and ANALYSIS mode, and silent on fever. A user reporting "I was sick last week" got a slightly easier week. A user asking "should I train with a fever?" had nothing pointing the model anywhere in particular.
+
+Training through a febrile infection is the standard myocarditis pathway. That is a cardiac risk, not a performance trade-off, so it does not belong in a table that weighs it against plan progress.
+
+- **Fever row added to SAFETY TRIAGE** — fever or systemic infection with symptoms below the neck, now or in the last few days. No training while feverish; none until fever-free without medication and ≥24–48 h symptom-free; then a graded return at easy intensity over roughly as many days as the illness lasted. Doctor first if chest pain, palpitations or disproportionate breathlessness occurred during or after the illness.
+- Stated explicitly: **never train through a fever, and never answer "should I train while sick?" with a modified session.** A plan may still be written for *after* the illness, with the return criteria named.
+- The UPDATE MODE row now defers to the triage check and prescribes a graded return rather than a bare easy week. It only applies once triage has cleared.
+- All three goal files carry a fever row pointing back at the triage section as the governing text.
+
+### Safety — low energy availability appeared nowhere in the skill
+
+No file contained "energy availability", "RED-S", "under-fuelling" or any equivalent. The Role scope line — *"never give specific dietary advice"* — had quietly taken the training-side red flag with it. The distinction matters: recognising LEA is a **training** decision, because it determines whether volume may rise. Prescribing the remedy is nutrition and stays out of scope.
+
+- Scope line now says this in as many words: name the signal, hold the volume, refer on; never turn it into calorie or macro guidance.
+- **LEA red-flag rows added to runner.md, strength.md and mixed.md**, each fitting its context: weight falling while volume rises, periods stopped or irregular, a repeat bone stress injury, frequent infections, performance declining despite correct training. Action is identical everywhere — hold volume, do not progress, recommend a doctor or sports dietitian, write no eating plan. Trigger is first mention; this pattern does not get a second report.
+- mixed.md names why concurrent athletes reach it sooner: two modalities raise the energy cost of a week faster than most people raise intake, and the presentation reads like interference, so the tempting fix is to reshuffle sessions.
+- **Bone stress injury row added to runner.md** — sharply localized, worse with impact, eases with rest. Previously only "shin pain / possible shin splints" existed, on a 2nd-report trigger, which is the wrong response to a stress fracture.
+- UPDATE MODE pattern table gained a matching LEA row so it fires during updates, not only at plan generation.
+
+### Pace estimation — precedence and provenance
+
+Rule 7 opened with *"Always estimate pace if unknown"* and then listed the fitness-level bands. The rule that a known race time beats the table lived two sections away in Block 4 and in runner.md Principle 2c — so anyone reading only the MANDATORY RULES saw the fallback as the standard path. This is exactly where the third-party critique went wrong, which makes it a readability defect regardless of the critique being wrong on the substance.
+
+- **Rule 7 rewritten to lead with the precedence:** a stated race result always wins and routes to Principle 2c; the level table applies *only* when no result exists.
+- **Provenance documented.** These bands were the only numeric table in the skill without a source, sitting beside Tanaka, Riegel and Lauersen. They now say what they are in both places (runner.md 2b and a new `_source` key in assessment.json): a coaching heuristic calibrated against recreational finisher-time spread, not a measurement and not a literature finding, because no primary source exists for "what pace does an intermediate runner hold". No citation was invented to fill the gap.
+- runner.md 2b now calls itself the last resort rather than the default, and adds the instruction never to let a user conclude they are "behind" for falling outside a band.
+
+### Assessment flow — the six blocks ran even when nothing was open
+
+Rule 1 forbade bundling, Rule 15 forbade skipping, and nothing anywhere said "already answered". A user who opened with goal, age, days, duration, level and health in one paragraph was walked through all six blocks regardless. AFTER ASSESSMENT step 2 even referred to *"even if the user provided all information in one message"* — so the case was known, just not handled. v2.3.1 already showed what this costs: completion dropped 83 % → 68 % when Block 4 sub-questions were split across turns.
+
+- **New Rule 18:** fields supplied in the opening message, in an uploaded plan, or in an earlier answer count as collected. Confirm them in one line, then ask only the blocks that still have open fields.
+- Deliberately narrow: it shortens the sequence, it never opens a gate. Block 2 is still **asked** whenever age or current health is genuinely missing, Rule 17 is untouched, and a field counts as collected only if the user stated it — never if the model inferred it.
+- Numbered 18 rather than inserted at 16, so no existing rule number moves. assessment.json and Rule 12 reference Rules 16 and 17 by number, and v2.3.4 already had to fix one stale cross-reference of exactly this kind.
+- NEW PLAN MODE header points at the rule, so it is visible where the blocks are, not only in the rules list.
+
+### Tooling
+
+`check-consistency.py`: 67 → 93 checks. New: triage covers fever and names the return criterion; the UPDATE MODE illness row defers to triage rather than restating it; all three goal files carry the fever and LEA rows; each LEA row holds volume instead of prescribing food; Rule 7 states the precedence and names Principle 2c; the pace bands carry provenance in both sources; Rule 18 exists, keeps Block 2 gated and refuses inferred values; and rule numbering in MANDATORY RULES is contiguous 1–18 with no duplicates — the regression that a future insert would otherwise cause silently.
+
+### Raised by the third-party critique and not changed
+
+Recorded because the file text contradicts them, and the next reviewer will likely raise them again.
+
+| Claim | Why it was rejected |
+|---|---|
+| "Invents running paces from the training level" | Half true, wrong framing. The table is a declared fallback, gated on having no race data, capped per level, required to be stated as an estimate (*"Do NOT silently estimate"*), and superseded by Principle 2c whenever a result exists. The real defect was that Rule 7 buried the precedence — fixed above. Nothing was removed. |
+| "Rigid age requirements" | The opposite of what the file says. 40–49 reads *"No mandatory changes"*; 60–69 reads *"do not cut total volume for age alone"*; the bands are phrased as recommendations and carry their reasoning (Tipton 2015, Peterson 2011: recovery duration differs, anabolic capacity does not). Unchanged. |
+| "Instructs the user to keep training unchanged when pain first appears" | A misreading of the `Same pain 1×` row with its three guards removed. The row is scoped in its own sentence to *non-triage complaints only*; SAFETY TRIAGE sits above it and fires on first mention; and the goal-file red-flag tables already trigger on the 1st report when a complaint is persistent or worsening. The count logic stays as it is. |
+| "The skill claims training data is permanently stored" | It claims the reverse. It instructs the *user* to save three files to a Claude Project and README.md spells out what happens if they don't. The point does apply when porting the skill to a platform without Project Knowledge — that is a porting note, not a defect here. |
+
+### Verification
+
+`python3 check-consistency.py` → 93/93. `assessment.json` parses. No behaviour outside the four areas above was touched; the HR zone logic, phase renormalization, validation hard stops, enforcement rule and count semantics from v2.3.5 are unchanged.
+
+---
+
 ## v2.3.5 — 2026-07-26 — Safety triage, HR zone labelling, validation gaps
 
 Source: an independent adversarial review of the v2.3.4 release ZIP (full read of all six files, one live plan generation, seven edge cases). Every finding below was re-verified against the file text before being fixed.

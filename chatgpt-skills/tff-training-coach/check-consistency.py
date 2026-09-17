@@ -289,8 +289,17 @@ check("pregnancy protocol keeps its other constraints",
 # --- 2.5.2: pace bands, runway exception, arithmetic check, project route ----
 check("no walking-pace justification for the pace bands",
       "walking pace, not running" not in SKILL and "walking pace, not running" not in RUNNER)
-check("no per-level pace floor is enforced",
-      "max_easy_pace_cap" not in SKILL)
+check("no per-level pace floor is enforced anywhere",
+      not any("max_easy_pace_cap" in s for s in (SKILL, RUNNER, ASSESS_RAW)))
+check("no walking justification survives in any file",
+      not any("walking, not running" in s or "walking pace, not running" in s
+              for s in (SKILL, RUNNER, ASSESS_RAW)))
+check("no fixed pace cap language in the beginner caveat",
+      "10:00/km cap" not in RUNNER)
+check("HR zones are required only where the data allows it",
+      "where the data allows it" in SKILL and "where the data allows it" in RUNNER)
+check("invented HR zones are forbidden",
+      "do not invent" in SKILL and "do not invent zones" in RUNNER)
 check("the pace bands are described as a range, not a floor",
       "not a floor" in RUNNER or "not as a floor" in SKILL)
 check("a short runway is not a hard stop for a prepared athlete",

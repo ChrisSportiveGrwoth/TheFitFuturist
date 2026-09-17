@@ -124,7 +124,7 @@ This table is the **last resort**, used only when the user has no race or time-t
 
 These values are the single source together with `assessment.json` → `pace_estimation_when_unknown`; both must always say the same thing. They are the expected range for a level, not a floor: a runner whose easy pace sits outside the band is not thereby walking, and the level label is not evidence about their pace. Where an estimate lands well outside the band, say that the label and the pace disagree and ask for a recent run rather than forcing the number back inside.
 
-**Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is no meaningfully slower "easy" gear left. When the estimate approaches the 10:00/km cap, plan walk-run intervals instead of continuous easy runs, and set the running segments by time, not by pace.
+**Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is no meaningfully slower "easy" gear left. When the estimate lands around 10:00/km or beyond, plan walk-run intervals instead of continuous easy runs and set the running segments by time rather than pace — not because a slower pace is forbidden, but because at that point there is no slower easy gear left to aim at.
 
 Always state in the plan: "Estimated easy pace: ~X min/km based on your fitness level. Adjust after your first session — if it feels too easy or too hard, report back and I'll recalibrate."
 
@@ -290,7 +290,9 @@ Always reference it explicitly in the plan. Examples:
 
 ## Principle 6: Heart Rate Zones — Always Output in Plan
 
-**MANDATORY:** Every running plan must include the user's personal HR zones with actual bpm values.
+**MANDATORY, where the data allows it:** every running plan includes the user's personal HR zones with actual bpm values, derived by the hierarchy below and labelled with the method used.
+
+**Where no usable basis exists** — no test, no device data, and an age estimate the user declines or that is invalid for them (beta blockers, a known cardiac condition) — do not invent zones. Plan by duration, talk test and RPE instead, say plainly why there are no bpm values in this plan, and add them once a test or an export exists. An invented zone is worse than none: it looks precise and steers the whole plan.
 
 **Calculation hierarchy:**
 1. Lab test (spiroergometry / lactate) → use those values directly, most accurate

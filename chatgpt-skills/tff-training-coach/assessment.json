@@ -91,12 +91,11 @@
   },
 
   "pace_estimation_when_unknown": {
-    "_instruction": "Use these ranges ONLY when the user has no race data. If a recent race time is known, derive paces from it via goals/runner.md Principle 2c (Riegel + race-pace offsets) instead — that is the more accurate path. Always state the estimate clearly. NEVER estimate above the max_easy_pace_cap — anything slower is walking, not running.",
+    "_instruction": "Use these ranges ONLY when the user has no race data. If a recent race time is known, derive paces from it via goals/runner.md Principle 2c (Riegel + race-pace offsets) instead — that is the more accurate path. Always state the estimate clearly. The bands are the expected range for a level, not a floor: if the user's real pace sits outside the band, say that the level label and the pace disagree and ask for a recent run rather than forcing the estimate back inside.",
     "_consistency": "These values must stay identical to the estimation table in goals/runner.md Principle 2b.",
     "_source": "Coaching heuristic calibrated against the spread of recreational finisher times. NOT a measurement and NOT a literature finding — unlike Tanaka (max HR), Riegel (race-time equivalence) and Lauersen (injury reduction), these bands have no primary source, because none exists for 'what pace does an intermediate runner hold'. Present them as a starting bracket the first two weeks will correct, never as a norm the user should measure themselves against.",
     "beginner": {
       "easy_pace": "8:00-10:00/km",
-      "max_easy_pace_cap": "10:00/km",
       "5k_estimate": "40-55 min",
       "10k_estimate": "85-115 min",
       "half_estimate": "3:00-4:00h",
@@ -104,7 +103,6 @@
     },
     "intermediate": {
       "easy_pace": "6:00-7:30/km",
-      "max_easy_pace_cap": "7:30/km",
       "5k_estimate": "30-40 min",
       "10k_estimate": "62-85 min",
       "half_estimate": "2:15-3:00h",
@@ -112,7 +110,6 @@
     },
     "advanced": {
       "easy_pace": "4:30-6:00/km",
-      "max_easy_pace_cap": "6:00/km",
       "5k_estimate": "20-30 min",
       "10k_estimate": "42-62 min",
       "half_estimate": "1:35-2:15h",

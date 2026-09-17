@@ -1,7 +1,7 @@
 # Deviations from the Claude edition
 
 This file lists every difference between the ChatGPT edition
-(`chatgpt-skills/tff-training-coach`, 2.5.2-chatgpt.1) and the Claude edition
+(`chatgpt-skills/tff-training-coach`, 2.5.3-chatgpt.1) and the Claude edition
 (`claude-skills/tff-trainingsplan-skill`, v2.5.1). Nothing else was changed:
 the assessment, the planning logic, the goal files and the validation rules are
 the v2.5.1 content. Version numbers named further down refer to the release that
@@ -85,6 +85,31 @@ decided by a label rather than by the runner. The floors and the justification a
 gone. The bands remain as the expected range for a level, with the added
 instruction to say that label and pace disagree, and ask for a recent run, rather
 than force the number back inside the band.
+
+### 4a-2. The pace correction reaches every file that carries it
+
+The first pass at 4a changed `SKILL.md` and left the same rule standing in two
+other places, so the package contradicted itself. Now removed everywhere:
+`assessment.json` no longer says "NEVER estimate above the max_easy_pace_cap —
+anything slower is walking, not running" and no longer carries the three
+`max_easy_pace_cap` fields; `goals/runner.md`'s beginner caveat no longer talks
+about a "10:00/km cap". The caveat keeps its actual insight — at that level easy
+pace and race pace converge, so walk-run intervals set by time make more sense
+than a continuous easy run — without dressing it as a floor.
+
+### 4d. Heart-rate zones are required only where the data allows it
+
+`SKILL.md` Rule 5 and `goals/runner.md` Principle 6.
+
+Both said every running plan **must** carry personal bpm zones, while the same
+files elsewhere tell the model to plan by time and talk test rather than invent
+paces or zones. For a user with no test, no device and no usable age estimate —
+beta blockers, a known cardiac condition — the two instructions cannot both be
+followed, and the mandatory one wins by being louder. The requirement now holds
+where a usable basis exists and is explicit about the alternative otherwise:
+plan by duration, talk test and RPE, say why there are no bpm values, add them
+when data arrives. An invented zone is worse than none, because it looks precise
+and steers the whole plan.
 
 ### 4b. A short runway is not a gate for an athlete who already has the base
 

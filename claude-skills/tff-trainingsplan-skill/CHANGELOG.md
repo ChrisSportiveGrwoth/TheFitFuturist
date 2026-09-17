@@ -2,6 +2,33 @@
 
 Format: append only. Never delete entries.
 
+## v2.5.1 — 2026-09-17 — The pregnancy protocol loses its heart-rate ceiling
+
+Source: a third-party review of the v2.5.0 ChatGPT edition. It raised five points; four are deferred to a release that can re-run the persona suite, and are listed at the bottom. This one is not deferred, because it sits in a safety protocol and the fix carries no behavioural risk.
+
+### The fixed bpm cap is gone
+
+The Pregnancy Protocol read: *"generate conservative plan with constraints: HR ≤150 bpm, no high-impact, no supine after T1, no breath-holding."*
+
+A universal heart-rate ceiling in pregnancy does not survive contact with the guidelines. Resting and submaximal heart rate both shift during pregnancy, and they shift by different amounts in different people, so one number is simultaneously too strict for some and too permissive for others. Current guidance steers intensity by the talk test and perceived exertion, inside whatever the treating clinician specified.
+
+- The cap is replaced by talk test and RPE, with the explicit statement that the OB/GYN's instructions outrank anything in this file.
+- Everything else in the row is unchanged: no high-impact, no supine after T1, no breath-holding.
+- The gate itself is untouched. Clearance is still required, "generate anyway" is still not clearance, and without confirmation the skill still writes general movement guidance only.
+
+This is the same defect class the v2.5.0 audit was about — a number describing the body, stated as a rule, without anything behind it. It was missed there because the audit looked at the planning rules and not at the safety protocols. `check-consistency.py`: 106 → 110. The new checks assert that the pregnancy section contains no bpm figure at all, names the talk test and RPE, says the clinician outranks the file, and still carries the other three constraints.
+
+### Raised in the same review and deferred
+
+Each of these is accepted on the merits and changes planning behaviour, so they belong in a release that re-runs the 41 personas.
+
+| Finding | Status |
+|---|---|
+| Rule 7 justifies the per-level pace floors with "anything slower is walking pace, not running" — which makes 6:30/km walking for an advanced runner and running for an intermediate one | Valid contradiction. The justification and the forced floors need to go; the bands stay as a declared fallback. |
+| The minimum preparation table is labelled a planning default, but the Validation Enforcement Rule fourteen lines later still hard-stops on "weeks available < minimum preparation time" | Valid. The label changes nothing while the gate is absolute. A prepared athlete with a near-term race needs a documented exception. |
+| No arithmetic check on weekly minutes, session count or race-day budget after the ChatGPT edition dropped `validate_plan.py` | Valid. Belongs in the output step as a mandatory verification, not as a script. |
+| The ChatGPT edition's Free-tier project route is not usable as written: it asks the reader to shorten a 33,856-character file into an 8,000-character field, and a mixed goal needs more files than the Free tier allows | Valid, ChatGPT edition only. Needs ready-made project instructions and merged knowledge files. |
+
 ## v2.5.0 — 2026-09-17 — Data boundary, under-fuelling reaches the triage gate
 
 Source: packaging this skill as a second edition for ChatGPT. Porting forces you to read every rule as a stranger would, and two gaps fell out that no review of the Claude bundle alone had surfaced. Both are in this release. The third-party plugin package that prompted the port also proposed four content changes; those are a separate question, are not in this release, and are recorded at the bottom.

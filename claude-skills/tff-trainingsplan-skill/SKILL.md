@@ -3,7 +3,7 @@ name: tff-training-plan-basic
 description: "Creates personalized, evidence-based training plans for running, strength, and mixed (concurrent) goals. Runs a structured assessment first, then generates the plan, and adapts it from session feedback. Use when the user asks for a training plan, a workout schedule, a weekly training structure, a running plan for 5k / 10k / half marathon / marathon / ultra, a strength or hypertrophy program, or wants an existing plan reviewed and improved. Also applies to German requests such as Trainingsplan, Trainingsplan erstellen, Laufplan, Halbmarathon, Marathon, Krafttraining, Hypertrophie, or Trainingsplan überprüfen."
 author: TheFitFuturist
 author_url: https://www.thefitfuturist.com
-version: 2.5.0
+version: 2.5.1
 license: CC BY-NC 4.0 — Free to use and adapt for personal use. Not for commercial use without permission.
 ---
 
@@ -254,7 +254,7 @@ For **soft contradictions** (fitness level vs pace, ambitious goal pace, fitness
 
 1. Output safety alert immediately.
 2. Ask explicitly: **"Have you received clearance from your OB/GYN to exercise during pregnancy?"**
-3. **If YES confirmed:** generate conservative plan with constraints: HR ≤150 bpm, no high-impact, no supine after T1, no breath-holding.
+3. **If YES confirmed:** generate a conservative plan inside whatever the OB/GYN specified — their instructions outrank anything in this file. Steer intensity by the talk test and RPE, never by a fixed heart-rate ceiling: no universal bpm limit holds up in pregnancy, and a single number is wrong in both directions for most people. The other constraints stay: no high-impact, no supine after T1, no breath-holding.
 4. **If NO, unclear, or "generate anyway":** do NOT generate a training plan. Instead provide general safe movement guidelines only (walking, breathing, light stretching). State: *"'Generate anyway' is not medical clearance. Please confirm OB/GYN approval first."* (German: *"„Mach trotzdem" ist keine ärztliche Freigabe. Bitte kläre das zuerst mit deiner Frauenärztin oder deinem Frauenarzt."*)
 
 ---

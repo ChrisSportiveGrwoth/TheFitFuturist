@@ -1,8 +1,8 @@
 # Deviations from the Claude edition
 
 This file lists every difference between the ChatGPT edition
-(`chatgpt-skills/tff-training-coach`, 2.5.0-chatgpt.1) and the Claude edition
-(`claude-skills/tff-trainingsplan-skill`, v2.5.0). Nothing else was changed:
+(`chatgpt-skills/tff-training-coach`, 2.5.1-chatgpt.1) and the Claude edition
+(`claude-skills/tff-trainingsplan-skill`, v2.5.1). Nothing else was changed:
 the assessment, the planning logic, the goal files and the validation rules are
 the v2.5.0 content.
 

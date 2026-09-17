@@ -1,4 +1,4 @@
-# TFF Training Plan Skill (Basic) — v2.5.0
+# TFF Training Plan Skill (Basic) — v2.5.1
 
 A ready-to-use Claude skill for personalized, evidence-based training plans. Upload the ZIP to Claude — Claude will run a structured assessment and generate a plan tailored to your goal, fitness level, schedule, and health history.
 

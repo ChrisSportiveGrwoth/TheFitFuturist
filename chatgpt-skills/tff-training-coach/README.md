@@ -4,12 +4,12 @@ A ready-to-upload ChatGPT skill for personalized, evidence-based training plans:
 running, strength, and mixed (concurrent) goals. It runs a structured assessment
 first, then writes the plan, then adapts it from what you report back.
 
-Derived from the [TFF Training Plan Skill v2.5.0](../../claude-skills/tff-trainingsplan-skill/)
+Derived from the [TFF Training Plan Skill v2.5.1](../../claude-skills/tff-trainingsplan-skill/)
 for Claude. Same sports-science core, same safety triage. The differences are
 documented in [DEVIATIONS.md](./DEVIATIONS.md) — read that file before assuming
 the two editions behave identically.
 
-Version: **2.5.0-chatgpt.1**
+Version: **2.5.1-chatgpt.1**
 
 ## Before you start: can your account install this?
 

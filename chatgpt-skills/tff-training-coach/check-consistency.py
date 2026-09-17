@@ -273,6 +273,18 @@ check("minimum preparation table is labelled as a planning default",
 check("runner.md: a short base phase is named as compression, not a verdict",
       "the plan is compressed for the distance" in RUNNER)
 
+
+# --- v2.5.1: no fixed heart-rate ceiling in the pregnancy protocol ------------
+PREG = SKILL.split("Pregnancy Protocol")[1].split("---")[0]
+check("pregnancy protocol carries no fixed bpm ceiling",
+      re.search(r"\d{2,3}\s*bpm", PREG) is None, PREG[:0])
+check("pregnancy intensity is steered by talk test and RPE",
+      "talk test" in PREG and "RPE" in PREG)
+check("clinician instructions outrank the skill file",
+      "outrank" in PREG)
+check("pregnancy protocol keeps its other constraints",
+      "no high-impact" in PREG and "no supine after T1" in PREG and "no breath-holding" in PREG)
+
 # --- report -----------------------------------------------------------------
 failed = [(n, d) for n, ok, d in results if not ok]
 for name, ok, detail in results:

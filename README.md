@@ -1,9 +1,10 @@
-# TheFitFuturist — Claude Skills
+# TheFitFuturist — AI Training Skills
 
-Open-source Claude skills built and tested by [TheFitFuturist](https://www.thefitfuturist.com).
+Open-source skills for AI training assistants, built and tested by
+[TheFitFuturist](https://www.thefitfuturist.com).
 
-Each skill is a ready-to-use ZIP you upload to Claude via
-Settings → Customize → Skills. Done in 2 minutes.
+Each skill is a ready-to-use ZIP you upload to the assistant it was built for.
+Done in about two minutes.
 
 ## About TheFitFuturist
 
@@ -22,10 +23,23 @@ but tested.
 
 ## Available Skills
 
-### [TFF Training Plan Skill](./claude-skills/tff-trainingsplan-skill/)
+### [TFF Training Plan Skill — for Claude](./claude-skills/tff-trainingsplan-skill/)
 Personalized training plans for runners, strength athletes, and mixed goals.
 Tested against 41 personas across running, strength, and mixed training.
+Install via Claude → Settings → Customize → Skills.
 → [Latest release and download](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/latest)
+
+### [TFF Training Coach — for ChatGPT](./chatgpt-skills/tff-training-coach/)
+The same sports-science core, packaged for ChatGPT's skill format. Install via
+ChatGPT → Plugins → Skills → Create → Upload from your computer.
+
+Two things to know before you download it: OpenAI currently documents skills for
+Business, Enterprise, Healthcare and Edu accounts, so the upload path may not exist
+on a personal plan — the skill's README explains how to check and what to use
+instead. And the edition carries a small set of deliberate changes against the
+Claude version, all listed in
+[DEVIATIONS.md](./chatgpt-skills/tff-training-coach/DEVIATIONS.md), which have not
+yet been re-run against the 41-persona suite.
 
 → [Read the full development story on Substack](https://thefitfuturist.substack.com)
 
@@ -33,8 +47,9 @@ Tested against 41 personas across running, strength, and mixed training.
 
 **Use all skills, tools, and outputs from this repository at your own risk.**
 
-- Skills are instruction sets for Claude (an AI language model by Anthropic).
-  They do not guarantee consistent, identical, or error-free output —
+- Skills are instruction sets for AI language models (Claude by Anthropic,
+  ChatGPT by OpenAI). They do not guarantee consistent, identical, or error-free
+  output —
   LLMs are probabilistic by nature and results will vary between runs,
   model versions, and contexts.
 - Nothing in this repository constitutes medical, health, or professional

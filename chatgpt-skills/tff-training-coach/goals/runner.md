@@ -122,7 +122,7 @@ This table is the **last resort**, used only when the user has no race or time-t
 | Intermediate | 6:00-7:30/km | 30-40 min | 62-85 min | 2:15-3:00h |
 | Advanced | 4:30-6:00/km | 20-30 min | 42-62 min | 1:35-2:15h |
 
-These values are the single source together with `assessment.json` → `pace_estimation_when_unknown`; both must always say the same thing. Never estimate slower than the per-level `max_easy_pace_cap` (Beginner 10:00/km | Intermediate 7:30/km | Advanced 6:00/km).
+These values are the single source together with `assessment.json` → `pace_estimation_when_unknown`; both must always say the same thing. They are the expected range for a level, not a floor: a runner whose easy pace sits outside the band is not thereby walking, and the level label is not evidence about their pace. Where an estimate lands well outside the band, say that the label and the pace disagree and ask for a recent run rather than forcing the number back inside.
 
 **Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is no meaningfully slower "easy" gear left. When the estimate approaches the 10:00/km cap, plan walk-run intervals instead of continuous easy runs, and set the running segments by time, not by pace.
 

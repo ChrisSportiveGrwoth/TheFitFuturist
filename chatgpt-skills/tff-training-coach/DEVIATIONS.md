@@ -1,7 +1,7 @@
 # Deviations from the Claude edition
 
 This file lists every difference between the ChatGPT edition
-(`chatgpt-skills/tff-training-coach`, 2.5.1-chatgpt.1) and the Claude edition
+(`chatgpt-skills/tff-training-coach`, 2.5.2-chatgpt.1) and the Claude edition
 (`claude-skills/tff-trainingsplan-skill`, v2.5.1). Nothing else was changed:
 the assessment, the planning logic, the goal files and the validation rules are
 the v2.5.1 content. Version numbers named further down refer to the release that
@@ -73,6 +73,43 @@ The table is unchanged. Added: a statement that these figures are a declared
 planning default describing how much runway a plan usually needs, not a measured
 physiological limit, and that a shortfall is a conflict to solve with the user
 rather than a verdict on their capability.
+
+### 4a. The per-level pace bands are a range, not a floor
+
+`SKILL.md` Rule 7 and `goals/runner.md` Principle 2b.
+
+Rule 7 capped estimates at a per-level floor and justified it with "anything
+slower is walking pace, not running". That makes 6:30/km walking for an advanced
+runner and valid running for an intermediate one — the same pace, two verdicts,
+decided by a label rather than by the runner. The floors and the justification are
+gone. The bands remain as the expected range for a level, with the added
+instruction to say that label and pace disagree, and ask for a recent run, rather
+than force the number back inside the band.
+
+### 4b. A short runway is not a gate for an athlete who already has the base
+
+`SKILL.md`, Validation Enforcement Rule.
+
+Labelling the minimum-preparation table a planning default changed nothing while
+the rule fourteen lines below still hard-stopped on "weeks available < minimum
+preparation time". It now stops only where the athlete would have to build both
+the base and the distance inside the time available. Someone who demonstrably
+carries the base and the long-session capability gets a shortened build or a
+taper-and-sharpen plan, with the compromise named.
+
+### 4c. The plan is checked against the user's actual time budget
+
+`SKILL.md`, new section before the output-order rule, and mirrored in the project
+instructions.
+
+The Claude edition ships no arithmetic check, and this package deliberately left
+out the plugin's `validate_plan.py`. A mandatory verification step replaces it:
+session totals must include warm-up, working part, rest intervals and cool-down;
+weekly sums are compared per week rather than as an average; session count against
+the days named; longest session against the longest slot; and on a race week the
+race itself has to fit the day at the user's real pace, travel and warm-up
+included. When something does not fit, the plan gets fixed and the week named —
+never the stated budget adjusted quietly.
 
 ### 4. A compressed base phase is described as compressed
 

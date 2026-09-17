@@ -4,7 +4,10 @@ Reference material for the training coach project. Load only the section that
 matches the goal: **Running**, **Strength**, or — for a mixed goal — all three,
 because the Mixed section sits on top of the other two.
 
-Version 2.5.1-chatgpt.1 · © 2026 TheFitFuturist — Sportive Growth Ltd. · CC BY-NC 4.0
+This file is self-contained. Everything the sections refer to is either in here
+or in the project instructions; no other file is needed.
+
+Version 2.5.2-chatgpt.1 · © 2026 TheFitFuturist — Sportive Growth Ltd. · CC BY-NC 4.0
 
 ---
 
@@ -29,6 +32,24 @@ must survive. Never shorten or soften it.
 
 ---
 
+## Planning defaults — runway and long-run demand
+
+Declared planning defaults, not measured thresholds: they describe how much
+runway a plan of this kind usually needs. A shortfall is a conflict to explain
+and solve with the user, never a verdict on what they are capable of. An athlete
+who already has the base and the long-session capability for the distance can be
+given a shortened build or a taper instead — name the compromise.
+
+| Distance | Usual weeks to the event | Assumed starting base | Longest session the plan must fit |
+|---|---|---|---|
+| 5k | 6 | Runs 2–3×/week | 45–60 min |
+| 10k | 8 | Runs 3×/week, ~20 km/week | 60–75 min |
+| Half marathon | 12 | Runs 3×/week, ~25 km/week, has completed 10 km | 90–120 min |
+| Marathon | 16 (20 if the base is thin) | Runs 4×/week, ~40 km/week, has completed a half | 150–180 min |
+| Trail / Ultra | 20 | Intermediate+, marathon or long trail experience | time-based |
+
+---
+
 # Running
 
 # Goal: Running / Endurance
@@ -44,7 +65,7 @@ Running is not one goal — it is a spectrum. A 5k runner and a marathon runner 
 - Trail / Ultra → extreme volume, elevation-specific work, strength critical
 - General fitness → health and consistency, no performance target
 
-Then: derive intensity distribution, periodization, and session types from the distance-specific principles below. Strength training is strongly recommended for every runner type — integrate it using the sequencing rules in Principle 5. The user is offered an explicit opt-out in Block 5 of the assessment; if they decline, respect that answer and follow the single-line note rule in SKILL.md instead of arguing the point through the plan.
+Then: derive intensity distribution, periodization, and session types from the distance-specific principles below. Strength training is strongly recommended for every runner type — integrate it using the sequencing rules in Principle 5. The user is offered an explicit opt-out in Block 5 of the assessment; if they decline, respect that answer and follow the single-line note rule in the project instructions instead of arguing the point through the plan.
 
 ---
 
@@ -128,7 +149,7 @@ The percentage split above describes the shape of a long build-up. Taken literal
 
 Worked examples: 12-week marathon → Base 4 / Build 4 / Peak 2 / Taper 2. 8-week 10k → Base 3 / Build 3 / Peak 1 / Taper 1. 16-week half → Base 7 / Build 5 / Peak 2 / Taper 2.
 
-If the resulting Base phase is shorter than 3 weeks, the plan is compressed for the distance — check it against the minimum preparation table in SKILL.md and name the compression to the user before continuing.
+If the resulting Base phase is shorter than 3 weeks, the plan is compressed for the distance — check it against the Planning defaults table above and name the compression to the user before continuing.
 
 **Volume progression rule:**
 Never increase total weekly volume by more than 10% per week. Never increase volume AND intensity in the same week.
@@ -150,7 +171,7 @@ This table is the **last resort**, used only when the user has no race or time-t
 | Intermediate | 6:00-7:30/km | 30-40 min | 62-85 min | 2:15-3:00h |
 | Advanced | 4:30-6:00/km | 20-30 min | 42-62 min | 1:35-2:15h |
 
-These values are the single source together with `assessment.json` → `pace_estimation_when_unknown`; both must always say the same thing. Never estimate slower than the per-level `max_easy_pace_cap` (Beginner 10:00/km | Intermediate 7:30/km | Advanced 6:00/km).
+These values are the single source for the fallback bands; the project instructions point here for them. They are the expected range for a level, not a floor: a runner whose easy pace sits outside the band is not thereby walking, and the level label is not evidence about their pace. Where an estimate lands well outside the band, say that the label and the pace disagree and ask for a recent run rather than forcing the number back inside.
 
 **Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is no meaningfully slower "easy" gear left. When the estimate approaches the 10:00/km cap, plan walk-run intervals instead of continuous easy runs, and set the running segments by time, not by pace.
 
@@ -171,7 +192,7 @@ Worked example: 10 km in 48:00 → half marathon = 48 × (21.1 / 10)^1.06 ≈ 10
 
 Honest limits — state them when you use it: the exponent 1.06 is a population average, individual endurance varies. The formula is reliable when the two distances are within roughly a factor of two of each other and the runner has the endurance base for the longer distance. Extrapolating 5k → marathon systematically predicts times that are too fast for runners without marathon-specific volume. For the marathon, treat the Riegel result as a ceiling, not a target.
 
-**Step 2 — Sanity-check the user's goal time** against the Riegel equivalent. If the goal is more than ~5 % faster than the equivalent, apply the "Goal pace >30 % faster" and "ambitious goal" validation rules in SKILL.md — flag it once, plan against the more conservative pace, and say so.
+**Step 2 — Sanity-check the user's goal time** against the Riegel equivalent. If the goal is more than ~5 % faster than the equivalent, treat it as a conflict under the rules in the project instructions — flag it once, plan against the more conservative pace, and say so.
 
 **Step 3 — Derive training paces from race pace.** Anchor everything on the current 10k race pace (measured or Riegel-derived):
 
@@ -383,7 +404,7 @@ Recommend cross-training when: injury risk is high, user is coming back from inj
 
 ## Principle 8: Red Flags
 
-**When these actions apply:** the overuse rows below take effect on the **second report of the same complaint, or on the first report if the user describes it as persistent, worsening, or present at rest** — this matches the count logic in SKILL.md UPDATE MODE, where a single, mild, first-time complaint is logged rather than acted on. The **emergency row is different: it acts immediately, on the first mention, regardless of count**, and is part of the SAFETY TRIAGE list in SKILL.md.
+**When these actions apply:** the overuse rows below take effect on the **second report of the same complaint, or on the first report if the user describes it as persistent, worsening, or present at rest** — this matches the count logic in the project instructions' update mode, where a single, mild, first-time complaint is logged rather than acted on. The **emergency row is different: it acts immediately, on the first mention, regardless of count**, and is part of the safety triage in the project instructions.
 
 | Signal | Reasoning | Action | Trigger |
 |---|---|---|---|
@@ -395,7 +416,7 @@ Recommend cross-training when: injury risk is high, user is coming back from inj
 | Bone pain that is sharply localized, worse with impact and eases with rest | Possible bone stress injury / stress fracture | Stop running on it. Doctor or physio before resuming — this is not a "train through it" complaint | ⚠️ Immediately, first mention |
 | Chest pain, dizziness, fainting, palpitations, disproportionate breathlessness | Possible cardiac event | Stop all training, refer to doctor immediately; emergency services if at rest or with arm/jaw pain, sweating or nausea | ⚠️ Immediately, first mention, no exceptions |
 | Calf pain with swelling, warmth or redness | Possible thrombosis | Stop training, same-day medical assessment | ⚠️ Immediately, first mention |
-| Fever or systemic infection, now or in the last few days | Cardiac risk (myocarditis), not a performance question | No training until fever-free and ≥24–48 h symptom-free, then graded return — see the SAFETY TRIAGE fever row in SKILL.md, which governs | ⚠️ Immediately, first mention |
+| Fever or systemic infection, now or in the last few days | Cardiac risk (myocarditis), not a performance question | No training until fever-free and ≥24–48 h symptom-free, then graded return — see the fever row of the safety triage in the project instructions, which governs | ⚠️ Immediately, first mention |
 
 ---
 
@@ -581,7 +602,7 @@ Muscle adaptation happens during recovery, not during training. Insufficient rec
 
 ## Principle 7: Red Flags — Adapt or Stop
 
-**When these actions apply:** the rows below take effect on the **second report of the same complaint, or on the first report if the user describes it as persistent, worsening, or present outside training** — this matches the count logic in SKILL.md UPDATE MODE, where a single, mild, first-time complaint is logged rather than acted on. The **emergency rows act immediately, on the first mention, regardless of count**, and are part of the SAFETY TRIAGE list in SKILL.md.
+**When these actions apply:** the rows below take effect on the **second report of the same complaint, or on the first report if the user describes it as persistent, worsening, or present outside training** — this matches the count logic in the project instructions' update mode, where a single, mild, first-time complaint is logged rather than acted on. The **emergency rows act immediately, on the first mention, regardless of count**, and are part of the safety triage in the project instructions.
 
 | Signal | Reasoning | Action | Trigger |
 |---|---|---|---|
@@ -592,7 +613,7 @@ Muscle adaptation happens during recovery, not during training. Insufficient rec
 | Persistent fatigue | Overtraining or under-recovery | Deload immediately, assess sleep and nutrition | Immediately |
 | Strength and body weight both falling at once; or fatigue plus any of: periods stopped or became irregular, repeated bone stress injury, unusually frequent infections | Possible low energy availability / RED-S — under-fuelling, not under-training. Common where a fat-loss goal sits on top of a strength plan | Hold volume, do not progress the plan, and say plainly that adding training will make this worse. Recommend a doctor or sports dietitian. **Stay in scope: name the signal, never prescribe calories, macros or an eating plan.** | ⚠️ First mention — this pattern does not need a second report |
 | Chest pain or pressure, dizziness, fainting, palpitations, disproportionate breathlessness | Possible cardiac event | Stop all training, refer to doctor immediately; emergency services if at rest or with arm/jaw pain, sweating or nausea | ⚠️ Immediately, first mention, no exceptions |
-| Fever or systemic infection, now or in the last few days | Cardiac risk (myocarditis), not a performance question | No training until fever-free and ≥24–48 h symptom-free, then graded return — see the SAFETY TRIAGE fever row in SKILL.md, which governs | ⚠️ Immediately, first mention |
+| Fever or systemic infection, now or in the last few days | Cardiac risk (myocarditis), not a performance question | No training until fever-free and ≥24–48 h symptom-free, then graded return — see the fever row of the safety triage in the project instructions, which governs | ⚠️ Immediately, first mention |
 | Acute trauma: sudden pop/snap, unable to bear weight, visible deformity | Structural injury | Stop the affected training, doctor/physio before resuming | ⚠️ Immediately, first mention |
 | New numbness, tingling, radiating pain or loss of strength | Possible nerve involvement | Stop the affected training, see a doctor before resuming | ⚠️ Immediately, first mention |
 
@@ -608,7 +629,7 @@ Muscle adaptation happens during recovery, not during training. Insufficient rec
 
 ## How to use this file
 
-These are principles for concurrent training. This file is **not self-sufficient**: load `runner.md` and `strength.md` alongside it — the principles in both apply, and this file adds the interference management layer on top. This is the one case where SKILL.md Rule 4 expects more than one goal file; for a single-modality goal, only that goal's file is loaded.
+These are principles for concurrent training. This file is **not self-sufficient**: read the **Running** and **Strength** sections above alongside it — the principles in both apply, and this file adds the interference management layer on top. This is the one case where more than one section applies; for a single-modality goal, read only that goal's section.
 
 ---
 
@@ -665,8 +686,8 @@ The interference effect is greatest when the same muscle groups are used in both
 Mixed athletes must prioritize. "Balanced" training without a priority leads to mediocre outcomes in both areas. Identify the user's primary goal and build around it.
 
 **Derive priority from assessment:**
-- If running performance is primary → load `runner.md` as primary, use `strength.md` for supplementary work
-- If strength/muscle is primary → load `strength.md` as primary, use `runner.md` principles for cardio programming
+- If running performance is primary → treat **Running** as primary and use **Strength** for supplementary work
+- If strength/muscle is primary → treat **Strength** as primary and use **Running** for cardio programming
 - If truly balanced → use block periodization (see Principle 4)
 
 **Priority affects volume allocation:**
@@ -757,7 +778,7 @@ Place these in the first lower-body strength session of Week 1. Do not omit even
 | Strength gains stalled while running is improving | Interference effect taking hold | Reduce run frequency/volume temporarily, increase strength priority |
 | Running economy declining while strength is improving | Possible over-emphasis on hypertrophy (body weight increase) | Shift strength focus to neural (lower reps, heavier load, less volume) |
 | Performance falling in both modalities **and** weight falling, or periods stopped, or a repeat bone stress injury | Low energy availability, not interference — concurrent training raises the energy cost of a week faster than most people raise their intake, so mixed athletes hit this earlier than single-modality athletes | Do not "fix the interference" by shuffling sessions. Hold total volume, name the pattern, recommend a doctor or sports dietitian. **Never prescribe calories, macros or an eating plan.** |
-| Fever or systemic infection, now or in the last few days | Cardiac risk (myocarditis) | No training in either modality until fever-free and ≥24–48 h symptom-free, then graded return — the SAFETY TRIAGE fever row in SKILL.md governs |
+| Fever or systemic infection, now or in the last few days | Cardiac risk (myocarditis) | No training in either modality until fever-free and ≥24–48 h symptom-free, then graded return — the fever row of the safety triage in the project instructions governs |
 
 ---
 

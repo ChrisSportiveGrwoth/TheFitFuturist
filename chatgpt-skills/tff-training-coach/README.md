@@ -32,23 +32,25 @@ Use the project fallback below instead.
 4. Start a new chat and describe your training goal. ChatGPT picks the skill up
    from the request; you can also select it explicitly.
 
-## Fallback: use it in a ChatGPT Project
+## If your account has no Skills tab: the project route
 
-Projects work on every plan, including Free. This route gives you the same
-instructions without the skill mechanism:
+Projects work on every plan, including Free, and `project-setup/` holds both
+pieces ready to use. Nothing needs shortening or editing.
 
-1. Create a project.
-2. Paste the core rules from `SKILL.md` into the project instructions.
-   **Note the limit: project instructions hold 8,000 characters**, and `SKILL.md`
-   is longer than that — you will have to shorten it. Keep the safety triage,
-   the mandatory rules and the assessment blocks; those carry the behavior.
-3. Upload the goal file you need (`goals/runner.md`, `goals/strength.md`, or for
-   mixed goals all three) as project files. File limits per project: 5 on Free,
-   25 on Plus and Go, 40 on Pro and above.
+1. Create a project in ChatGPT.
+2. Open `project-setup/PROJECT-INSTRUCTIONS.md`, copy the whole file, and paste it
+   into the project's instructions field. It is written to fit the 8,000-character
+   limit with room to spare.
+3. Upload `project-setup/tff-training-reference.md` as a project file. That one
+   file carries running, strength and mixed together, so the route fits inside the
+   Free tier's five-file limit and still leaves room for the three tracking files
+   you will save later. File limits per project: 5 on Free, 25 on Plus and Go, 40
+   on Pro and above.
 4. Run every training chat inside that project.
 
-This is a weaker setup than the skill — the model reads the files rather than
-having them routed — but it works today on any account.
+This is a slightly weaker setup than the skill — the model reads one reference
+file instead of having sections routed to it — but it works today on any account,
+and the safety rules, the assessment and the output format are the same.
 
 ## Keeping the plan alive
 
@@ -78,6 +80,9 @@ tff-training-coach/
 │   ├── runner.md         running: intensity distribution, periodization, pacing, HR zones
 │   ├── strength.md       strength and hypertrophy: overload, volume, exercise selection
 │   └── mixed.md          the interference layer on top of both
+├── project-setup/        for accounts without a Skills tab
+│   ├── PROJECT-INSTRUCTIONS.md   paste into the project instructions field
+│   └── tff-training-reference.md all three goal files in one, plus the disclaimer
 ├── DEVIATIONS.md         every difference from the Claude edition, with reasons
 └── README.md
 ```

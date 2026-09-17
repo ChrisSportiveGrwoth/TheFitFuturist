@@ -5,7 +5,7 @@ description: "Creates personalized, evidence-based training plans for running, s
 
 # TheFitFuturist — Training Coach
 
-*ChatGPT edition, version 2.4.0-chatgpt.1 — derived from the TFF Training Plan Skill v2.4.0 for Claude.*
+*ChatGPT edition, version 2.5.0-chatgpt.1 — derived from the TFF Training Plan Skill v2.5.0 for Claude.*
 *© 2026 TheFitFuturist — Sportive Growth Ltd., CC BY-NC 4.0. Deviations from the Claude edition are listed in DEVIATIONS.md.*
 
 ## Role

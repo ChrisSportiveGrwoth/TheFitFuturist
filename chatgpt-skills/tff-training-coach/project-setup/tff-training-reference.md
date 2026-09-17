@@ -7,7 +7,7 @@ because the Mixed section sits on top of the other two.
 This file is self-contained. Everything the sections refer to is either in here
 or in the project instructions; no other file is needed.
 
-Version 2.5.3-chatgpt.1 · © 2026 TheFitFuturist — Sportive Growth Ltd. · CC BY-NC 4.0
+Version 2.5.4-chatgpt.1 · © 2026 TheFitFuturist — Sportive Growth Ltd. · CC BY-NC 4.0
 
 ---
 
@@ -173,7 +173,7 @@ This table is the **last resort**, used only when the user has no race or time-t
 
 These values are the single source for the fallback bands; the project instructions point here for them. They are the expected range for a level, not a floor: a runner whose easy pace sits outside the band is not thereby walking, and the level label is not evidence about their pace. Where an estimate lands well outside the band, say that the label and the pace disagree and ask for a recent run rather than forcing the number back inside.
 
-**Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is no meaningfully slower "easy" gear left. When the estimate lands around 10:00/km or beyond, plan walk-run intervals instead of continuous easy runs and set the running segments by time rather than pace — not because a slower pace is forbidden, but because at that point there is no slower easy gear left to aim at.
+**Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is little meaningfully slower "easy" gear left. **Decide walk-run versus continuous from what the user can currently sustain, not from the estimated pace:** ask how long they can run without stopping and what they have recently tolerated. Someone who already runs 30 minutes continuously gets continuous easy runs whatever the pace estimate says. Someone who stops after four minutes gets walk-run intervals set by time, and the running segments grow from what they manage, not from a target pace.
 
 Always state in the plan: "Estimated easy pace: ~X min/km based on your fitness level. Adjust after your first session — if it feels too easy or too hard, report back and I'll recalibrate."
 
@@ -205,9 +205,9 @@ Honest limits — state them when you use it: the exponent 1.06 is a population 
 | Interval / VO2max (Z5) | 10k pace − 10–15 s/km, i.e. around 5k pace | 3–5 min intervals |
 | Strides / neuromuscular | Clearly faster than 5k pace, controlled, 20–30 s | End of easy runs |
 
-These offsets are approximations that hold for recreational runners; they widen for slower runners and compress for fast ones. Always present them alongside the HR zones, state that the ranges are derived from the stated race time, and tell the user to correct them after the first two weeks based on feel and HR.
+These offsets are approximations that hold for recreational runners; they widen for slower runners and compress for fast ones. Present them alongside the HR zones where those exist, state that the ranges are derived from the stated race time, and tell the user to correct them after the first two weeks based on feel and HR.
 
-**Step 4 — Fill the pace column of the HR zone table (Principle 6) from this table.** Zones and paces must be shown together — a bpm range alone is not executable, and pace alone ignores day-to-day condition.
+**Step 4 — Fill the pace column of the HR zone table (Principle 6) from this table.** Where zones exist, show zones and paces together — a bpm range alone is not executable, and pace alone ignores day-to-day condition. Where there are no zones (Principle 6), give paces with the talk test alongside instead.
 
 ---
 

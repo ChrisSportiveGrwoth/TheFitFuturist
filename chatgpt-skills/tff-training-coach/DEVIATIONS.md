@@ -1,7 +1,7 @@
 # Deviations from the Claude edition
 
 This file lists every difference between the ChatGPT edition
-(`chatgpt-skills/tff-training-coach`, 2.5.3-chatgpt.1) and the Claude edition
+(`chatgpt-skills/tff-training-coach`, 2.5.4-chatgpt.1) and the Claude edition
 (`claude-skills/tff-trainingsplan-skill`, v2.5.1). Nothing else was changed:
 the assessment, the planning logic, the goal files and the validation rules are
 the v2.5.1 content. Version numbers named further down refer to the release that
@@ -110,6 +110,39 @@ where a usable basis exists and is explicit about the alternative otherwise:
 plan by duration, talk test and RPE, say why there are no bpm values, add them
 when data arrives. An invented zone is worse than none, because it looks precise
 and steers the whole plan.
+
+### 4a-3. The last pace floor, and the beginner rule stops keying off pace
+
+Two more remnants, found only because the checks were too narrow: `assessment.json`
+still told the model "NEVER estimate above 7:30/km for intermediate — that is
+beginner territory", and the output step in `SKILL.md` still demanded all five
+zones with a pace column unconditionally. Both are gone. Where a level and a real
+pace disagree, the skill now says so and asks for a recent run instead of moving
+the estimate.
+
+The beginner rule was previously only reworded. It still triggered walk-run
+intervals from the estimated pace — around 10:00/km and slower — which decides how
+someone trains from a number the skill itself guessed. It now keys off what the
+user can actually sustain: how long they can run without stopping, and what they
+have recently tolerated. Someone already running 30 minutes continuously gets
+continuous easy runs whatever the estimate says; someone who stops after four
+minutes gets walk-run intervals set by time, with the running segments growing
+from what they manage.
+
+### 4d-2. The zone requirement is scoped everywhere it appears
+
+The exception added in 2.5.3 covered Rule 5 and Principle 6 but not the output
+step, which still required the five-zone table and a filled pace column. Both are
+now scoped: where no usable HR basis exists the table is omitted rather than
+invented, with the reason stated and the plan steered by duration, talk test and
+RPE; where no pace is derivable the column is left out and sessions are prescribed
+by duration and effort. The pace-offset table and Principle 2c step 4 carry the
+same qualifier.
+
+The checks that let these through looked at one file each. They now scan every
+rule file at once for two patterns: a "never/cap/at most" sitting next to a m:ss
+pace, and a "must/mandatory/always" sitting next to a zone or bpm reference
+without an escape clause.
 
 ### 4b. A short runway is not a gate for an athlete who already has the base
 

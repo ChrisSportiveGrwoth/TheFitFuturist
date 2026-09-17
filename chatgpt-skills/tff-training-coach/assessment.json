@@ -99,14 +99,14 @@
       "5k_estimate": "40-55 min",
       "10k_estimate": "85-115 min",
       "half_estimate": "3:00-4:00h",
-      "note": "Walk-run intervals likely needed. Use lower end of range if user reports running continuously."
+      "note": "Decide walk-run versus continuous from how long the user can currently run without stopping and what they have recently tolerated, not from the estimated pace. Use the lower end of the range if they report running continuously."
     },
     "intermediate": {
       "easy_pace": "6:00-7:30/km",
       "5k_estimate": "30-40 min",
       "10k_estimate": "62-85 min",
       "half_estimate": "2:15-3:00h",
-      "note": "Running continuously, building aerobic base. NEVER estimate above 7:30/km for intermediate — that is beginner territory."
+      "note": "Running continuously, building aerobic base. If the user's actual easy pace sits outside this band, the label and the pace disagree — ask for a recent run instead of moving the estimate."
     },
     "advanced": {
       "easy_pace": "4:30-6:00/km",

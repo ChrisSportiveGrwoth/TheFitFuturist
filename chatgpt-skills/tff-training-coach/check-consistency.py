@@ -329,6 +329,37 @@ check("project reference carries the disclaimer in both languages",
 check("project reference carries the runway table",
       "Planning defaults" in REF)
 
+
+# --- 2.5.3: no pace floor and no unconditional zone mandate, in ANY file -----
+ALL_RULE_FILES = {
+    "SKILL.md": SKILL, "goals/runner.md": RUNNER, "goals/strength.md": STRENGTH,
+    "goals/mixed.md": MIXED, "assessment.json": ASSESS_RAW,
+    "project-setup/tff-training-reference.md": (HERE / "project-setup/tff-training-reference.md").read_text(encoding="utf-8"),
+    "project-setup/PROJECT-INSTRUCTIONS.md": (HERE / "project-setup/PROJECT-INSTRUCTIONS.md").read_text(encoding="utf-8"),
+}
+
+# A pace floor is any "never/no slower/cap/at most" sitting next to a m:ss pace.
+floor_re = re.compile(r"(?:NEVER|never|no slower|not slower|at most|cap(?:ped)? at|maximum of)[^.\n]{0,40}\d{1,2}:\d{2}")
+hits = {n: floor_re.findall(s) for n, s in ALL_RULE_FILES.items()}
+hits = {n: v for n, v in hits.items() if v}
+check("no pace floor is stated in any rule file", not hits, str(hits))
+
+# An unconditional zone mandate is must/mandatory/always + zone/bpm without an escape clause nearby.
+zone_re = re.compile(r"[^.\n]{0,90}(?:MANDATORY|mandatory|must|Always|always)[^.\n]{0,45}(?:HR zone|heart rate zone|bpm)[^.\n]{0,90}")
+bad = {}
+for n, s in ALL_RULE_FILES.items():
+    for m in zone_re.findall(s):
+        if not any(k in m for k in ("where the data allows", "where a usable", "where those exist", "where zones exist")):
+            bad.setdefault(n, []).append(m.strip()[:70])
+check("no unconditional HR-zone mandate in any rule file", not bad, str(bad))
+
+check("walk-run is decided by sustainable duration, not by pace",
+      "not from the estimated pace" in RUNNER and "run without stopping" in RUNNER)
+check("the output step defers to the HR-zone escape clause",
+      "where a usable HR basis exists per Rule 5" in SKILL)
+check("the pace column may be omitted when no pace is derivable",
+      "leave the column out" in SKILL)
+
 # --- report -----------------------------------------------------------------
 failed = [(n, d) for n, ok, d in results if not ok]
 for name, ok, detail in results:

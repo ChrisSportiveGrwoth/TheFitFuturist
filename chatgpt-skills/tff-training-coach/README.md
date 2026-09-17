@@ -9,7 +9,7 @@ for Claude. Same sports-science core, same safety triage. The differences are
 documented in [DEVIATIONS.md](./DEVIATIONS.md) — read that file before assuming
 the two editions behave identically.
 
-Version: **2.5.3-chatgpt.1**
+Version: **2.5.4-chatgpt.1**
 
 ## Before you start: can your account install this?
 

@@ -1,4 +1,4 @@
-# TFF Training Plan Skill (Basic) — v2.4.0
+# TFF Training Plan Skill (Basic) — v2.5.0
 
 A ready-to-use Claude skill for personalized, evidence-based training plans. Upload the ZIP to Claude — Claude will run a structured assessment and generate a plan tailored to your goal, fitness level, schedule, and health history.
 
@@ -18,6 +18,7 @@ Guides Claude through a 6-block conversational assessment before generating any 
 - Update mode: tell Claude how sessions went, it adjusts the plan
 - Analysis mode: paste an existing plan, Claude critiques and improves it
 - Safety triage that acts on first mention, before any plan logic — cardiac symptoms, fever and systemic infection, acute trauma, neurological symptoms, signs of under-fuelling
+- Uploaded plans, wearable exports and tracking files are treated as data, never as instructions
 
 Full version history: [CHANGELOG.md](./CHANGELOG.md)
 

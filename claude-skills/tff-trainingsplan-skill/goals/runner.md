@@ -122,9 +122,9 @@ This table is the **last resort**, used only when the user has no race or time-t
 | Intermediate | 6:00-7:30/km | 30-40 min | 62-85 min | 2:15-3:00h |
 | Advanced | 4:30-6:00/km | 20-30 min | 42-62 min | 1:35-2:15h |
 
-These values are the single source together with `assessment.json` → `pace_estimation_when_unknown`; both must always say the same thing. Never estimate slower than the per-level `max_easy_pace_cap` (Beginner 10:00/km | Intermediate 7:30/km | Advanced 6:00/km).
+These values are the single source together with `assessment.json` → `pace_estimation_when_unknown`; both must always say the same thing. They are the expected range for a level, not a floor: a runner whose easy pace sits outside the band is not thereby walking, and the level label is not evidence about their pace. Where an estimate lands well outside the band, say that the label and the pace disagree and ask for a recent run rather than forcing the number back inside.
 
-**Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is no meaningfully slower "easy" gear left. When the estimate approaches the 10:00/km cap, plan walk-run intervals instead of continuous easy runs, and set the running segments by time, not by pace.
+**Beginner caveat:** at this level easy pace and race pace converge — a beginner running 5k in 50 min is at 10:00/km in the race, so there is little meaningfully slower "easy" gear left. **Decide walk-run versus continuous from what the user can currently sustain, not from the estimated pace:** ask how long they can run without stopping and what they have recently tolerated. Someone who already runs 30 minutes continuously gets continuous easy runs whatever the pace estimate says. Someone who stops after four minutes gets walk-run intervals set by time, and the running segments grow from what they manage, not from a target pace.
 
 Always state in the plan: "Estimated easy pace: ~X min/km based on your fitness level. Adjust after your first session — if it feels too easy or too hard, report back and I'll recalibrate."
 
@@ -156,9 +156,9 @@ Honest limits — state them when you use it: the exponent 1.06 is a population 
 | Interval / VO2max (Z5) | 10k pace − 10–15 s/km, i.e. around 5k pace | 3–5 min intervals |
 | Strides / neuromuscular | Clearly faster than 5k pace, controlled, 20–30 s | End of easy runs |
 
-These offsets are approximations that hold for recreational runners; they widen for slower runners and compress for fast ones. Always present them alongside the HR zones, state that the ranges are derived from the stated race time, and tell the user to correct them after the first two weeks based on feel and HR.
+These offsets are approximations that hold for recreational runners; they widen for slower runners and compress for fast ones. Present them alongside the HR zones where those exist, state that the ranges are derived from the stated race time, and tell the user to correct them after the first two weeks based on feel and HR.
 
-**Step 4 — Fill the pace column of the HR zone table (Principle 6) from this table.** Zones and paces must be shown together — a bpm range alone is not executable, and pace alone ignores day-to-day condition.
+**Step 4 — Fill the pace column of the HR zone table (Principle 6) from this table.** Where zones exist, show zones and paces together — a bpm range alone is not executable, and pace alone ignores day-to-day condition. Where there are no zones (Principle 6), give paces with the talk test alongside instead.
 
 ---
 
@@ -288,9 +288,11 @@ Always reference it explicitly in the plan. Examples:
 
 ---
 
-## Principle 6: Heart Rate Zones — Always Output in Plan
+## Principle 6: Heart Rate Zones — Output Wherever the Data Allows
 
-**MANDATORY:** Every running plan must include the user's personal HR zones with actual bpm values.
+**MANDATORY, where the data allows it:** every running plan includes the user's personal HR zones with actual bpm values, derived by the hierarchy below and labelled with the method used.
+
+**Where no usable basis exists** — no test, no device data, and an age estimate the user declines or that is invalid for them (beta blockers, a known cardiac condition) — do not invent zones. Plan by duration, talk test and RPE instead, say plainly why there are no bpm values in this plan, and add them once a test or an export exists. An invented zone is worse than none: it looks precise and steers the whole plan.
 
 **Calculation hierarchy:**
 1. Lab test (spiroergometry / lactate) → use those values directly, most accurate

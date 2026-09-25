@@ -2,6 +2,45 @@
 
 Format: append only. Never delete entries.
 
+## v2.5.5 — 2026-09-25 — The pace floors are gone, and HR zones stop being unconditional
+
+The version jumps from 2.5.1 to 2.5.5 because 2.5.2 through 2.5.4 were ChatGPT-edition releases sharing this repository's tag namespace. The Claude edition was untouched in all three — which is the actual problem this release fixes: the corrections below were live in the ChatGPT edition for eight days while the Claude bundle, the one behind the download link, still shipped the defect.
+
+### The per-level pace floors are gone
+
+This was the first of the four findings deferred in v2.5.1, and it was deferred because it changes planning behaviour. It does, and it should.
+
+Rule 7 forced every estimate above a per-level floor — Beginner 10:00/km, Intermediate 7:30/km, Advanced 6:00/km — and justified it with *"anything slower is walking pace, not running."* The justification refutes itself: 6:30/km is walking for an advanced runner and running for an intermediate one, by the same sentence. A pace is not a level, and a level label is not evidence about anyone's pace.
+
+- The floors are out of `assessment.json` (all three `max_easy_pace_cap` fields), out of Rule 7, and out of the estimation table in runner.md Principle 2b.
+- The bands stay, and stay a declared fallback heuristic. They are now described as the expected range for a level, not a floor.
+- Where a real pace lands outside its band, the skill says the label and the pace disagree and asks for a recent run — instead of moving the number back inside and planning from a figure it invented.
+- The race-time path is untouched and still wins: a stated result routes to Principle 2c (Riegel plus race-pace offsets) and never reaches these bands.
+
+### The beginner rule no longer triggers off a guess
+
+The v2.5.3 port exposed a second layer. The rule read *"when the estimate approaches the 10:00/km cap, plan walk-run intervals"* — deciding the session structure from a number the skill had guessed itself, for someone who by definition supplied no data.
+
+It now follows what the person can actually sustain: how long they run without stopping, and what they recently tolerated. Someone already running 30 minutes continuously gets continuous easy runs whatever the estimate says. Someone who stops after four minutes gets walk-run intervals set by time, with the running segments grown from what they manage. The underlying observation is unchanged and still true — at this level easy pace and race pace converge, so there is little slower "easy" gear left.
+
+### HR zones are required where the data allows, not always
+
+A contradiction that predates this review and survived every release so far. Rule 5 and Principle 6 demanded personal bpm zones in *every* running plan, while the same files elsewhere instruct planning by duration and talk test rather than inventing zones. Anyone with no test, no device data and no applicable age estimate — beta blockers, a known cardiac condition — could satisfy neither.
+
+- Rule 5 and Principle 6 now carry the exception explicitly: no usable basis means no invented zones. Plan by duration, talk test and RPE, say in the plan why there are no bpm values, and add them once a test or an export exists.
+- The output step follows suit. The five-zone table is required where a usable basis exists and omitted with a reason where it does not; the pace column drops out rather than being filled with a guess when neither the race-time nor the estimation path yields one.
+- An invented zone is worse than none. It looks precise and it steers the whole plan.
+
+### Tooling
+
+`check-consistency.py`: 110 → 121. The new checks scan every rule file at once rather than one at a time, because that is exactly how this defect stayed alive in the ChatGPT edition across three releases — each fix touched one file and passed. Two of them are pattern scans: "never / no slower / cap / at most" next to an m:ss pace, and "must / mandatory / always" next to a zone or bpm without an escape clause nearby.
+
+### Still deferred from the v2.5.1 review
+
+| Finding | Status |
+|---|---|
+| The minimum preparation table is labelled a planning default while the Validation Enforcement Rule still hard-stops on "weeks available < minimum preparation time" | Still open. A prepared athlete with a near-term race needs a documented exception. |
+
 ## v2.5.1 — 2026-09-17 — The pregnancy protocol loses its heart-rate ceiling
 
 Source: a third-party review of the v2.5.0 ChatGPT edition. It raised five points; four are deferred to a release that can re-run the persona suite, and are listed at the bottom. This one is not deferred, because it sits in a safety protocol and the fix carries no behavioural risk.

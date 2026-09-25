@@ -266,6 +266,61 @@ check("clinician instructions outrank the skill file",
 check("pregnancy protocol keeps its other constraints",
       "no high-impact" in PREG and "no supine after T1" in PREG and "no breath-holding" in PREG)
 
+
+# --- v2.5.5: no pace floor, no unconditional zone mandate -------------------
+# The v2.5.1 review found Rule 7 justifying the per-level floors with "anything
+# slower is walking pace, not running" — which makes 6:30/km walking for an
+# advanced runner and running for an intermediate one. The floors are gone and
+# the bands are a declared expected range. These checks scan every rule file at
+# once, because the same fix in the ChatGPT edition passed three times while
+# other files still contradicted it.
+ALL_RULE_FILES = {
+    "SKILL.md": SKILL,
+    "goals/runner.md": RUNNER,
+    "goals/strength.md": STRENGTH,
+    "goals/mixed.md": MIXED,
+    "assessment.json": ASSESS_RAW,
+}
+
+check("no per-level pace floor is enforced anywhere",
+      not any("max_easy_pace_cap" in s for s in ALL_RULE_FILES.values()))
+check("no walking justification survives in any file",
+      not any("walking, not running" in s or "walking pace, not running" in s
+              for s in ALL_RULE_FILES.values()))
+check("no fixed pace cap language in the beginner caveat",
+      "10:00/km cap" not in RUNNER)
+check("the pace bands are described as a range, not a floor",
+      "not a floor" in RUNNER and "not as a floor" in SKILL)
+
+# A pace floor is any "never/no slower/cap/at most" sitting next to a m:ss pace.
+floor_re = re.compile(r"(?:NEVER|never|no slower|not slower|at most|cap(?:ped)? at|maximum of)[^.\n]{0,40}\d{1,2}:\d{2}")
+_floor_hits = {n: v for n, v in
+               ((n, floor_re.findall(s)) for n, s in ALL_RULE_FILES.items()) if v}
+check("no pace floor is stated in any rule file", not _floor_hits, str(_floor_hits))
+
+check("HR zones are required only where the data allows it",
+      "where the data allows it" in SKILL and "where the data allows it" in RUNNER)
+check("invented HR zones are forbidden",
+      "do not invent" in SKILL and "do not invent zones" in RUNNER)
+check("walk-run is decided by sustainable duration, not by pace",
+      "not from the estimated pace" in RUNNER and "run without stopping" in RUNNER)
+check("the output step defers to the HR-zone escape clause",
+      "where a usable HR basis exists per Rule 5" in SKILL)
+check("the pace column may be omitted when no pace is derivable",
+      "leave the column out" in SKILL)
+
+# An unconditional zone mandate is must/mandatory/always + zone/bpm without an
+# escape clause nearby.
+zone_re = re.compile(r"[^.\n]{0,90}(?:MANDATORY|mandatory|must|Always|always)[^.\n]{0,45}(?:HR zone|heart rate zone|bpm)[^.\n]{0,90}")
+_zone_bad = {}
+for _n, _s in ALL_RULE_FILES.items():
+    for _m in zone_re.findall(_s):
+        if not any(k in _m for k in ("where the data allows", "where a usable",
+                                     "where those exist", "where zones exist")):
+            _zone_bad.setdefault(_n, []).append(_m.strip()[:70])
+check("no unconditional HR-zone mandate in any rule file", not _zone_bad, str(_zone_bad))
+
+
 # --- report -----------------------------------------------------------------
 failed = [(n, d) for n, ok, d in results if not ok]
 for name, ok, detail in results:

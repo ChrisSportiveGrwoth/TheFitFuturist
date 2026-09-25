@@ -76,6 +76,8 @@ rather than a verdict on their capability.
 
 ### 4a. The per-level pace bands are a range, not a floor
 
+**No longer a deviation.** The Claude edition adopted this in v2.5.5 (2026-09-25); both editions now say the same thing. Kept here because it explains where the change came from.
+
 `SKILL.md` Rule 7 and `goals/runner.md` Principle 2b.
 
 Rule 7 capped estimates at a per-level floor and justified it with "anything
@@ -88,6 +90,8 @@ than force the number back inside the band.
 
 ### 4a-2. The pace correction reaches every file that carries it
 
+**No longer a deviation.** The Claude edition adopted this in v2.5.5 (2026-09-25); both editions now say the same thing. Kept here because it explains where the change came from.
+
 The first pass at 4a changed `SKILL.md` and left the same rule standing in two
 other places, so the package contradicted itself. Now removed everywhere:
 `assessment.json` no longer says "NEVER estimate above the max_easy_pace_cap —
@@ -98,6 +102,8 @@ pace and race pace converge, so walk-run intervals set by time make more sense
 than a continuous easy run — without dressing it as a floor.
 
 ### 4d. Heart-rate zones are required only where the data allows it
+
+**No longer a deviation.** The Claude edition adopted this in v2.5.5 (2026-09-25); both editions now say the same thing. Kept here because it explains where the change came from.
 
 `SKILL.md` Rule 5 and `goals/runner.md` Principle 6.
 
@@ -112,6 +118,8 @@ when data arrives. An invented zone is worse than none, because it looks precise
 and steers the whole plan.
 
 ### 4a-3. The last pace floor, and the beginner rule stops keying off pace
+
+**No longer a deviation.** The Claude edition adopted this in v2.5.5 (2026-09-25); both editions now say the same thing. Kept here because it explains where the change came from.
 
 Two more remnants, found only because the checks were too narrow: `assessment.json`
 still told the model "NEVER estimate above 7:30/km for intermediate — that is
@@ -130,6 +138,8 @@ minutes gets walk-run intervals set by time, with the running segments growing
 from what they manage.
 
 ### 4d-2. The zone requirement is scoped everywhere it appears
+
+**No longer a deviation.** The Claude edition adopted this in v2.5.5 (2026-09-25); both editions now say the same thing. Kept here because it explains where the change came from.
 
 The exception added in 2.5.3 covered Rule 5 and Principle 6 but not the output
 step, which still required the five-zone table and a filled pace column. Both are

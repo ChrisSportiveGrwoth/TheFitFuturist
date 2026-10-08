@@ -3,7 +3,7 @@ name: tff-training-plan-basic
 description: "Creates personalized, evidence-based training plans for running, strength, and mixed (concurrent) goals. Runs a structured assessment first, then generates the plan, and adapts it from session feedback. Use when the user asks for a training plan, a workout schedule, a weekly training structure, a running plan for 5k / 10k / half marathon / marathon / ultra, a strength or hypertrophy program, or wants an existing plan reviewed and improved. Also applies to German requests such as Trainingsplan, Trainingsplan erstellen, Laufplan, Halbmarathon, Marathon, Krafttraining, Hypertrophie, or Trainingsplan überprüfen."
 author: TheFitFuturist
 author_url: https://www.thefitfuturist.com
-version: 2.5.5
+version: 2.6.0
 license: CC BY-NC 4.0 — Free to use and adapt for personal use. Not for commercial use without permission.
 ---
 
@@ -80,9 +80,35 @@ The rows split into three kinds, and the difference decides what you are allowed
 
 Never soften any of this into *"I've noted that."* **First mention is enough.**
 
+**Asking before writing.** When the situation could fall into a referral row and you need an answer to tell — the classic case: someone back from a fever, where chest pain, palpitations or disproportionate breathlessness would make it a referral — ask the screening question and **write no sessions in that message, not even conditional ones** ("if the answer is no, here is your return ladder"). A conditional plan is a plan: whoever skims past the question trains from it. Name the stop, ask, and write the ladder once the answer is in. Ask about breathlessness explicitly — including on everyday effort such as stairs — not only about "chest symptoms"; people do not file getting winded on two flights of stairs under chest symptoms.
+
 **On the fever row specifically:** never train through a fever, and never answer "should I train while sick?" with a modified session. The risk is cardiac (myocarditis), not performance, so it does not trade off against the training plan or a race date. The return ladder starts at the earliest date the criteria can be met, is stated as an earliest date rather than a fixed one, is steered by heart rate and feel rather than the plan's usual paces, and carries its own stop signals (fever returns, resting HR stays elevated, chest pain, palpitations, breathlessness → stop and see a doctor). Never make up missed volume afterwards.
 
 Pregnancy and acute injury are handled separately in the VALIDATION RULES section — they gate plan generation rather than stopping training outright.
+
+---
+
+## WEARABLE DATA CHECK — before any wearable number changes the plan
+
+Applies in every mode, whenever a wearable value (HRV, recovery/readiness score, resting HR, sleep score, training status) is about to change a session, a week or a phase. It runs after the SAFETY TRIAGE and before the UPDATE MODE pattern table. A wearable number is a measurement of the device as much as of the person — check the device before you believe the person changed.
+
+**1. Ask, unless already answered** (one message, short):
+- Same device and same firmware over the whole comparison window — including the period the "normal" value comes from? A watch or ring swap, a firmware update or a new app version all count.
+- Worn the same way? Fit (looser strap at night slips), same wrist/finger, complete nights.
+- Same kind of number? A nightly average and a morning spot reading are not comparable, and neither is one brand's HRV with another's. A chest-strap morning reading with the same protocol is the most dependable everyday setup; an overnight optical value from a watch or ring is more exposed to fit and device changes.
+- Does anything else move with it? Resting HR against its usual value, sleep, how the legs feel, how the last sessions went at the same effort.
+
+**2. Decide what the number may do:**
+
+| Situation | What the number may do |
+|---|---|
+| Device, firmware, fit or measurement type changed inside the window — or the user does not know | Nothing. Say the old baseline no longer applies, keep the current plan, steer by resting HR, sleep, feel and session RPE, and rebuild the baseline on the new device over the next 3–4 weeks. |
+| Data clean, but the number moves alone — resting HR, sleep, feel and performance all unremarkable | Nothing beyond a note. Keep the plan, keep watching. One metric alone never triggers a deload. |
+| Data clean, and at least one independent signal agrees — resting HR clearly above usual, sleep worse, heavy legs, same effort feels harder | Swap the next hard session for an easy one. A deload week only if the picture persists for about a week. |
+
+**3. Never invent a cause.** If you do not know why a value dropped, say so. "Probably accumulated load" is a guess; present it as one or leave it out.
+
+Why this check, and why HRV still matters: HRV is the one readiness measure every athlete can afford, and measured consistently — chest strap, same time each morning, same position, same app — it is reliable enough to steer day-to-day intensity. The literature uses it exactly that way: a rolling 7-day average against the individual's normal range from a 3–4 week baseline, changing the next session's intensity rather than whole weeks. Compared with a predefined plan, HRV guidance performed at least as well in two 2021 meta-analyses, with fewer non-responders — the advantage is not a bigger average gain but fewer athletes who stall or dig a hole. It answers a different question than a lactate step test or spiroergometry: those set the zones, HRV says whether today is a day to use the top of them. What breaks it is inconsistent measurement — consumer watches and rings measured overnight disagree with each other and with ECG to different degrees, so a device swap looks exactly like a change in the athlete.
 
 ---
 
@@ -319,13 +345,13 @@ Triggered when training-log.md exists in Knowledge.
 | Same pain 1× | Log in health-flags.md (Count: 1). Do NOT modify the plan. Acknowledge briefly: *"I've noted this — let me know if it comes up again."* |
 | Same pain 2× | Flag recurring, modify exercise — apply the matching row from the goal file's red-flag table |
 | Same pain 3×+ | Strong warning, recommend professional, remove exercise |
-| 2+ sessions skipped | Reduce volume -20% |
-| "Too easy" 2 weeks | Increase intensity/volume +10% |
-| HRV trending down 5+ days | Trigger deload week |
+| 2+ sessions skipped — **ask why first**, unless the user already said; **always ask how sleep and stress were in those weeks and whether that is over now**, even when the reason is known — write no changed sessions until that is answered | **Time or schedule, cause over, feels rested:** no volume cut. Resume at the last load actually completed — short sleep during the missed weeks is no reason to go below it. **Sleep still short or stress ongoing:** hold the last completed load and make the next hard session an easy one until sleep is back to normal. Either way, not at the progression the missed weeks would have reached, and never make up missed sessions. If it keeps happening, fit the plan to the days that really exist (fewer sessions), not the other way round. **Fatigue, illness, pain:** run the SAFETY TRIAGE, then reduce volume -20%. |
+| "Too easy" 2 weeks — only counts for weeks in which most planned sessions were actually done | Increase intensity/volume +10%. Sessions that feel easy after a break are freshness, not new fitness — not a reason to progress. Skipped sessions are an implementation problem, not a physiological non-response. |
+| HRV, recovery or readiness trending down | Run the WEARABLE DATA CHECK first. Act only as its table allows — never a deload week from the number alone. |
 | Illness — only after the triage fever row has been cleared (no fever, symptom-free ≥24–48 h) | Graded return: restart at easy intensity and rebuild to the previous volume over roughly as many days as the illness lasted. Do not resume at the pre-illness week. |
 | Low energy availability signals — weight falling while volume rises, missed periods, repeated bone stress injury, frequent infections, performance dropping despite correct training | Hold or reduce volume, do not progress. Recommend assessment by a doctor or sports dietitian. Do not write an eating plan — see the goal-file red-flag tables. |
 
-6. Update files, show what changed. End with **✓ Logged.**
+6. Update files, show what changed. **If the update changes any session, output the DISCLAIMER first (Rule 3) — an adjusted plan is plan content.** Describe logged sessions only as the log or the user describes them; do not add details ("that session was shorter than planned") that neither source contains. End with **✓ Logged.**
 
 ---
 

@@ -320,6 +320,42 @@ for _n, _s in ALL_RULE_FILES.items():
             _zone_bad.setdefault(_n, []).append(_m.strip()[:70])
 check("no unconditional HR-zone mandate in any rule file", not _zone_bad, str(_zone_bad))
 
+# --- wearable data check + skipped sessions (v2.6.0) ------------------------
+# Found by a protocol comparison: a device swap read as a five-night HRV drop
+# triggered a deload week in 2 of 2 runs; 2+ skipped sessions for a known
+# scheduling reason triggered -20 % in 2 of 2 runs.
+check("WEARABLE DATA CHECK is its own top-level section",
+      "## WEARABLE DATA CHECK" in SKILL)
+check("data check asks about device swap and firmware",
+      re.search(r"device.{0,60}firmware", SKILL[SKILL.find("## WEARABLE DATA CHECK"):], re.S) is not None)
+check("one wearable metric alone never triggers a deload",
+      "One metric alone never triggers a deload" in SKILL)
+check("no HRV row maps straight to a deload week",
+      re.search(r"\|\s*HRV[^|\n]*\|\s*Trigger deload", SKILL) is None)
+check("UPDATE MODE: skipped sessions ask about sleep and stress",
+      re.search(r"\| 2\+ sessions skipped[^\n]*sleep and stress", SKILL) is not None)
+check("runner.md no longer treats an HRV drop as confirmation",
+      "confirms the deload" not in RUNNER)
+check("runner.md 5b defers to the WEARABLE DATA CHECK",
+      "WEARABLE DATA CHECK" in RUNNER)
+check("skipped sessions: the reason is asked before cutting volume",
+      "ask why first" in SKILL)
+check("skipped sessions: no flat -20 % for a scheduling reason",
+      "Time or schedule, cause over, feels rested:** no volume cut" in SKILL)
+# Found by the sleep-line test: "sleep was short" in the past tense sent 2 of 2 runs below the last completed load
+check("skipped sessions: past short sleep does not cut below the last completed load",
+      "short sleep during the missed weeks is no reason to go below it" in SKILL)
+check("'too easy' only counts for weeks actually trained",
+      "most planned sessions were actually done" in SKILL)
+check("no conditional sessions while a triage question is open",
+      "write no sessions in that message, not even conditional ones" in SKILL)
+check("triage asks about breathlessness on everyday effort",
+      "including on everyday effort such as stairs" in SKILL)
+check("UPDATE MODE: disclaimer before changed sessions",
+      "If the update changes any session, output the DISCLAIMER first" in SKILL)
+check("UPDATE MODE: no invented session details",
+      "do not add details" in SKILL)
+
 
 # --- report -----------------------------------------------------------------
 failed = [(n, d) for n, ok, d in results if not ok]

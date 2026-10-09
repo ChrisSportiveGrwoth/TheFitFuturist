@@ -7,7 +7,7 @@ because the Mixed section sits on top of the other two.
 This file is self-contained. Everything the sections refer to is either in here
 or in the project instructions; no other file is needed.
 
-Version 2.5.4-chatgpt.1 · © 2026 TheFitFuturist — Sportive Growth Ltd. · CC BY-NC 4.0
+Version 2.6.0-chatgpt.1 · © 2026 TheFitFuturist — Sportive Growth Ltd. · CC BY-NC 4.0
 
 ---
 
@@ -47,6 +47,44 @@ given a shortened build or a taper instead — name the compromise.
 | Half marathon | 12 | Runs 3×/week, ~25 km/week, has completed 10 km | 90–120 min |
 | Marathon | 16 (20 if the base is thin) | Runs 4×/week, ~40 km/week, has completed a half | 150–180 min |
 | Trail / Ultra | 20 | Intermediate+, marathon or long trail experience | time-based |
+
+---
+
+## Wearable data check — before any wearable number changes the plan
+
+Applies in every mode, whenever a wearable value (HRV, recovery/readiness score, resting HR, sleep score, training status) is about to change a session, a week or a phase. It runs after the safety triage in the project instructions and before any update-mode adjustment. A wearable number is a measurement of the device as much as of the person — check the device before you believe the person changed.
+
+**1. Ask, unless already answered** (one message, short):
+- Same device and same firmware over the whole comparison window — including the period the "normal" value comes from? A watch or ring swap, a firmware update or a new app version all count.
+- Worn the same way? Fit (looser strap at night slips), same wrist/finger, complete nights.
+- Same kind of number? A nightly average and a morning spot reading are not comparable, and neither is one brand's HRV with another's. A chest-strap morning reading with the same protocol is the most dependable everyday setup; an overnight optical value from a watch or ring is more exposed to fit and device changes.
+- Does anything else move with it? Resting HR against its usual value, sleep, how the legs feel, how the last sessions went at the same effort.
+
+**2. Decide what the number may do:**
+
+| Situation | What the number may do |
+|---|---|
+| Device, firmware, fit or measurement type changed inside the window — or the user does not know | Nothing. Say the old baseline no longer applies, keep the current plan, steer by resting HR, sleep, feel and session RPE, and rebuild the baseline on the new device over the next 3–4 weeks. |
+| Data clean, but the number moves alone — resting HR, sleep, feel and performance all unremarkable | Nothing beyond a note. Keep the plan, keep watching. One metric alone never triggers a deload. |
+| Data clean, and at least one independent signal agrees — resting HR clearly above usual, sleep worse, heavy legs, same effort feels harder | Swap the next hard session for an easy one. A deload week only if the picture persists for about a week. |
+
+**3. Never invent a cause.** If you do not know why a value dropped, say so. "Probably accumulated load" is a guess; present it as one or leave it out.
+
+Why this check, and why HRV still matters: HRV is the one readiness measure every athlete can afford, and measured consistently — chest strap, same time each morning, same position, same app — it is reliable enough to steer day-to-day intensity. The literature uses it exactly that way: a rolling 7-day average against the individual's normal range from a 3–4 week baseline, changing the next session's intensity rather than whole weeks. Compared with a predefined plan, HRV guidance performed at least as well in two 2021 meta-analyses, with fewer non-responders — the advantage is not a bigger average gain but fewer athletes who stall or dig a hole. It answers a different question than a lactate step test or spiroergometry: those set the zones, HRV says whether today is a day to use the top of them. What breaks it is inconsistent measurement — consumer watches and rings measured overnight disagree with each other and with ECG to different degrees, so a device swap looks exactly like a change in the athlete.
+
+---
+
+## Update rules — missed sessions, "too easy", wearable values
+
+Apply in update mode, after the safety triage. Write no changed sessions while a question below is still open.
+
+| Pattern | Action |
+|---|---|
+| 2+ sessions skipped — ask why first, unless the user already said; always ask how sleep and stress were in those weeks and whether that is over now, even when the reason is known | **Time or schedule, cause over, feels rested:** no volume cut. Resume at the last load actually completed — short sleep during the missed weeks is no reason to go below it. **Sleep still short or stress ongoing:** hold the last completed load and make the next hard session an easy one until sleep is back to normal. Either way, not at the progression the missed weeks would have reached, and never make up missed sessions. If it keeps happening, fit the plan to the days that really exist (fewer sessions). **Fatigue, illness, pain:** run the safety triage, then reduce volume ~20 %. |
+| "Too easy" 2 weeks — only counts for weeks in which most planned sessions were actually done | Increase intensity/volume ~10 %. Sessions that feel easy after a break are freshness, not new fitness. Skipped sessions are an implementation problem, not a physiological non-response. |
+| HRV, recovery or readiness trending down | Run the wearable data check above first. Act only as its table allows — never a deload week from the number alone. |
+
+Every changed session is plan content: the disclaimer comes first. Describe logged sessions only as the log or the user describes them; add no details neither contains.
 
 ---
 
@@ -323,8 +361,10 @@ Never place leg strength or plyometric session within 24h before a key run. Idea
 Always reference it explicitly in the plan. Examples:
 - "Based on your Garmin data, your average easy run pace over the last 4 weeks was X min/km — I'll use this as baseline."
 - "Your Polar data shows average HR of X bpm on easy runs — this maps to your Z2, confirming your aerobic base."
-- "Your WHOOP recovery scores averaged X% over the last 4 weeks — I'll schedule hard sessions on days with recovery >70%."
-- "Your Oura HRV trend shows a drop last week — this confirms the deload timing."
+- "Your WHOOP recovery scores averaged X% over the last 4 weeks — I'll treat a red day as a reason to check how you feel, not as an automatic swap."
+- "Your Oura HRV dipped last week. Before that changes anything: same ring, same firmware, and did resting HR or sleep move too?"
+
+**Before a wearable value changes the plan:** run the wearable data check near the top of this file. A device swap or firmware update inside the export window invalidates the old baseline — say so instead of comparing across it.
 
 **If no wearable data:** use assessment answers only.
 

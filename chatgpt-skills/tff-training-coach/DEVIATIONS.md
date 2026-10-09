@@ -1,10 +1,10 @@
 # Deviations from the Claude edition
 
 This file lists every difference between the ChatGPT edition
-(`chatgpt-skills/tff-training-coach`, 2.5.4-chatgpt.1) and the Claude edition
+(`chatgpt-skills/tff-training-coach`, 2.6.0-chatgpt.1) and the Claude edition
 (`claude-skills/tff-trainingsplan-skill`, v2.5.1). Nothing else was changed:
 the assessment, the planning logic, the goal files and the validation rules are
-the v2.5.1 content. Version numbers named further down refer to the release that
+the v2.5.1 content, plus the v2.6.0 changes listed in section E. Version numbers named further down refer to the release that
 introduced a given change and are deliberately historical.
 
 **Testing status:** the v2.4.0 content was evaluated against 41 test personas on Claude. The
@@ -243,3 +243,34 @@ Added to the Claude edition in v2.5.0.
 - **The German rewrite.** The plugin was written in German. This edition stays in
   English like the Claude edition and answers in the user's language via Rule 12,
   which keeps both editions in sync from one source.
+
+## E. Ported from the Claude edition v2.6.0
+
+Taken over unchanged in substance. Background, test design and results are in the
+Claude edition's CHANGELOG under v2.6.0; they came from comparing the Claude skill
+with the prompt protocol of the WMRE2030 review (Front. Physiol. 2026, 17:1883295)
+on three constructed profiles.
+
+| Change | Skill path (`SKILL.md`, `goals/runner.md`) | Project path |
+|---|---|---|
+| Wearable data check before any wearable number changes the plan (device, firmware, fit, measurement type, second signal; one metric never triggers a deload) | new section, identical to the Claude text | new section in `tff-training-reference.md`; the project instructions point to it |
+| Missed sessions: ask why, always ask about sleep and stress and whether that is over; scheduling and rested again → no cut, resume at the last completed load | UPDATE MODE row | "Update rules" table in the reference; one pointer sentence in the project instructions |
+| "Too easy" only counts for weeks mostly trained | UPDATE MODE row | same table |
+| HRV row no longer triggers a deload week directly | UPDATE MODE row | same table |
+| No conditional plan while a triage question is open; breathlessness question names stairs | SAFETY TRIAGE paragraph | one sentence in the fever row of the project instructions |
+| Disclaimer before any changed session; no invented session details | UPDATE MODE step 6 | reference table note; "disclaimer first" in the project instructions |
+| Principle 5b example "this confirms the deload timing" replaced | `goals/runner.md` | `tff-training-reference.md` |
+
+**Why the project path differs in form.** The project instructions field holds
+8,000 characters and was at 7,954 before the port. The detailed rules therefore
+live in the reference file, and the instructions carry pointers plus the
+safety-relevant sentence (no conditional plan while a triage question is open).
+To make room, existing sentences were shortened without dropping a rule: the
+role line, the nutrition scope sentence, a duplicated "first mention" note, the
+analysis-mode sentence and the mixed-loading note.
+
+**Testing status.** The Claude edition was tested before and after on Claude
+(Sonnet), two runs per profile. This edition has not been run on ChatGPT; the
+project path in particular depends on the model retrieving the reference file's
+update rules, which the Claude tests do not cover.
+

@@ -274,8 +274,11 @@ Never place leg strength or plyometric session within 24h before a key run. Idea
 Always reference it explicitly in the plan. Examples:
 - "Based on your Garmin data, your average easy run pace over the last 4 weeks was X min/km — I'll use this as baseline."
 - "Your Polar data shows average HR of X bpm on easy runs — this maps to your Z2, confirming your aerobic base."
-- "Your WHOOP recovery scores averaged X% over the last 4 weeks — I'll schedule hard sessions on days with recovery >70%."
-- "Your Oura HRV trend shows a drop last week — this confirms the deload timing."
+- "Your WHOOP recovery scores averaged X% over the last 4 weeks — I'll treat a red day as a reason to check how you feel, not as an automatic swap."
+- "Your Oura HRV dipped last week. Before that changes anything: same ring, same firmware, and did resting HR or sleep move too?"
+
+**Before a wearable value changes the plan:** run the WEARABLE DATA CHECK in SKILL.md. A device swap or firmware update inside the export window invalidates the old baseline — say so instead of comparing across it.
+
 
 **If no wearable data:** use assessment answers only.
 

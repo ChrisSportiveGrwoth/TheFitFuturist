@@ -330,6 +330,27 @@ check("project reference carries the runway table",
       "Planning defaults" in REF)
 
 
+# --- 2.6.0: ported from Claude v2.6.0 (protocol comparison, see DEVIATIONS.md E) ---
+RUNNER_TXT = (HERE / "goals/runner.md").read_text(encoding="utf-8")
+check("SKILL.md carries the wearable data check with the device question",
+      "## WEARABLE DATA CHECK" in SKILL and "Same device and same firmware" in SKILL)
+check("no HRV row maps straight to a deload week (SKILL.md)",
+      re.search(r"\|\s*HRV[^|\n]*\|\s*Trigger deload", SKILL) is None)
+check("no file treats an HRV drop as confirmation of a deload",
+      "this confirms the deload timing" not in RUNNER_TXT and "this confirms the deload timing" not in REF)
+check("skipped sessions: ask why, ask sleep and stress, no cut below the last completed load",
+      all("short sleep during the missed weeks is no reason to go below it" in t and "sleep and stress" in t for t in (SKILL, REF)))
+check("'too easy' only counts for weeks actually trained",
+      all("most planned sessions were actually done" in t for t in (SKILL, REF)))
+check("no conditional plan while a triage question is open",
+      "not even conditional ones" in SKILL and "not even conditional ones" in PROJ)
+check("the breathlessness question names stairs",
+      "stairs" in SKILL and "stairs" in PROJ)
+check("project path carries the data check and update rules in the reference",
+      "## Wearable data check" in REF and "## Update rules" in REF and "update rules" in PROJ)
+check("changed sessions get the disclaimer first",
+      "output the DISCLAIMER first" in SKILL and "disclaimer first" in PROJ)
+
 # --- 2.5.3: no pace floor and no unconditional zone mandate, in ANY file -----
 ALL_RULE_FILES = {
     "SKILL.md": SKILL, "goals/runner.md": RUNNER, "goals/strength.md": STRENGTH,

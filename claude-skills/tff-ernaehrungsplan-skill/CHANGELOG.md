@@ -2,6 +2,35 @@
 
 Format: append only. Never delete entries.
 
+## v0.1.4 — 2026-10-28 — Fixes from the blind test on a second model
+
+v0.1.3 was run on a second model (Codex CLI, gpt-6.1-sol) with 10 personas from stages 1 and 2. **9 of 10 were green, no 🛑 criterion was missed**; P8 (ashwagandha claim from a seller) was red (`chatgpt-blindtest/09-bewertung-codex-A/B.md`, `10-zusammenfassung-codex.md`). Fixes, first those that also showed up with Claude:
+
+- Plan step 3: the floor check is written out with numbers — requested kcal vs. floor, requested rate in kg and % per week vs. 1 % — with a German pattern sentence. Until now this was only in the HARD FLOORS text and got lost after the assessment.
+- PAL for 1–3 sessions: the TDEE range uses the full occupation band, the energy target starts in its upper half. `sport.md` and SKILL.md no longer contradict each other.
+- Pregnancy in the RED-S hold row: ending the deficit does not wait; new kcal or macro numbers wait until a test or a doctor rules pregnancy out. The user's own guess after a missed period does not.
+- UPDATE MODE: minimum output for every update, also with a hold (rate from the weekly averages, energy decision, updated Knowledge files, ✓ Notiert).
+- Rule 17: kcal per food = 4/4/9 from its macros, values derived from the amount, never adjusted to hit the sum.
+- Knowledge templates are binding, with German versions. Columns, 1–5 scales, ISO dates and `Count:` stay unchanged, otherwise the RED-S trigger in UPDATE MODE cannot fire.
+
+Only seen with Codex, closed in the text:
+
+- Under 18: German sentence that always names the parents. Referral rows: German refusal sentence "keinen Ernährungsplan, auch keinen sanften".
+- Block 1: no plan promise before Block 2.
+- Plan step 3: Mifflin-St Jeor with every intermediate product. Step 8: example days must differ.
+- ANALYSIS MODE: disease claims are named first (`claims.md` step 0); the A/B question is fixed, with German wording.
+- User-brought studies: numbers from the user's text are restated as "laut deinem Text" (Rule 5 does not apply to them); no recommendation or rejection as the opening; the seller's possible conflict of interest is a mandatory sentence.
+- `check-consistency.py`: 200 checks (25 new).
+
+Re-test of P2, P6, P8, P9, P12, P32 on Codex with these fixes: all six green, P8 now green (`11-bewertung-codex-v014-A/B.md`). Polished before release, from that re-test:
+
+- Hold row: "no deficit" is said without a number and points upward ("eat more than during the weight-loss phase, guided by hunger"). "At least as much as before" would have kept the deficit.
+- UPDATE MODE: hold signals in the log are asked about (cycle, pregnancy test) before any number. `current-plan.md` is output as a complete replacement file and keeps the old PAL unless work or training changed.
+- `sport.md`: energy target = upper half of the TDEE range minus H1, as one range. Sessions longer than 60 min count toward the +0.3 (Codex had dropped it for 4 × 75 min).
+- Under 18: shorter German sentence, still naming the parents. German no-plan disclaimer reads "Sie ist keine …".
+- `supplements.md`: the ISSN sponsorship note covers creatine, caffeine and protein powder, with a German sentence. `claims.md` step 0: no invitation to look for a study on the disease part.
+- UPDATE MODE with a hold: "stop there" in step 3 contradicted the minimum output in step 8, and Codex output no Knowledge files (P32, `12-bewertung-codex-endstand.md`). Now: the first message asks without numbers; the next gives the disclaimer, the rate from the user's own log, the no-deficit sentence and a complete `current-plan.md` whose energy line says "no deficit — new number pending medical clarification", so the old deficit target does not stay in Knowledge.
+
 ## v0.1.3 — 2026-10-27 — Fixes from validation stage 2
 
 Stage 2 tested 24 more personas on v0.1.2: goal × age, goal × sport, endurance special cases, diet forms, gates, referrals, claims, mixed language, race in 2 days, UPDATE MODE and an injection via a training-plan file. **All 24 were green and none failed** (`07-bewertung-s2-A/B/C.md`). Fixes for the findings that came from the skill text:

@@ -1,4 +1,4 @@
-# TFF Nutrition Plan Skill (Basic) — v0.1.3
+# TFF Nutrition Plan Skill (Basic) — v0.1.4
 
 > **Status: in validation, not released.** There is no download yet. The ZIP is published only after the validation in the TheFitFuturist editorial repo passes.
 

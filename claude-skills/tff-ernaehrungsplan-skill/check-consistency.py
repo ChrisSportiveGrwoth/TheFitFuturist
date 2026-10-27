@@ -242,9 +242,36 @@ check("muscle-gain.md: no safety claim attached to Q3", "not harmful" not in GAI
 
 check("RED-S hold row mentions possible pregnancy", "can also mean pregnancy" in SKILL)
 check("RED-S hold overrides the one-step rule in UPDATE MODE", "overrides the one-step rule" in SKILL)
-check("PAL range stays inside one DGE band", "inside one DGE band" in SKILL)
+check("PAL range is exactly one DGE band", "exactly one DGE band" in SKILL)
 check("endurance.md checks fat share per day type", "Check fat per day type" in ENDU)
 check("claims.md: every condition kept", "keep **every** condition" in CLAIMS)
+
+# v0.1.4 — findings from the Codex blind test
+check("Plan step 3 writes out the floor check", "Floor check, written out" in SKILL)
+check("Mifflin intermediate products are shown", "every intermediate product" in SKILL)
+check("sport.md: 1-3 sessions use the full band, start in upper half", "full occupation band" in SPORT and "upper half" in SPORT)
+check("Pregnancy: own guess after missed period does not rule it out", "the user's own guess after a missed period does not" in SKILL)
+check("UPDATE MODE has a minimum output", "Minimum output of every update" in SKILL)
+check("Knowledge templates are binding (scales kept)", "the 1–5 scales" in SKILL and "Hunger 1–5 | Energie 1–5" in SKILL)
+check("Rule 17: kcal per food from 4/4/9", "kcal per food = 4/4/9" in SKILL)
+check("Example days must differ", "never repeat a day under a new name" in SKILL)
+check("Under 18: German sentence names the parents", "Bitte sprich mit deinen Eltern" in SKILL)
+check("Hold: no deficit without a number, not 'as much as before'", "Iss mehr als in der Abnehmphase" in SKILL and "at least as much as before" not in SKILL)
+check("UPDATE: hold signals asked first, without a number", "asks about them and contains no number" in SKILL)
+check("UPDATE: current-plan.md replaced as a complete file", "as a complete file that replaces the old one" in SKILL)
+check("UPDATE: hold still ends with the minimum output", "the update still ends with the minimum output of step 8" in SKILL and "stop there" not in SKILL)
+check("UPDATE: pending energy line in current-plan.md", "neue Zahl erst nach ärztlicher Abklärung" in SKILL)
+check("DE no-plan disclaimer variant: 'Sie ist keine'", "Sie ist keine ärztliche Beratung" in SKILL)
+check("sport.md: target = upper half of TDEE minus H1", "(upper half of the TDEE range) − (H1 range)" in SPORT)
+check("sport.md: sessions > 60 min count toward +0.3", "Sessions longer than 60 min count toward" in SPORT)
+check("supplements.md: ISSN note covers protein powder", "protein powder [Q1]" in SUPPS)
+check("Referral: German refusal says 'keinen Ernährungsplan'", "keinen Ernährungsplan, auch keinen sanften" in SKILL)
+check("Block 1: no plan promise before Block 2", "Do not promise a plan before Block 2" in SKILL)
+check("ANALYSIS: A/B question fixed in German", "Soll ich (A) diesen Plan anpassen oder (B)" in SKILL)
+check("claims.md: disease reference is step 0", "0. **Disease reference first.**" in CLAIMS)
+check("User study numbers restated 'laut deinem Text'", "laut deinem Text" in SKILL and "laut deinem Text" in SUPPS and "laut deinem Text" in CLAIMS)
+check("Seller conflict of interest is mandatory", "**Mandatory sentence**" in SUPPS)
+check("No verdict as opening sentence", "Do not open with a recommendation or a rejection" in SUPPS)
 
 # --- report ---------------------------------------------------------------------
 failed = [r for r in results if not r[1]]

@@ -34,6 +34,8 @@ Always loaded. It decides where inside the goal file's ranges a user lands, and 
 | Physically demanding work | 2.0–2.4 |
 | Sport 4–5×/week for 30–60 min | add 0.3 |
 
-Choose the occupation band from the work itself; a commute on foot or by bike does not move an office job into a higher band. When the description fits two bands, take the lower one (conservative default) and let calibration correct it. The DGE table gives the +0.3 only for sport 4–5×/week. For 1–3 sessions per week, **do not interpolate a value** (no "+0.2"): pick the upper end of the occupation band, say so, and let the weekly weight check calibrate.
+Choose the occupation band from the work itself; a commute on foot or by bike does not move an office job into a higher band. When the description fits two bands, take the lower one (conservative default) and let calibration correct it. The DGE table gives the +0.3 only for sport 4–5×/week. For 1–3 sessions per week, **do not interpolate a value** (no "+0.2"): the TDEE range uses the full occupation band (e.g. 1.4–1.5), and the sessions are the reason to use the upper half of that TDEE range as the reference. The goal adjustment is subtracted from that reference: energy target = (upper half of the TDEE range) − (H1 range), shown as one range. Say exactly that — never announce "the upper end" and then calculate with the whole band, or the reverse — and let the weekly weight check calibrate.
+
+Sessions longer than 60 min count toward the 4–5×/week: 4–5 sessions of 75 min get at least the +0.3, never less than 4–5 sessions of 45 min would.
 
 Name the band chosen. If the user trains much more than 4–5 × 30–60 min, say that the PAL table does not cover it well and that the weekly weight check will calibrate the estimate.

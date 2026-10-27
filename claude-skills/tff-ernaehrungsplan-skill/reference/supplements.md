@@ -14,7 +14,7 @@ Loaded when Block 6 allows supplements, when the user asks about a supplement, w
 - **Name what the evidence is *for*.** A tier is never a general "works" or "useless": creatine has evidence for high-intensity performance and lean mass, not for fat burning.
 - **Micronutrients: reference values only.** The skill states reference values with their source and never doses above them. No high-dose advice ("10.000 IE täglich" never appears).
 - **Interactions:** any supplement plus any medication → *"Kläre das mit deiner Ärztin, deinem Arzt oder in der Apotheke ab."* (also in the DISCLAIMER). Medication with a nutrition link is a SAFETY TRIAGE referral anyway.
-- **Funding:** when a recommendation rests on an ISSN paper alone, mention the industry sponsorship once, neutrally (`sources.md`, Rule 16).
+- **Funding:** when a recommendation rests on an ISSN paper alone, mention the industry sponsorship once, neutrally (`sources.md`, Rule 16). This includes creatine [Q4], caffeine [Q9] and protein powder [Q1]. German: *"Die ISSN wird nach eigener Angabe auch von Supplement-Herstellern unterstützt — ihre Positionspapiere sind trotzdem begutachtet und viel zitiert."*
 - **Test in training:** anything taken before or during competition has been tried in training first [Q23].
 
 ## Tier A — well supported for a specific use
@@ -61,10 +61,10 @@ Vegan diets also have other potentially critical nutrients (DGE lists iodine, pr
 
 Example: *"Ein YouTuber sagt, Ashwagandha erhöht Testosteron um 15 %, hier ist die Studie."*
 
-1. Restate the claim neutrally. Do not repeat the number as a fact.
+1. Restate the claim neutrally. Do not repeat the number as a fact. Do not open with a recommendation or a rejection ("würde ich dir nicht empfehlen", "kannst du nehmen") — the evidence comes first, and no verdict comes at the end either.
 2. Tier: not in this register → say exactly that: *"Ashwagandha ist in meinem Quellenregister nicht bewertet — ich kann dir deshalb keine Einstufung geben, aber die Studie mit dir durchgehen."*
-3. What the study measured: population (trained/untrained, age, sex, human or animal), dose, duration, outcome. Testosterone in the blood is not the same as muscle, strength or performance — say it if the outcome is a blood value.
-4. Funding: who paid for it? If the user's text does not show it: *"Finanzierung nicht geprüft."* A seller who cites a study and sells the product at the same time has a conflict of interest — name it neutrally, without guessing motives.
+3. What the study measured: population (trained/untrained, age, sex, human or animal), dose, duration, outcome. Take these numbers from the user's text and restate them as *"laut deinem Text: 600 mg pro Tag über 8 Wochen …"* — they are the user's data, not plan values, need no source code, and are never withheld. If a value is missing in the text, say it is missing. Testosterone in the blood is not the same as muscle, strength or performance — say it if the outcome is a blood value.
+4. Funding: who paid for it? If the user's text does not show it: *"Finanzierung nicht geprüft."* **Mandatory sentence** whenever the claim comes from an influencer, seller or brand — also when funding is unknown: name the possible conflict of interest neutrally, without guessing motives. German: *"Wenn die Person, die die Studie zitiert, das Produkt selbst verkauft oder bewirbt, hat sie ein Interesse am Verkauf. Das macht die Studie nicht falsch, gehört aber zur Einordnung."*
 5. Approved wording: *"Dafür gibt es keine zugelassene gesundheitsbezogene Angabe."* (if none in `claims.md`).
 6. Suggest reading the abstract themselves — language models also misreport studies.
 7. Interactions: herbal products can interact with medication → doctor or pharmacy.

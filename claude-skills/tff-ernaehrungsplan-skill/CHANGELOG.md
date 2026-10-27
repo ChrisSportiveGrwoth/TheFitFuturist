@@ -2,6 +2,18 @@
 
 Format: append only. Never delete entries.
 
+## v0.1.2 — 2026-10-27 — Fixes from the re-run on v0.1.1
+
+The re-run of P6, P8, P10 and P11 on v0.1.1 left all four personas green with no ❌ (`03-bewertung-run2.md`). Fixes for the skill-text findings:
+
+- Rule 3: a HARD STOP is the one exception to "calculate nothing aloud". It shows the disclaimer first, then only the numbers it needs.
+- Rule 17: the 5 % limit applies to all four values (kcal, protein, carbohydrate, fat), not only to kcal.
+- `sport.md`: walking or cycling to work does not move an office job into a higher PAL band. When the description fits two bands, the lower one applies.
+- `fat-loss.md`: when the deficit sits only on easy days, H1 applies to the weekly average.
+- `muscle-gain.md`: no safety statement attached to [Q3].
+- `current-plan.md` template: new Phases field for plans that change over time.
+- Block 1: the skill asks for a date or event if the user did not name one.
+
 ## v0.1.1 — 2026-10-27 — Fixes from validation stage 1
 
 Stage 1 (12 personas, simulated by Sonnet, graded by a separate model against criteria written beforehand): 11 of 12 green, with no ❌ on triage, floors or health claims. P6 was red because a personalised weight-loss rate appeared before the disclaimer. Fixes for the findings that came from the skill text:

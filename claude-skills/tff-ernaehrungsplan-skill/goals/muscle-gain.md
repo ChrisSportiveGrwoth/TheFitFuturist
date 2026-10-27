@@ -26,7 +26,7 @@ Principles, not templates. Training is the driver of muscle gain; nutrition make
 | With resistance training, to optimise muscle anabolism | 1.6–2.2 g/kg/day | [Q5] Statement 7 |
 | Context: added gains in fat-free mass were no longer detectable above ~1.6 g/kg/day (wide confidence interval) | orientation 1.6 | [Q3] |
 
-**Default:** 1.6–2.0 g/kg/day for strength-trained users (overlap of [Q1] and [Q5]), with the [Q3] context in one sentence: more than ~1.6 g/kg is not harmful for healthy people but showed no clear extra benefit in the meta-analysis. Age shifts per `modifiers/age.md`.
+**Default:** 1.6–2.0 g/kg/day for strength-trained users (overlap of [Q1] and [Q5]), with the [Q3] context in one sentence: in the meta-analysis, added gains in fat-free mass were no longer clearly detectable above ~1.6 g/kg. Do not attach a safety statement to [Q3] — the meta-analysis did not assess safety. Age shifts per `modifiers/age.md`.
 
 **Distribution:** ~0.25 g/kg or 20–40 g high-quality protein per meal, every 3–4 h [Q1]; older users more per meal (`modifiers/age.md`).
 

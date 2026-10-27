@@ -237,6 +237,9 @@ check("sport.md forbids interpolating a PAL addition", "do not interpolate" in S
 check("N rules for food values exist and SKILL.md points to them", "## N —" in SOURCES and "N rules" in SKILL)
 check("Tier C never used as a verdict on a single ingredient", "never** used as a verdict on a single ingredient" in SUPPS)
 
+check("Rule 17: 5 % applies to all four values", "each of the four values" in SKILL)
+check("muscle-gain.md: no safety claim attached to Q3", "not harmful" not in GAIN)
+
 # --- report ---------------------------------------------------------------------
 failed = [r for r in results if not r[1]]
 for name, ok, detail in results:

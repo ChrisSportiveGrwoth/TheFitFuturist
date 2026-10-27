@@ -54,6 +54,7 @@ Resistance training and sufficient protein are *"indispensable mitigators of lea
 ## Principle 6: Combined with endurance
 
 Load `endurance.md` as well.
+- H1 then refers to the **weekly average**: the deficit sits on easy and rest days, so single days may differ from 300–500 kcal while the week averages the H1 range — or less, if the slower 0.5 % rate needs less. Label it like that, not as a daily H1 value.
 - Deficit on easy and rest days only; long and hard sessions are fuelled in full (`endurance.md` tables).
 - Rate at the lower end (0.5 %/week). Faster loss is more likely to cost performance [Q8].
 - No deficit in the final 2 weeks before a key race or in the highest-load block; if the user does not know when that block is, keep the final 5 weeks deficit-free (H3); weight loss belongs in the base phase or well away from competition [Q8].

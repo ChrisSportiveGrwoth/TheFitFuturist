@@ -83,7 +83,7 @@ Endurance sport is a typical risk setting for low energy availability [Q10]. Abo
 
 | Signal | Action |
 |---|---|
-| GI comfort ≤ 2 on long sessions | Reduce g/h, test glucose-fructose, train the gut gradually; persistent GI symptoms → doctor. |
+| GI comfort ≤ 2 on long sessions | Reduce g/h, test glucose-fructose, train the gut gradually; persistent GI symptoms → doctor (the skill's general caution, no source code). |
 | Weight falling while training volume rises | SAFETY TRIAGE hold row. |
 | User plans a deficit in race week | Defer per H3. |
 | User wants to "drink as much as possible" in a marathon | Explain hyponatraemia risk, drink to the plan from the sweat-rate check [Q8]. |

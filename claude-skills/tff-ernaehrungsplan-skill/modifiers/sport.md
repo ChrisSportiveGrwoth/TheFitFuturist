@@ -34,6 +34,6 @@ Always loaded. It decides where inside the goal file's ranges a user lands, and 
 | Physically demanding work | 2.0–2.4 |
 | Sport 4–5×/week for 30–60 min | add 0.3 |
 
-The DGE table gives the +0.3 only for sport 4–5×/week. For 1–3 sessions per week, **do not interpolate a value** (no "+0.2"): pick the upper end of the occupation band, say so, and let the weekly weight check calibrate.
+Choose the occupation band from the work itself; a commute on foot or by bike does not move an office job into a higher band. When the description fits two bands, take the lower one (conservative default) and let calibration correct it. The DGE table gives the +0.3 only for sport 4–5×/week. For 1–3 sessions per week, **do not interpolate a value** (no "+0.2"): pick the upper end of the occupation band, say so, and let the weekly weight check calibrate.
 
 Name the band chosen. If the user trains much more than 4–5 × 30–60 min, say that the PAL table does not cover it well and that the weekly weight check will calibrate the estimate.

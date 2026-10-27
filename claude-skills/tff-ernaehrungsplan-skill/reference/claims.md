@@ -16,7 +16,7 @@ Binding for every plan, every answer and ANALYSIS MODE. They exist because healt
 
 ## Permitted health claims relevant to this skill [Q6]
 
-Use these when the effect of the nutrient itself is named. Quote them, keep the condition, do not intensify them.
+Use these when the effect of the nutrient itself is named. Quote them, keep **every** condition listed in the last column (for creatine 55+: 3 g/day, regular progressive resistance training, at least 3×/week over several weeks, 65–75 % 1RM), do not intensify them.
 
 | Nutrient | Permitted wording (EN) | Amtlicher deutscher Wortlaut (VO 432/2012, consolidated 20.08.2025) | Condition of use |
 |---|---|---|---|

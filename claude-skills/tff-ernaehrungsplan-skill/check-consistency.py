@@ -240,6 +240,12 @@ check("Tier C never used as a verdict on a single ingredient", "never** used as 
 check("Rule 17: 5 % applies to all four values", "each of the four values" in SKILL)
 check("muscle-gain.md: no safety claim attached to Q3", "not harmful" not in GAIN)
 
+check("RED-S hold row mentions possible pregnancy", "can also mean pregnancy" in SKILL)
+check("RED-S hold overrides the one-step rule in UPDATE MODE", "overrides the one-step rule" in SKILL)
+check("PAL range stays inside one DGE band", "inside one DGE band" in SKILL)
+check("endurance.md checks fat share per day type", "Check fat per day type" in ENDU)
+check("claims.md: every condition kept", "keep **every** condition" in CLAIMS)
+
 # --- report ---------------------------------------------------------------------
 failed = [r for r in results if not r[1]]
 for name, ok, detail in results:

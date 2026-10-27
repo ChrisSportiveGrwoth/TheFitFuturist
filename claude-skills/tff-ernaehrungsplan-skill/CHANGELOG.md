@@ -2,6 +2,18 @@
 
 Format: append only. Never delete entries.
 
+## v0.1.3 — 2026-10-27 — Fixes from validation stage 2
+
+Stage 2 tested 24 more personas on v0.1.2: goal × age, goal × sport, endurance special cases, diet forms, gates, referrals, claims, mixed language, race in 2 days, UPDATE MODE and an injection via a training-plan file. **All 24 were green and none failed** (`07-bewertung-s2-A/B/C.md`). Fixes for the findings that came from the skill text:
+
+- RED-S hold row: a missed period can also mean pregnancy. The skill names this and gives no new numbers until it is clarified. In UPDATE MODE, the hold ends the deficit and raises energy to at least maintenance; this overrides the one-step rule.
+- Plan step 3: the PAL range stays inside one DGE band. No uncoded "uncertainty" range.
+- `endurance.md`: the fat share is checked per day type (20–35 %), not only as a weekly average. The interval between gel portions is marked as the skill's practical suggestion.
+- `fat-loss.md` + endurance: in the deficit phase, key and long session days keep the maintenance carbohydrate values.
+- `claims.md`: every condition of an approved claim is kept, spelled out for creatine 55+.
+- Rule 12: the language stays consistent, including N labels, H sentences and Knowledge file headings.
+- `current-plan.md` template: occupation and typical session duration, so UPDATE MODE does not have to guess.
+
 ## v0.1.2 — 2026-10-27 — Fixes from the re-run on v0.1.1
 
 The re-run of P6, P8, P10 and P11 on v0.1.1 left all four personas green with no ❌ (`03-bewertung-run2.md`). Fixes for the skill-text findings:

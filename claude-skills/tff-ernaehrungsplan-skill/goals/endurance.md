@@ -24,7 +24,7 @@ If `current-plan.md` from the TheFitFuturist training plan skill is available, t
 
 Build the week by day type (rest / easy / key session / long session). Show each day type's target in the plan and in `current-plan.md`.
 
-**Energy per day type follows from the macros:** protein and fat stay about the same every day; carbohydrate changes by day type per the table above; the day's energy is the sum (4 / 4 / 9 kcal per g, N rules in `reference/sources.md`). Then check that the weekly average lands in the estimated TDEE range [Q18][Q19] (plus the goal adjustment). Do not invent separate kcal values per day.
+**Energy per day type follows from the macros:** protein and fat stay about the same every day; carbohydrate changes by day type per the table above; the day's energy is the sum (4 / 4 / 9 kcal per g, N rules in `reference/sources.md`). Then check that the weekly average lands in the estimated TDEE range [Q18][Q19] (plus the goal adjustment). Do not invent separate kcal values per day. **Check fat per day type, not only as a weekly average:** on every day it stays within 20–35 % of that day's energy [Q8] — on low-carbohydrate rest days, lower the fat grams instead of letting the share rise above 35 %.
 
 ## Principle 2: Around the session [Q8]
 
@@ -35,6 +35,8 @@ Build the week by day type (rest / easy / key session / long session). Show each
 | During 45–75 min, high intensity | small amounts, including mouth rinse |
 | During 1–2.5 h (also stop-and-go sports) | 30–60 g/h |
 | During > 2.5–3 h | up to 90 g/h; glucose-fructose mixtures; **practise in training first** (GI tolerance) |
+
+Splitting the hourly amount into regular portions is practical; the interval (e.g. every 20–30 min) is the skill's practical suggestion, not a sourced value — say so.
 | Fast refuelling, < 8 h until the next hard session | 1–1.2 g/kg/h for the first 4 h |
 | Carbohydrate loading before events > 90 min | 10–12 g/kg per 24 h for 36–48 h |
 | Protein after key sessions | 0.3 g/kg, and spread across the day every 3–5 h |

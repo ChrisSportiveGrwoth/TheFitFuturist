@@ -50,5 +50,17 @@ When you list sources at the end of a plan, copy the reference line exactly. Do 
 |---|---|---|---|
 | H1 | Fat loss: start 300–500 kcal/day below the estimated TDEE; adjust in steps of 100–200 kcal | The ISSN 2026 stand gives the *rate* (0.5–1.0 % body weight/week, Q5) but no kcal deficit for active people; a gradual deficit of 400–500 kcal appears in a trial it cites (Purcell et al.). The rate decides, the kcal value is only the starting point | *"Startwert, kein Literaturwert — entscheidend ist das Tempo von 0,5–1,0 % pro Woche, das wir nach zwei Wochen prüfen."* |
 | H2 | Muscle gain: start 200–300 kcal/day above the estimated TDEE; adjust in steps of 100–200 kcal; lower the surplus if the weekly average rises by more than 0.5 % body weight per week for 2 consecutive weeks | No position stand in this register gives a surplus or a gain rate for recreational lifters; a small surplus keeps fat gain modest while the weekly check corrects it | *"Startwert, kein Literaturwert. Ob er passt, zeigt dein Gewichtsverlauf."* |
-| H3 | No energy deficit in the final 2 weeks before a key race or during the highest-load training block | Q8: weight loss *"should be programmed to occur in the base phase of training or well out from competition to minimize loss of performance"*, and performance may be better preserved below 1 %/week. The 2-week window is this skill's concrete reading of "well out" | *"Vorsichtige Festlegung dieses Skills: In den zwei Wochen vor dem Wettkampf kein Defizit."* |
+| H3 | No energy deficit in the final 2 weeks before a key race or during the highest-load training block; if the highest-load block is unknown, no deficit in the final 5 weeks | Q8: weight loss *"should be programmed to occur in the base phase of training or well out from competition to minimize loss of performance"*, and performance may be better preserved below 1 %/week. The 2-week window is this skill's concrete reading of "well out" | *"Vorsichtige Festlegung dieses Skills: In den zwei Wochen vor dem Wettkampf kein Defizit."* |
 | H4 | Protein for BMI ≥ 30: calculate the g/kg range from the body weight that corresponds to BMI 25 at the user's height | The g/kg ranges come mostly from studies in non-obese, trained people [Q5]; applying them to total body weight at high BMI would give amounts no study in this register tested | *"Bei deinem Gewicht rechne ich das Protein vom Gewicht bei BMI 25 aus — eine vorsichtige Festlegung dieses Skills, kein Literaturwert."* |
+
+## N — food composition, conversion and cost (labelled, not coded per value)
+
+Example days need kcal and macros per food, and a budget check needs prices. These values do not come from the position stands, so they carry no Q-code. They are allowed under these rules:
+
+| Value | Rule | Label (once below each example-day block) |
+|---|---|---|
+| Nutrients per food | approximate values from common food composition tables or the package label; round to whole grams and 5–10 kcal | *"Nährwerte: Näherungswerte aus üblichen Nährwerttabellen — die Angabe auf der Packung geht vor."* |
+| kcal from macros | 4 kcal per g protein, 4 per g carbohydrate, 9 per g fat (conventional conversion factors) | part of the same label |
+| BMI | weight in kg divided by height in m squared; classification [Q17] | cite [Q17] where the category matters |
+| Cost per day | rough estimate from typical German supermarket prices, never a price promise | *"Kosten: grobe Schätzung, Preise schwanken."* |
+

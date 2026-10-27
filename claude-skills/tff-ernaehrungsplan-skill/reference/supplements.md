@@ -52,7 +52,7 @@ Vegan diets also have other potentially critical nutrients (DGE lists iodine, pr
 | Product type | Why |
 |---|---|
 | Fat burners, "metabolism boosters" | No source in this register supports them, and no approved health claim exists for fat burning. |
-| Testosterone boosters, herbal "anabolic" products | No source in this register supports them; hormone effects belong with a doctor. |
+| Products marketed as "testosterone boosters" or herbal "anabolics" | No source in this register supports the marketing promise; hormone effects belong with a doctor. This row is about the marketing category — it is **never** used as a verdict on a single ingredient the user asks about. A named ingredient that is not in this file (e.g. ashwagandha) is "not rated", and the user-claim procedure applies. |
 | Detox, cleanse, "Entschlackung" | Not a concept with an evidence base in this register; banned wording (`claims.md`). |
 | BCAA / EAA when the protein target is met | Protein from food or protein powder already contains these amino acids; the skill sees no reason to add them. State this as the skill's view, not as a literature finding. |
 | Anything the user brings that is not in this file | Not "useless" by default — follow the user-claim procedure below. |

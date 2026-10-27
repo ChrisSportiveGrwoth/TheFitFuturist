@@ -24,6 +24,8 @@ If `current-plan.md` from the TheFitFuturist training plan skill is available, t
 
 Build the week by day type (rest / easy / key session / long session). Show each day type's target in the plan and in `current-plan.md`.
 
+**Energy per day type follows from the macros:** protein and fat stay about the same every day; carbohydrate changes by day type per the table above; the day's energy is the sum (4 / 4 / 9 kcal per g, N rules in `reference/sources.md`). Then check that the weekly average lands in the estimated TDEE range [Q18][Q19] (plus the goal adjustment). Do not invent separate kcal values per day.
+
 ## Principle 2: Around the session [Q8]
 
 | Situation | Guidance |
@@ -64,7 +66,7 @@ No source in this register gives a sodium concentration for sports drinks beyond
 
 - Load `fat-loss.md` as well.
 - Slow, not fast: in the studies that found performance losses, slower loss (0.7 %/week) was better than faster loss (1.4 %/week) [Q8].
-- Weight loss belongs in the base phase or well away from competition [Q8]; no deficit in the final 2 weeks before a key race or in the highest-load block (H3).
+- Weight loss belongs in the base phase or well away from competition [Q8]; no deficit in the final 2 weeks before a key race or in the highest-load block (H3). If the user's training plan does not show when the highest-load block is, keep the **final 5 weeks** before the race deficit-free (H3 default) — do not hand the decision back to the user.
 - Deficit on rest and easy days; key and long sessions are fuelled per Principle 2.
 
 ## Principle 7: Energy availability and RED-S

@@ -1,27 +1,27 @@
 {
   "description": "Reference data for the TFF Nutrition Plan Skill. The question sequence is defined in SKILL.md. This file holds only options, formulas, tables and worked examples. Every number carries a _source code from reference/sources.md.",
-
   "goal_options": [
     "Fat loss while keeping muscle",
     "Muscle gain / fitness",
     "Endurance performance and fuelling",
     "Combination (e.g. fat loss + endurance, muscle gain + endurance)"
   ],
-
-  "diet_form_options": ["Omnivore", "Vegetarian", "Vegan", "Other (describe)"],
-
+  "diet_form_options": [
+    "Omnivore",
+    "Vegetarian",
+    "Vegan",
+    "Other (describe)"
+  ],
   "supplement_openness_options": [
     "Open to supplements if the evidence supports them",
     "Food only",
     "Undecided"
   ],
-
   "sex_for_formula_options": [
     "Male formula",
     "Female formula",
     "Average of both (intersex, trans, or prefer not to say) — state it as an estimate"
   ],
-
   "resting_energy_mifflin_st_jeor": {
     "_source": "Q18",
     "male": "10 × weight_kg + 6.25 × height_cm − 5 × age + 5",
@@ -29,7 +29,6 @@
     "average": "10 × weight_kg + 6.25 × height_cm − 5 × age − 78",
     "note": "Mifflin-St Jeor was the equation most often within 10 % of measured resting metabolic rate in healthy non-obese and obese adults (Frankenfield 2005). Show the formula with the user's numbers. The result is also the lower hard floor for the daily energy target."
   },
-
   "pal_dge": {
     "_source": "Q19",
     "bands": [
@@ -41,8 +40,14 @@
         "description": "Sitting work with some walking or standing",
         "pal": "1.6–1.7"
       },
-      { "description": "Mostly standing or walking work", "pal": "1.8–1.9" },
-      { "description": "Physically demanding work", "pal": "2.0–2.4" }
+      {
+        "description": "Mostly standing or walking work",
+        "pal": "1.8–1.9"
+      },
+      {
+        "description": "Physically demanding work",
+        "pal": "2.0–2.4"
+      }
     ],
     "sport_addition": {
       "description": "Sport 4–5×/week for 30–60 min",
@@ -50,19 +55,29 @@
     },
     "note": "Name the band chosen and why. For training volumes well above 4–5 × 30–60 min, say the table covers it poorly and let the weekly weight check calibrate."
   },
-
   "hard_floors": {
-    "energy_not_below_resting_energy": { "_source": "Q18" },
-    "energy_absolute_minimum_kcal": { "value": 1200, "_source": "Q5" },
+    "energy_not_below_resting_energy": {
+      "_source": "Q18"
+    },
+    "energy_absolute_minimum_kcal": {
+      "value": 1200,
+      "_source": "Q5"
+    },
     "max_weight_loss_percent_per_week": {
       "value": 1.0,
       "target_range": "0.5–1.0",
       "_source": "Q5, Q8"
     },
-    "max_fasting_hours": { "value": 24, "_source": "Q5" },
-    "no_deficit_days_before_key_race": { "value": 14, "_source": "H3" }
+    "max_fasting_hours": {
+      "value": 24,
+      "_source": "Q5"
+    },
+    "no_deficit_days_before_key_race": {
+      "value": 14,
+      "_source": "H3",
+      "deficit_free_weeks_if_peak_block_unknown": 5
+    }
   },
-
   "energy_adjustment_heuristics": {
     "fat_loss_start_deficit_kcal": {
       "value": "300–500",
@@ -79,29 +94,46 @@
       "consecutive_weeks": 2,
       "_source": "H2"
     },
-    "muscle_gain_raise_surplus_if_flat_weeks": { "value": 3, "_source": "H2" },
+    "muscle_gain_raise_surplus_if_flat_weeks": {
+      "value": 3,
+      "_source": "H2"
+    },
     "fat_loss_slower_than_percent_per_week": {
       "value": 0.5,
       "consecutive_weeks": 2,
       "_source": "Q5, H1"
     }
   },
-
   "protein_g_per_kg": {
-    "fat_loss_no_strength_training": { "range": "1.2–1.6", "_source": "Q5" },
-    "fat_loss_with_strength_training": { "range": "1.6–2.2", "_source": "Q5" },
+    "fat_loss_no_strength_training": {
+      "range": "1.2–1.6",
+      "_source": "Q5"
+    },
+    "fat_loss_with_strength_training": {
+      "range": "1.6–2.2",
+      "_source": "Q5"
+    },
     "fat_loss_lean_trained_sustained_deficit": {
       "range": "1.9–3.2",
       "_source": "Q5",
       "note": "lean, resistance-trained only; start in the lower half"
     },
-    "muscle_gain_training": { "range": "1.4–2.0", "_source": "Q1" },
+    "muscle_gain_training": {
+      "range": "1.4–2.0",
+      "_source": "Q1"
+    },
     "muscle_gain_with_strength_training": {
       "range": "1.6–2.2",
       "_source": "Q5"
     },
-    "muscle_gain_default": { "range": "1.6–2.0", "_source": "Q1, Q5" },
-    "endurance_athletes": { "range": "1.2–2.0", "_source": "Q8" },
+    "muscle_gain_default": {
+      "range": "1.6–2.0",
+      "_source": "Q1, Q5"
+    },
+    "endurance_athletes": {
+      "range": "1.2–2.0",
+      "_source": "Q8"
+    },
     "age_65_plus_minimum": {
       "range": "1.0–1.2",
       "active_minimum": 1.2,
@@ -112,7 +144,6 @@
       "_source": "H4"
     }
   },
-
   "protein_per_meal": {
     "general": {
       "value": "~0.25 g/kg or 20–40 g",
@@ -123,12 +154,20 @@
       "value": "toward ~40 g; ~0.4 g/kg",
       "_source": "Q1, Q16"
     },
-    "fat_loss_min_protein_meals": { "value": 3, "_source": "Q5" },
-    "after_key_endurance_session": { "value": "0.3 g/kg", "_source": "Q8" }
+    "fat_loss_min_protein_meals": {
+      "value": 3,
+      "_source": "Q5"
+    },
+    "after_key_endurance_session": {
+      "value": "0.3 g/kg",
+      "_source": "Q8"
+    }
   },
-
-  "fat_percent_of_energy": { "range": "20–35", "minimum": 20, "_source": "Q8" },
-
+  "fat_percent_of_energy": {
+    "range": "20–35",
+    "minimum": 20,
+    "_source": "Q8"
+  },
   "carbohydrate_g_per_kg_per_day": {
     "_source": "Q8",
     "light": "3–5",
@@ -136,7 +175,6 @@
     "high_1_to_3h": "6–10",
     "very_high_over_4_to_5h": "8–12"
   },
-
   "carbohydrate_around_sessions": {
     "_source": "Q8",
     "before_sessions_over_60min": "1–4 g/kg, 1–4 h before",
@@ -147,7 +185,6 @@
     "fast_refuelling_under_8h": "1–1.2 g/kg/h for 4 h",
     "carb_loading_events_over_90min": "10–12 g/kg per 24 h for 36–48 h"
   },
-
   "fluid": {
     "_source": "Q8",
     "before": "5–10 ml/kg in the 2–4 h before",
@@ -156,13 +193,17 @@
     "after": "1.25–1.5 L per kg lost, with sodium",
     "hyponatraemia_below_mmol_per_l": 135
   },
-
   "bmi": {
     "formula": "weight_kg / (height_m × height_m)",
-    "underweight_below": { "value": 18.5, "_source": "Q17" },
-    "protein_reference_from": { "value": 30, "_source": "H4" }
+    "underweight_below": {
+      "value": 18.5,
+      "_source": "Q17"
+    },
+    "protein_reference_from": {
+      "value": 30,
+      "_source": "H4"
+    }
   },
-
   "examples": [
     {
       "case": "Man, 35, 75 kg, 178 cm, sitting work with some walking (PAL 1.6–1.7 [Q19])",

@@ -38,7 +38,7 @@ The German wording was read from the official consolidated text (EUR-Lex CELEX 0
 |---|---|---|
 | "Kreatin baut Muskeln auf." | "Das ISSN-Positionspapier (2017) bewertet Kreatin-Monohydrat als das am besten belegte Supplement für hochintensive Leistung und fettfreie Masse bei Training [Q4]." | source attribution |
 | "Kreatin soll beim Abnehmen helfen." | do not say it at all | no approved claim, no evidence |
-| "Protein lässt deine Muskeln wachsen." | "Protein trägt zum Wachstum von Muskelmasse bei [Q6]. In Studien hing der Effekt stark vom Krafttraining ab [Q3]." | approved wording + study context |
+| "Protein lässt deine Muskeln wachsen." | "Proteine tragen zu einer Zunahme an Muskelmasse bei [Q6]. In Studien hing der Effekt stark vom Krafttraining ab [Q3]." | approved wording (verbatim) + study context |
 | "Mehr Protein schützt im Alter vor Muskelschwund." | "Für Menschen ab 65 empfehlen Fachgesellschaften (PROT-AGE, ESPEN) mindestens 1,0–1,2 g Protein pro kg — zusammen mit Krafttraining, um Muskelmasse und Kraft zu erhalten [Q2]." | no disease term, attributed |
 | "Koffein steigert deine Ausdauer." | "Im ISSN-Positionspapier (2021) verbesserten 3–6 mg/kg die Ausdauerleistung in vielen, aber nicht allen Studien — die Reaktion ist individuell [Q9]." | source + limitation |
 | "So verlierst du 5 kg in 4 Wochen." | "Ein realistisches Tempo liegt bei 0,5–1,0 % deines Körpergewichts pro Woche [Q5]; wie schnell es bei dir geht, zeigt der Verlauf." | no result promise |
@@ -56,7 +56,7 @@ Words and patterns that never appear as a claim about a food, nutrient, suppleme
 - "soll helfen", "soll wirken" — the soft version of an unapproved claim
 - disease names linked to a food or supplement (Diabetes, Krebs, Demenz, Arthrose, Sarkopenie, Osteoporose, Bluthochdruck …)
 - brand or product names
-- "X kg in Y Wochen" as a promise (HCVO Art. 12 b)
+- "X kg in Y Wochen" — as a promise and as a calculated estimate of the time to a goal weight (HCVO Art. 12 b)
 
 ## When the user brings a claim (ANALYSIS MODE, supplement questions)
 

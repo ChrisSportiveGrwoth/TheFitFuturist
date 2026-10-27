@@ -18,7 +18,7 @@ Principles, not templates. The goal is *high-quality* weight loss: losing fat wh
 - Check the start against the floors: never below the user's estimated resting energy expenditure (Mifflin-St Jeor [Q18]) and never below 1,200 kcal [Q5]. If TDEE minus 300 already hits a floor, the deficit is the distance to the floor — and the rate will be slower. Say so instead of breaking the floor.
 - Very low energy diets (< 800 kcal) and low energy diets (800–1,200 kcal) give faster short-term loss but no long-term advantage over moderate restriction, may increase lean mass loss and are unsuitable for lean people [Q5]. They are not offered.
 
-**Show the user the rate in kg** for their weight: 80 kg × 0.5–1.0 % = 0.4–0.8 kg/week. Never as a promise (claims rules), always as "realistic range".
+**Show the user the rate in kg** for their weight: 80 kg × 0.5–1.0 % = 0.4–0.8 kg/week. Never as a promise (claims rules), always as "realistic range". **Never convert it into a time to reach the goal** (no "X kg in Y Wochen", HCVO Art. 12 b [Q7]) — name a checkpoint date instead.
 
 ## Principle 2: Protein — the main lever for keeping muscle
 
@@ -32,14 +32,14 @@ Principles, not templates. The goal is *high-quality* weight loss: losing fat wh
 
 **Which body weight:** the ranges are per kg of body weight in the cited studies, which mostly involve non-obese trained people [Q5]. For BMI ≥ 30, calculate protein from the weight that corresponds to BMI 25 at the user's height (H4) and say that this is the skill's choice.
 
-**Distribution:** at least **3 protein-rich meals** per day for active people in a deficit [Q5] Statement 4; per meal ~0.25 g/kg or 20–40 g high-quality protein, every 3–4 h [Q1]. Total daily protein matters most; distribution is secondary [Q5] Statement 5.
+**Distribution:** total daily protein comes first; the per-meal values are orientation and never override the user's meal rhythm from Block 5 — add a snack only if the user agrees. At least **3 protein-rich meals** per day for active people in a deficit [Q5] Statement 4; per meal ~0.25 g/kg or 20–40 g high-quality protein, every 3–4 h [Q1]. Total daily protein matters most; distribution is secondary [Q5] Statement 5.
 
 ## Principle 3: Carbohydrate and fat — by preference
 
 - With protein and energy equal, low-carbohydrate and low-fat diets give similar fat loss [Q5] Statement 8 → split the remaining energy by the user's preference and training.
 - Ketogenic diets may give a modest early advantage that fades and may be accompanied by greater lean mass loss [Q5] §5.4 → an option if the user insists, never the recommendation. Not for endurance athletes in hard training (see `endurance.md`).
 - **Fat floor:** do not plan chronic fat intakes below 20 % of energy [Q8]; typical 20–35 % [Q8].
-- Training days may carry more carbohydrate than rest days if the user trains hard; this is optional for strength-only users.
+- Training days may carry more carbohydrate than rest days if the user trains hard; for strength-only users this is optional — the skill's own choice, no source code.
 
 ## Principle 4: Strength training is part of the plan's logic
 
@@ -56,7 +56,7 @@ Resistance training and sufficient protein are *"indispensable mitigators of lea
 Load `endurance.md` as well.
 - Deficit on easy and rest days only; long and hard sessions are fuelled in full (`endurance.md` tables).
 - Rate at the lower end (0.5 %/week). Faster loss is more likely to cost performance [Q8].
-- No deficit in the final 2 weeks before a key race or in the highest-load block (H3); weight loss belongs in the base phase or well away from competition [Q8].
+- No deficit in the final 2 weeks before a key race or in the highest-load block; if the user does not know when that block is, keep the final 5 weeks deficit-free (H3); weight loss belongs in the base phase or well away from competition [Q8].
 
 ## Principle 7: Calibration
 

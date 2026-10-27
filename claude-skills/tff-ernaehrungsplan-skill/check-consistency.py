@@ -226,6 +226,17 @@ check("iron is never suggested without a lab value", "Never on suspicion" in SUP
 check("vitamin D upper limit 100 µg cited with Q13", re.search(r"100 µg/day.*Q13", SUPPS) is not None)
 check("Rule 16 funding wording present", "funding not checked" in SKILL and "Finanzierung nicht geprüft" in SUPPS)
 
+# --- rules added after validation stage 1 (v0.1.1) ------------------------------
+check("claims.md: German protein claim only in official wording", "Protein trägt" not in CLAIMS)
+check("energy floor is the higher value, never the sum", "higher of the two values" in SKILL)
+check("no time-to-goal estimates (SKILL.md + fat-loss.md)", "No time-to-goal" in SKILL and "Never convert it into a time" in FAT)
+check("Rule 3 covers numbers calculated during the assessment", "calculate nothing aloud" in SKILL)
+check("H3 default of 5 weeks consistent", all("5 weeks" in t for t in (SOURCES, ENDU, FAT))
+      and assess.get("hard_floors", {}).get("no_deficit_days_before_key_race", {}).get("deficit_free_weeks_if_peak_block_unknown") == 5)
+check("sport.md forbids interpolating a PAL addition", "do not interpolate" in SPORT)
+check("N rules for food values exist and SKILL.md points to them", "## N —" in SOURCES and "N rules" in SKILL)
+check("Tier C never used as a verdict on a single ingredient", "never** used as a verdict on a single ingredient" in SUPPS)
+
 # --- report ---------------------------------------------------------------------
 failed = [r for r in results if not r[1]]
 for name, ok, detail in results:

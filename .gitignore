@@ -1,9 +1,11 @@
 # Eval infrastructure — not for public release
 *.py
-# ...except the release consistency checks, which belong in the repo
+# ...except the release checks and build scripts, which belong in the repo
 !claude-skills/tff-trainingsplan-skill/check-consistency.py
 !claude-skills/tff-ernaehrungsplan-skill/check-consistency.py
 !chatgpt-skills/tff-training-coach/check-consistency.py
+!chatgpt-skills/tff-nutrition-coach/check-consistency.py
+!chatgpt-skills/tff-nutrition-coach/build-reference.py
 eval-log.md
 eval-rubric*.md
 eval-summary.md

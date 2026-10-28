@@ -1,0 +1,66 @@
+---
+author: TheFitFuturist | https://www.thefitfuturist.com
+license: CC BY-NC 4.0
+---
+
+# Source Register
+
+Every number in a plan carries one of these codes. **Q-codes** are published sources that were read in the original (full text or official abstract, as noted). **H-codes** are declared heuristics: starting values this skill chose because no primary source gives a number for that decision. They are always output as a starting value that the weekly check corrects — never as a literature value.
+
+When you list sources at the end of a plan, copy the reference line exactly. Do not add sources that are not in this register, and do not cite a code for something the source does not say.
+
+## Funding and conflicts of interest — say it when it matters
+
+- **ISSN** (International Society of Sports Nutrition, Q1, Q4, Q5, Q9): an academic non-profit that, by its own disclosure in Q5, is *"sponsored by companies that manufacture, market, and sell dietary supplements"*; several authors disclose industry consulting. Its position stands are peer-reviewed and widely cited, and they are used here for that reason. When a supplement recommendation rests on an ISSN paper alone, mention the sponsorship in one neutral sentence (Rule 16). Do not use it to dismiss the paper.
+- **Academy of Nutrition and Dietetics / Dietitians of Canada / ACSM** (Q8), **ESPEN / PROT-AGE** (Q2), **IOC** (Q10), **DGE** (Q11, Q12, Q14, Q19), **EFSA** (Q13), EU law (Q6, Q7): professional societies, public bodies or legislation.
+
+## Q — published sources
+
+| Code | Reference | Read |
+|---|---|---|
+| Q1 | Jäger R, Kerksick CM, Campbell BI et al. International Society of Sports Nutrition Position Stand: protein and exercise. *J Int Soc Sports Nutr* 2017;14:20. https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/ | full text |
+| Q2 | Bauer J, Biolo G, Cederholm T et al. Evidence-based recommendations for optimal dietary protein intake in older people: a position paper from the PROT-AGE Study Group. *J Am Med Dir Assoc* 2013;14:542–559 · Deutz NE et al. Protein intake and exercise for optimal muscle function with aging: recommendations from the ESPEN Expert Group. *Clin Nutr* 2014;33:929–936. https://pmc.ncbi.nlm.nih.gov/articles/PMC4208946/ | full text (ESPEN), values cross-checked |
+| Q3 | Morton RW, Murphy KT, McKellar SR et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. *Br J Sports Med* 2018;52:376–384. https://pubmed.ncbi.nlm.nih.gov/28698222/ | abstract |
+| Q4 | Kreider RB, Kalman DS, Antonio J et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. *J Int Soc Sports Nutr* 2017;14:18. https://pmc.ncbi.nlm.nih.gov/articles/PMC5469049/ | full text |
+| Q5 | Aragon AA, Campbell BI et al. International Society of Sports Nutrition position stand: diets for body weight reduction. *J Int Soc Sports Nutr* 2026. https://pmc.ncbi.nlm.nih.gov/articles/PMC13665703/ | full text |
+| Q6 | Commission Regulation (EU) No 432/2012 establishing a list of permitted health claims made on foods, Annex; amended by Commission Implementing Regulations (EU) 2017/672 (creatine, adults over 55) and 2021/686 (carbohydrate solutions). German wording from the consolidated text of 20.08.2025: https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02012R0432-20250820 | legal text (DE consolidated) |
+| Q7 | Regulation (EC) No 1924/2006 on nutrition and health claims made on foods · Regulation (EU) No 1169/2011 on food information to consumers, Art. 7(3). | legal text |
+| Q8 | Thomas DT, Erdman KA, Burke LM. Position of the Academy of Nutrition and Dietetics, Dietitians of Canada, and the American College of Sports Medicine: Nutrition and Athletic Performance. *J Acad Nutr Diet* 2016;116:501–528. https://pubmed.ncbi.nlm.nih.gov/26917108/ | full text (PDF) |
+| Q9 | Guest NS, VanDusseldorp TA, Nelson MT et al. International Society of Sports Nutrition position stand: caffeine and exercise performance. *J Int Soc Sports Nutr* 2021;18:1. https://doi.org/10.1186/s12970-020-00383-4 — 3–6 mg/kg; minimum possibly ~2 mg/kg; 9 mg/kg high incidence of side effects; usually 60 min before; individual response, sleep and anxiety. | full text (position points) |
+| Q10 | Mountjoy M, Ackerman KE, Bailey DM et al. 2023 International Olympic Committee's (IOC) consensus statement on Relative Energy Deficiency in Sport (REDs). *Br J Sports Med* 2023;57:1073–1097. https://pubmed.ncbi.nlm.nih.gov/37752011/ — the 30 kcal/kg FFM threshold was *"intended as a guide, rather than a diagnostic end-point"*; no single universal threshold; males possibly lower (~9–25). Warning signs: missed periods (3+ cycles) or cycles > 35 days, bone stress injuries, low libido / fewer morning erections in men, sleep disturbance, mood changes, iron decline, suspected eating disorder. | full text (publisher PDF via mirror) |
+| Q11 | Klug A, Barbaresko J, Alexy U et al. Neubewertung der DGE-Position zu veganer Ernährung. *Ernährungs Umschau* 2024;71(7):60–84 — *"Personen, die sich vegan ernähren, müssen Vitamin B12 supplementieren"*, and have their B12 status checked regularly; no clear recommendation for or against vegan diets in pregnancy, breastfeeding, children, adolescents and older adults · DGE Referenzwert Vitamin B12: Schätzwert 4.0 µg/day for adults (revised 2019). https://www.dge.de/wissenschaft/referenzwerte/vitamin-b12/ | full text |
+| Q12 | Deutsche Gesellschaft für Ernährung. Referenzwert Vitamin D (Stand Ableitung 2012) — 20 µg/day (800 IU) **only when the skin makes no vitamin D of its own**; target 25(OH)D serum level of at least 50 nmol/l; frequent sun exposure can be enough without a supplement. https://www.dge.de/wissenschaft/referenzwerte/vitamin-d/ | full text (web page) |
+| Q13 | EFSA Panel on Nutrition, Novel Foods and Food Allergens. Scientific opinion on the tolerable upper intake level for vitamin D. *EFSA Journal* 2023;21:e08145. https://efsa.europa.eu/en/efsajournal/pub/8145 | full text: UL adults 100 µg/day |
+| Q14 | DGE/ÖGE Referenzwerte Eisen (derived 2023, published 2024) — recommended intake men 11 mg/day; women before menopause 16 mg/day (11 mg if not menstruating); after menopause and from 65, 14 mg/day. https://www.dge.de/wissenschaft/referenzwerte/eisen/ | full text |
+| Q15 | Sim M, Garvican-Lewis LA, Cox GR et al. Iron considerations for the athlete: a narrative review. *Eur J Appl Physiol* 2019;119:1463–1478. https://doi.org/10.1007/s00421-019-04157-y | abstract |
+| Q16 | Moore DR, Churchward-Venne TA, Witard O et al. Protein ingestion to stimulate myofibrillar protein synthesis requires greater relative protein intakes in healthy older versus younger men. *J Gerontol A Biol Sci Med Sci* 2015;70:57–62. https://pubmed.ncbi.nlm.nih.gov/25056502/ | abstract |
+| Q17 | World Health Organization. A healthy lifestyle — WHO recommendations (BMI classification: underweight below 18.5 kg/m²). https://www.who.int/europe/news-room/fact-sheets/item/a-healthy-lifestyle---who-recommendations | web page |
+| Q18 | Frankenfield D, Roth-Yousey L, Compher C. Comparison of predictive equations for resting metabolic rate in healthy nonobese and obese adults: a systematic review. *J Am Diet Assoc* 2005;105:775–789. https://pubmed.ncbi.nlm.nih.gov/15883556/ — Mifflin-St Jeor was the equation most often within 10 % of measured resting metabolic rate. | abstract |
+| Q19 | Deutsche Gesellschaft für Ernährung. FAQ Energie (Richtwerte, PAL-Werte). https://www.dge.de/fileadmin/dok/gesunde-ernaehrung/faq/DGE-FAQ-Energie-2015.pdf | full text |
+| Q20 | Isobe et al. *Nutrients* 2026;18(6):966 — 15 hospital meals with weighed reference values, 10 dietitians vs. 10 AI models estimating from photos: energy and carbohydrate often within ±10 % (r > 0.8), protein and fat clearly worse, fat overestimated by all models by more than 20 %. https://pubmed.ncbi.nlm.nih.gov/41901141/ | abstract |
+| Q21 | Sterling et al. 2026, bioRxiv preprint (not peer-reviewed) — 10 approaches incl. GPT-5 Mini, Claude Haiku 4.5, Gemini 3.0 Flash on 3,229 single overhead photos (Nutrition5k); best: Gemini 3.0 Flash, mean absolute error 80.7 kcal; complex multi-item meals remained hard. https://pmc.ncbi.nlm.nih.gov/articles/PMC13483877/ | abstract |
+| Q22 | American College of Sports Medicine; Sawka MN, Burke LM, Eichner ER et al. Exercise and fluid replacement. *Med Sci Sports Exerc* 2007;39:377–390. https://pubmed.ncbi.nlm.nih.gov/17277604/ — goal: prevent > 2 % body weight loss from water deficit; customised fluid plans; estimate sweat rate by weighing before and after exercise. | abstract only — no numbers from the full text are used |
+| Q23 | Maughan RJ, Burke LM, Dvorak J et al. IOC consensus statement: dietary supplements and the high-performance athlete. *Br J Sports Med* 2018;52:439–455. https://pmc.ncbi.nlm.nih.gov/articles/PMC5867441/ | full text (Tables 3–6) |
+| Q24 | Trexler ET, Smith-Ryan AE, Stout JR et al. International society of sports nutrition position stand: Beta-Alanine. *J Int Soc Sports Nutr* 2015;12:30. https://doi.org/10.1186/s12970-015-0090-y | full text |
+| Q25 | Lynch S, Pfeiffer CM, Georgieff MK et al. Biomarkers of Nutrition for Development (BOND) — Iron Review. *J Nutr* 2018;148(Suppl 1):1001S–1067S. https://pmc.ncbi.nlm.nih.gov/articles/PMC6297556/ — ascorbic acid is the most effective enhancer of non-haem iron absorption. | full text |
+
+## H — declared heuristics (no primary source gives this number)
+
+| Code | Heuristic | Why this value | How to present it |
+|---|---|---|---|
+| H1 | Fat loss: start 300–500 kcal/day below the estimated TDEE; adjust in steps of 100–200 kcal | The ISSN 2026 stand gives the *rate* (0.5–1.0 % body weight/week, Q5) but no kcal deficit for active people; a gradual deficit of 400–500 kcal appears in a trial it cites (Purcell et al.). The rate decides, the kcal value is only the starting point | *"Startwert, kein Literaturwert — entscheidend ist das Tempo von 0,5–1,0 % pro Woche, das wir nach zwei Wochen prüfen."* |
+| H2 | Muscle gain: start 200–300 kcal/day above the estimated TDEE; adjust in steps of 100–200 kcal; lower the surplus if the weekly average rises by more than 0.5 % body weight per week for 2 consecutive weeks | No position stand in this register gives a surplus or a gain rate for recreational lifters; a small surplus keeps fat gain modest while the weekly check corrects it | *"Startwert, kein Literaturwert. Ob er passt, zeigt dein Gewichtsverlauf."* |
+| H3 | No energy deficit in the final 2 weeks before a key race or during the highest-load training block; if the highest-load block is unknown, no deficit in the final 5 weeks | Q8: weight loss *"should be programmed to occur in the base phase of training or well out from competition to minimize loss of performance"*, and performance may be better preserved below 1 %/week. The 2-week window is this skill's concrete reading of "well out" | *"Vorsichtige Festlegung dieses Skills: In den zwei Wochen vor dem Wettkampf kein Defizit."* |
+| H4 | Protein for BMI ≥ 30: calculate the g/kg range from the body weight that corresponds to BMI 25 at the user's height | The g/kg ranges come mostly from studies in non-obese, trained people [Q5]; applying them to total body weight at high BMI would give amounts no study in this register tested | *"Bei deinem Gewicht rechne ich das Protein vom Gewicht bei BMI 25 aus — eine vorsichtige Festlegung dieses Skills, kein Literaturwert."* |
+
+## N — food composition, conversion and cost (labelled, not coded per value)
+
+Example days need kcal and macros per food, and a budget check needs prices. These values do not come from the position stands, so they carry no Q-code. They are allowed under these rules:
+
+| Value | Rule | Label (once below each example-day block) |
+|---|---|---|
+| Nutrients per food | approximate values from common food composition tables or the package label; round to whole grams and 5–10 kcal | *"Nährwerte: Näherungswerte aus üblichen Nährwerttabellen — die Angabe auf der Packung geht vor."* |
+| kcal from macros | 4 kcal per g protein, 4 per g carbohydrate, 9 per g fat (conventional conversion factors) | part of the same label |
+| BMI | weight in kg divided by height in m squared; classification [Q17] | cite [Q17] where the category matters |
+| Cost per day | rough estimate from typical German supermarket prices, never a price promise | *"Kosten: grobe Schätzung, Preise schwanken."* |
+

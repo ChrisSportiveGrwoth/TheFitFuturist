@@ -4,6 +4,7 @@
 !claude-skills/tff-trainingsplan-skill/check-consistency.py
 !claude-skills/tff-ernaehrungsplan-skill/check-consistency.py
 !chatgpt-skills/tff-training-coach/check-consistency.py
+!chatgpt-skills/tff-training-coach/project-setup/build-reference.py
 !chatgpt-skills/tff-nutrition-coach/check-consistency.py
 !chatgpt-skills/tff-nutrition-coach/build-reference.py
 eval-log.md

@@ -2,7 +2,20 @@
 
 > **Status: in validation, not released.** There is no download yet. The ZIP is published only after the validation in the TheFitFuturist editorial repo passes.
 
-A Claude skill for evidence-based nutrition plans for **healthy adults who train**. Claude runs a structured assessment with a safety triage first, then builds energy, protein and carbohydrate targets as sourced ranges with example days, and adapts the plan from weekly feedback.
+A skill for evidence-based nutrition plans for **healthy adults who train**. It runs as a Claude skill, and in ChatGPT, Gemini or any other assistant that takes knowledge files plus instructions. The assistant runs a structured assessment with a safety triage first, then builds energy, protein and carbohydrate targets as sourced ranges with example days, and adapts the plan from weekly feedback.
+
+## How to use it
+
+**Claude:** in Claude, go to **Settings → Customize → Skills** and upload the ZIP. Start a new chat and describe your goal; Claude recognizes the skill automatically.
+
+**ChatGPT, Gemini and other assistants:** create a project (ChatGPT), a Gem (Gemini) or the equivalent, then:
+1. Upload these 10 files as knowledge files: `SKILL.md`, `assessment.json`, `goals/*.md` (3), `modifiers/*.md` (2), `reference/*.md` (3). Leave out `README.md`, `CHANGELOG.md`, `check-consistency.py` and `project-instructions.txt`.
+2. Paste the text of `project-instructions.txt` into the instructions field (under 1,000 characters).
+3. Start every plan in a new chat in that project or Gem.
+
+In ChatGPT Business/Enterprise you can also upload the ZIP as a skill.
+
+Tested on Claude and on a GPT model through Codex CLI, with AI agents playing the user. Not yet tested in the ChatGPT or Gemini apps.
 
 ## What it does
 
@@ -37,6 +50,7 @@ A Claude skill for evidence-based nutrition plans for **healthy adults who train
 | `reference/claims.md` | Approved EU health claims (EN + official German wording), pattern table, banned wording |
 | `reference/supplements.md` | Tiers, reference values, procedure for user-supplied claims |
 | `assessment.json` | Options, Mifflin-St Jeor formula, PAL table, all ranges with `_source`, worked examples |
+| `project-instructions.txt` | Instructions text for ChatGPT projects, Gemini Gems and other assistants with knowledge files |
 | `check-consistency.py` | Release check: every number has a source, the ranges match across files, safety comes before the modes, the disclaimer is complete |
 
 ## Consistency check

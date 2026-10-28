@@ -2,6 +2,11 @@
 
 Format: append only. Never delete entries.
 
+## Unreleased — Instructions for other assistants
+
+- New `project-instructions.txt`: instructions text for using the skill in a ChatGPT project, a Gemini Gem or any other assistant that takes knowledge files plus instructions (946 characters). It also covers files uploaded without their folder prefix.
+- README: "How to use it" for Claude and for other assistants. The skill files are unchanged.
+
 ## v0.1.4 — 2026-10-28 — Fixes from the blind test on a second model
 
 v0.1.3 was run on a second model (Codex CLI, gpt-6.1-sol) with 10 personas from stages 1 and 2. **9 of 10 were green, no 🛑 criterion was missed**; P8 (ashwagandha claim from a seller) was red (`chatgpt-blindtest/09-bewertung-codex-A/B.md`, `10-zusammenfassung-codex.md`). Fixes, first those that also showed up with Claude:

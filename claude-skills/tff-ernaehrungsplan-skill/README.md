@@ -1,16 +1,16 @@
 # TFF Nutrition Plan Skill (Basic) — v0.1.4
 
-> **Status: in validation, not released.** There is no download yet. The ZIP is published only after the validation in the TheFitFuturist editorial repo passes.
+**Download:** [tff-nutrition-skill.zip](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/download/nutrition-v0.1.4/tff-nutrition-skill.zip) (v0.1.4, released 2026-10-28)
 
 A skill for evidence-based nutrition plans for **healthy adults who train**. It runs as a Claude skill; for ChatGPT, Gemini and other assistants there is a [separate edition](../../chatgpt-skills/tff-nutrition-coach/). The assistant runs a structured assessment with a safety triage first, then builds energy, protein and carbohydrate targets as sourced ranges with example days, and adapts the plan from weekly feedback.
 
 ## How to use it
 
-**Claude:** in Claude, go to **Settings → Customize → Skills** and upload the ZIP. Start a new chat and describe your goal; Claude recognizes the skill automatically.
+**Claude:** download [tff-nutrition-skill.zip](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/download/nutrition-v0.1.4/tff-nutrition-skill.zip), then in Claude go to **Settings → Customize → Skills** and upload the ZIP. Start a new chat and describe your goal; Claude recognizes the skill automatically.
 
 **ChatGPT, Gemini and other assistants:** use the [ChatGPT edition](../../chatgpt-skills/tff-nutrition-coach/). It has project instructions plus a single reference file built from this skill. Do not upload these files directly to a ChatGPT project. In a test on 2026-10-28, ChatGPT searched them instead of reading them in full and skipped the safety questions.
 
-Tested on Claude and on a GPT model through Codex CLI, with AI agents playing the user. The ChatGPT edition is not yet tested in the ChatGPT or Gemini apps.
+Tested on Claude with 36 personas and on a GPT model through Codex CLI, with AI agents playing the user. The ChatGPT edition was tested in the ChatGPT app with two personas. Gemini is not tested.
 
 ## What it does
 

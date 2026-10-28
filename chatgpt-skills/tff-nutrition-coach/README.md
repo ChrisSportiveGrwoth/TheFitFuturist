@@ -4,7 +4,7 @@ Evidence-based nutrition plans for **healthy adults who train**: fat loss while 
 
 Version: **0.1.4-chatgpt.2**. It is built from the [TFF Nutrition Plan Skill v0.1.4](../../claude-skills/tff-ernaehrungsplan-skill/) for Claude and uses the same rules, sources and numbers.
 
-> **Status: in validation, not released.**
+**Download:** [tff-nutrition-coach.zip](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/download/nutrition-v0.1.4/tff-nutrition-coach.zip) (0.1.4-chatgpt.2, released 2026-10-28). It contains the two files for the project route and this README.
 
 ## Why a separate edition
 

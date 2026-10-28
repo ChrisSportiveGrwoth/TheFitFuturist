@@ -1,4 +1,4 @@
-# TheFitFuturist — AI Training Skills
+# TheFitFuturist — AI Training and Nutrition Skills
 
 Open-source skills for AI training assistants, built and tested by
 [TheFitFuturist](https://www.thefitfuturist.com).
@@ -40,6 +40,22 @@ instead. And the edition carries a small set of deliberate changes against the
 Claude version, all listed in
 [DEVIATIONS.md](./chatgpt-skills/tff-training-coach/DEVIATIONS.md), which have not
 yet been re-run against the 41-persona suite.
+
+### [TFF Nutrition Plan Skill — for Claude](./claude-skills/tff-ernaehrungsplan-skill/)
+Evidence-based nutrition plans for healthy adults who train: fat loss while
+keeping muscle, muscle gain, endurance fuelling. A safety triage comes first:
+eating disorders, under-18s, pregnancy, medication and similar cases are referred
+on, not planned. Hard floors for energy and rate of loss hold even when the user
+insists, and every number carries a source.
+Tested against 36 personas.
+→ [Download tff-nutrition-skill.zip](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/download/nutrition-v0.1.4/tff-nutrition-skill.zip)
+
+### [TFF Nutrition Coach — for ChatGPT, Gemini and others](./chatgpt-skills/tff-nutrition-coach/)
+The same rules for assistants that search their project files instead of
+reading them in full. Project instructions carry the safety rules, and one
+reference file carries the rest. Works on every ChatGPT plan, Free included.
+Tested in the ChatGPT app with two personas.
+→ [Download tff-nutrition-coach.zip](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/download/nutrition-v0.1.4/tff-nutrition-coach.zip)
 
 → [Read the full development story on Substack](https://thefitfuturist.substack.com)
 

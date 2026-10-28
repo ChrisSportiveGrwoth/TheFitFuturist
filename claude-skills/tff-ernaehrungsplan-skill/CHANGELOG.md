@@ -2,11 +2,14 @@
 
 Format: append only. Never delete entries.
 
-## Unreleased — ChatGPT edition
+## v0.1.4 release — 2026-10-28 — First download, ChatGPT edition
+
+First public release: `tff-nutrition-skill.zip` (Claude) and `tff-nutrition-coach.zip` (ChatGPT, 0.1.4-chatgpt.2) under the tag `nutrition-v0.1.4`. The skill files are the same as in v0.1.4.
 
 - New ChatGPT edition in `chatgpt-skills/tff-nutrition-coach/`: project instructions (6,595 characters) with the safety triage, assessment, hard floors and German disclaimer, plus one reference file built from this skill by `build-reference.py`. A test in the ChatGPT app with the plain skill files skipped the safety questions in one of two chats, used web search and supermarket names, and forecast a weight.
 - `project-instructions.txt` (added earlier on this branch line) is removed; the ChatGPT edition replaces it.
 - README: "How to use it" points ChatGPT, Gemini and other assistants to the ChatGPT edition. The skill files are unchanged.
+- Test in the ChatGPT app with chatgpt.1: P12 (vegan, 6 €/day) and P6 (1,000 kcal before a wedding) green. All safety rules held, including the floor under repeated pressure. Remaining finding: example-day values fitted to the target. chatgpt.2 adds a sentence on it and one on the disclaimer in every reply with a number; these two are not tested separately.
 
 ## v0.1.4 — 2026-10-28 — Fixes from the blind test on a second model
 

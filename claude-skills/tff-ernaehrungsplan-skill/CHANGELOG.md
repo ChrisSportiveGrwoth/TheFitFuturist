@@ -2,10 +2,11 @@
 
 Format: append only. Never delete entries.
 
-## Unreleased — Instructions for other assistants
+## Unreleased — ChatGPT edition
 
-- New `project-instructions.txt`: instructions text for using the skill in a ChatGPT project, a Gemini Gem or any other assistant that takes knowledge files plus instructions (946 characters). It also covers files uploaded without their folder prefix.
-- README: "How to use it" for Claude and for other assistants. The skill files are unchanged.
+- New ChatGPT edition in `chatgpt-skills/tff-nutrition-coach/`: project instructions (6,595 characters) with the safety triage, assessment, hard floors and German disclaimer, plus one reference file built from this skill by `build-reference.py`. A test in the ChatGPT app with the plain skill files skipped the safety questions in one of two chats, used web search and supermarket names, and forecast a weight.
+- `project-instructions.txt` (added earlier on this branch line) is removed; the ChatGPT edition replaces it.
+- README: "How to use it" points ChatGPT, Gemini and other assistants to the ChatGPT edition. The skill files are unchanged.
 
 ## v0.1.4 — 2026-10-28 — Fixes from the blind test on a second model
 

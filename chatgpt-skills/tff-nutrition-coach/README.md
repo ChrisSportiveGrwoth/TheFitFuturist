@@ -2,9 +2,9 @@
 
 Evidence-based nutrition plans for **healthy adults who train**: fat loss while keeping muscle, muscle gain, and endurance fuelling. The assistant runs a safety triage and a short assessment first, then builds energy, protein and carbohydrate targets as sourced ranges with example days, and adapts the plan from weekly feedback.
 
-Version: **0.1.4-chatgpt.2**. It is built from the [TFF Nutrition Plan Skill v0.1.4](../../claude-skills/tff-ernaehrungsplan-skill/) for Claude and uses the same rules, sources and numbers.
+Version: **0.1.4-chatgpt.3**. It is built from the [TFF Nutrition Plan Skill v0.1.4](../../claude-skills/tff-ernaehrungsplan-skill/) for Claude and uses the same rules, sources and numbers.
 
-**Download:** [tff-nutrition-coach.zip](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/download/nutrition-v0.1.4/tff-nutrition-coach.zip) (0.1.4-chatgpt.2, released 2026-10-28). It contains the two files for the project route and this README.
+**Download:** [tff-nutrition-coach.zip](https://github.com/ChrisSportiveGrwoth/TheFitFuturist/releases/download/nutrition-v0.1.4/tff-nutrition-coach.zip) (0.1.4-chatgpt.3, released 2026-10-29). It contains the two files for the project route and this README.
 
 ## Why a separate edition
 
@@ -37,9 +37,11 @@ The route uses one file, so it fits the Free plan's limit of five files per proj
 
 chatgpt.2 adds two sentences for these remaining findings: nutrient values derived from amounts, and the disclaimer in every reply with a calculated number. They are not tested separately in the app.
 
+chatgpt.3 fixes a reply that broke off. In two app runs on 2026-10-29, ChatGPT stopped right before the plan after "Used container tool" and only went on when asked to continue. The plan and the three tracking files came in one long reply, and ChatGPT tried to create the files with its code tool. Now the instructions rule out the code tool, and the plan comes in two replies: first the plan, then, after a yes, the three files as code blocks.
+
 ## Keeping the plan alive
 
-After a plan, the assistant outputs three tracking files:
+After the plan, the assistant offers three tracking files and writes them as code blocks in the next reply:
 
 | File | What it holds |
 |---|---|

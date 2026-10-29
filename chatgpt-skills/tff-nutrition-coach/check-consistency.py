@@ -78,6 +78,11 @@ check("values derived from amounts, never fitted to the target",
 check("disclaimer in every reply with a calculated number",
       "Every reply that contains a number calculated for this user carries the disclaimer" in INSTR)
 
+# 6b. Plan output does not break off (app test, 2026-10-29: the reply stopped
+# after "Used container tool" when plan and files came in one reply)
+check("no code or container tool", "No code, Python or container tool" in INSTR)
+check("plan split into two replies", "split into two replies" in INSTR and "Reply 2" in INSTR)
+
 # 7. Output order and tracking files
 for token in ["nutrition-log.md", "health-flags.md", "current-plan.md", "✓ Notiert"]:
     check(f"output names {token}", token in INSTR)

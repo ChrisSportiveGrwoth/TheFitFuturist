@@ -37,7 +37,7 @@ The route uses one file, so it fits the Free plan's limit of five files per proj
 
 chatgpt.2 adds two sentences for these remaining findings: nutrient values derived from amounts, and the disclaimer in every reply with a calculated number. They are not tested separately in the app.
 
-chatgpt.3 fixes a reply that broke off. In two app runs on 2026-10-29, ChatGPT stopped right before the plan after "Used container tool" and only went on when asked to continue. The plan and the three tracking files came in one long reply, and ChatGPT tried to create the files with its code tool. Now the instructions rule out the code tool, and the plan comes in two replies: first the plan, then, after a yes, the three files as code blocks.
+chatgpt.3 fixes a reply that broke off. In two app runs on 2026-10-29, ChatGPT stopped right before the plan after "Used container tool" and only went on when asked to continue. The plan and the three tracking files came in one long reply, and ChatGPT tried to create the files with its code tool. Now the instructions rule out the code tool, and the plan comes in two replies: first the plan, then, after a yes, the three files as code blocks. Tested in the app on 2026-10-29 with P6 in English: the plan came without a nudge.
 
 ## Keeping the plan alive
 

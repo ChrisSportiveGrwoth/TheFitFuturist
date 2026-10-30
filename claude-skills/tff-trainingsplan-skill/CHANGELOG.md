@@ -2,6 +2,40 @@
 
 Format: append only. Never delete entries.
 
+## v2.7.0 — 2026-10-30 — What you want and what makes sense, both on the table
+
+Source: a user rating on the web generator (same rules, single-shot form). Thumbs down, note: *"What do you think of push/pull/legs? (no squats, pain)"*. Replaying that profile on the web variant gave full body 4 of 4 times — the split was derived from the day count and the wish dropped without a word — and a ticked knee box reached the model as a bare label. The web variant is fixed separately; this release brings the same rules to the skill.
+
+### A stated preference is a request (Rule 20)
+
+- A named split, wanted exercises or exercises to avoid outrank the goal file's default derivation. A question like "what do you think of push/pull/legs?" counts.
+- Wish and sense are kept apart, and neither is decided silently: fits the goal → do it, no lecture. Works but is worse → say once, before the plan, what it costs and what would be better, then build what was asked for. Works against the goal → Rule 10, ask which one gives; if both stay, build the closest defensible plan and name what was not adopted.
+- Safety, hard stops and intake health conditions are never traded for a preference.
+- Block 3 now asks one optional extra line: *"Any split you'd like, or exercises you want or need to avoid?"*
+
+### A complaint at intake shapes the first plan
+
+- New section **HEALTH CONDITIONS AT INTAKE**: avoid / instead / add rows for knee, back, shoulder and heart. They outrank strength.md's full-ROM default ("deep squat") and apply when the complaint shows up only as a rejected exercise ("squats hurt my knees").
+- The section states that the UPDATE MODE count logic ("same pain 1× → do not modify") does not apply to a complaint the user already has when the plan is written.
+- Count semantics: a complaint current at intake is logged at `Count: 0` with "current at intake" — it has already shaped the plan, so it is not a first report waiting to be acted on.
+- The validation row "Health issue ≠ none" points to the new section instead of "add modifications".
+
+### What the replay showed — honestly
+
+Simulated intake conversations, Claude Sonnet 5.5, old (v2.6.0) vs new, 2 runs each:
+
+- **Push/pull/legs on 3 days, squats hurt:** both versions explained the 1×-per-week cost. v2.6.0 decided for the user ("does not fit on 3 days") and built full body or upper/lower/full. v2.7.0 recommended full body **and offered** push/pull/legs. When the user insisted, both versions built push/pull/legs with the trade-off stated — in a conversation, Claude already honoured an explicit insistence.
+- **Patellar tendon complaint at intake:** both versions adapted from the first plan (box squat to a pain-free depth, partial-range leg press, Spanish squat). v2.7.0 said so explicitly up front and capped knee flexion at about 90° in every run.
+- **Disc herniation two years ago, back still pulls after long sitting, "I squat and deadlift heavy":** the clearest difference. v2.6.0 kept heavy barbell back squats and conventional deadlifts in 2 of 2 plans. v2.7.0 dropped both in 2 of 2 and built the lower body on goblet squat, Bulgarian split squat and hip thrust, with an anti-movement core.
+- **Upper/lower on 4 days wished, shoulder pinches overhead:** both versions built upper/lower without a lecture and replaced overhead pressing with landmine and neutral-grip work plus external rotation and face pulls. No regression from Rule 20 on a preference that fits.
+- **Half marathon, "no runs over 10 km":** v2.6.0 noted the cost once and planned. v2.7.0 named the conflict and asked first; after the user kept both, it kept every run at 10 km, closed the gap with back-to-back weekend runs and listed what the plan therefore cannot give.
+- **Hypertension on a beta blocker:** both versions recommended medical clearance, used no heart-rate zones and steered by RIR/RPE. No difference.
+- So for the skill this release is partly robustness — the behaviour no longer depends on the model inferring it — and partly a real fix: the back case. The split failure was real on the single-shot web variant, where nobody can push back.
+
+### Checks
+
+- check-consistency.py: rule-numbering check extended to 20; new checks for Rule 20, the Block 3 question, all four condition rows, the full-ROM override, the count-logic exemption and the intake count semantics.
+
 ## v2.6.0 — 2026-10-09 — The device gets checked before the body does
 
 Source: a protocol comparison. We ran this skill (v2.5.5) and the prompt protocol published with the WMRE2030 review (Front. Physiol. 17:1883295, 2026, Supplementary Table 3) against the same three constructed test profiles, twice each, same model, answers to follow-up questions given strictly from a hidden fact sheet. Full protocol, criteria and verbatim transcripts are kept with the TheFitFuturist analysis files. The comparison found three defects in this skill that were stable across both runs, and one that the skill handled better than the paper's protocol.

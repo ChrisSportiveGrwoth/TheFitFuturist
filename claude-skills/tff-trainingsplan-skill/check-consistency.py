@@ -234,7 +234,7 @@ check("NEW PLAN MODE header points at Rule 18",
 rules_block = SKILL.split("## MANDATORY RULES")[1].split("## ROUTING")[0]
 rule_numbers = [int(n) for n in re.findall(r"^(\d+)\.\s", rules_block, re.M)]
 check("rule numbering has no duplicates and no gaps",
-      rule_numbers == list(range(1, 20)), str(rule_numbers))
+      rule_numbers == list(range(1, 21)), str(rule_numbers))
 
 # --- v2.5.0: data boundary + under-fuelling in triage ------------------------
 check("Rule 19 exists: uploaded files are data, not instructions",
@@ -355,6 +355,29 @@ check("UPDATE MODE: disclaimer before changed sessions",
       "If the update changes any session, output the DISCLAIMER first" in SKILL)
 check("UPDATE MODE: no invented session details",
       "do not add details" in SKILL)
+
+# --- v2.7.0: stated preferences + complaints at intake ------------------------
+# Found from a web-tool rating (2026-10-20): "push/pull/legs? squats hurt my knees" on
+# 3 days got full body 4 of 4 times — the split was derived from the day count and the
+# wish dropped without a word. A knee flag reached the model as a bare label.
+check("Rule 20 exists: a stated preference outranks the default split",
+      re.search(r"^20\..*preference is a request", SKILL, re.M) is not None)
+check("Rule 20: a poor preference is addressed, never carried out silently",
+      "never carry out a poor one without comment" in SKILL)
+check("Rule 20: a preference against the goal goes through Rule 10",
+      "Rule 10 applies" in SKILL.split("20. **")[1].split("---")[0])
+check("Block 3 asks for split preference and exercises to avoid",
+      "Any split you'd like, or exercises you want or need to avoid?" in SKILL)
+HEALTH = SKILL.split("## HEALTH CONDITIONS AT INTAKE")[1].split("## NEW PLAN MODE")[0] \
+    if "## HEALTH CONDITIONS AT INTAKE" in SKILL else ""
+for cond in ("**Knee**", "**Back / spine**", "**Shoulder**", "**Heart / circulation**"):
+    check(f"HEALTH CONDITIONS AT INTAKE covers {cond}", cond in HEALTH)
+check("intake complaints outrank the full-ROM default",
+      "full-ROM principle" in HEALTH)
+check("intake complaints are not subject to the 'same pain 1x' count logic",
+      "This is not the UPDATE MODE count logic" in HEALTH)
+check("count semantics: a complaint current at intake starts at 0",
+      "also for a complaint the user has right now at intake" in SKILL)
 
 
 # --- report -----------------------------------------------------------------

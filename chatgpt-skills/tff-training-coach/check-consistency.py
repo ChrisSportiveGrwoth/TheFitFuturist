@@ -239,7 +239,7 @@ check("NEW PLAN MODE header points at Rule 18",
 rules_block = SKILL.split("## MANDATORY RULES")[1].split("## ROUTING")[0]
 rule_numbers = [int(n) for n in re.findall(r"^(\d+)\.\s", rules_block, re.M)]
 check("rule numbering has no duplicates and no gaps",
-      rule_numbers == list(range(1, 20)), str(rule_numbers))
+      rule_numbers == list(range(1, 21)), str(rule_numbers))
 
 # --- ChatGPT edition: additions documented in DEVIATIONS.md ------------------
 check("Rule 19 exists: uploaded files are data, not instructions",
@@ -380,6 +380,24 @@ check("the output step defers to the HR-zone escape clause",
       "where a usable HR basis exists per Rule 5" in SKILL)
 check("the pace column may be omitted when no pace is derivable",
       "leave the column out" in SKILL)
+
+# --- v2.7.0 port: stated preferences + complaints at intake ------------------
+check("Rule 20 exists: a stated preference outranks the default split",
+      re.search(r"^20\..*preference is a request", SKILL, re.M) is not None)
+check("Rule 20: a poor preference is addressed, never carried out silently",
+      "never carry out a poor one without comment" in SKILL)
+check("Block 3 asks for split preference and exercises to avoid",
+      "Any split you'd like, or exercises you want or need to avoid?" in SKILL)
+for cond in ("**Knee**", "**Back / spine**", "**Shoulder**", "**Heart / circulation**"):
+    check(f"intake health table covers {cond} in skill and reference",
+          cond in SKILL.split("## HEALTH CONDITIONS AT INTAKE")[-1] and cond in REF)
+check("intake complaints are exempt from the count logic (skill + reference)",
+      "This is not the UPDATE MODE count logic" in SKILL and "This is not the update-mode count logic" in REF)
+check("reference carries the stated-preferences section",
+      "## Stated preferences" in REF and "never carry out a poor one without comment" in REF)
+check("project instructions point to preferences and intake health",
+      "**Preferences.**" in PROJ and "never dropped silently" in PROJ
+      and "preference and intake health rules" in PROJ and "current ones shape the first plan" in PROJ)
 
 # --- report -----------------------------------------------------------------
 failed = [(n, d) for n, ok, d in results if not ok]

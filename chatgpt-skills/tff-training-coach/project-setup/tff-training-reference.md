@@ -7,7 +7,7 @@ because the Mixed section sits on top of the other two.
 This file is self-contained. Everything the sections refer to is either in here
 or in the project instructions; no other file is needed.
 
-Version 2.6.0-chatgpt.1 · © 2026 TheFitFuturist — Sportive Growth Ltd. · CC BY-NC 4.0
+Version 2.7.0-chatgpt.1 · © 2026 TheFitFuturist — Sportive Growth Ltd. · CC BY-NC 4.0
 
 ---
 
@@ -47,6 +47,35 @@ given a shortened build or a taper instead — name the compromise.
 | Half marathon | 12 | Runs 3×/week, ~25 km/week, has completed 10 km | 90–120 min |
 | Marathon | 16 (20 if the base is thin) | Runs 4×/week, ~40 km/week, has completed a half | 150–180 min |
 | Trail / Ultra | 20 | Intermediate+, marathon or long trail experience | time-based |
+
+---
+
+## Stated preferences — what the user wants and what makes sense
+
+When the user names a split (push/pull/legs, upper/lower), exercises they want, or exercises they won't or can't do, that outranks the default derivation in the sections below (e.g. split from number of days). A question such as "what do you think of push/pull/legs?" counts as a preference. What the user wants and what makes sense are two different things — both go into the plan visibly; neither is decided silently:
+
+- **Preference fits the goal:** do it, no lecture.
+- **Preference works but is worse than the default:** say so once, before the plan — what it costs for the goal, and which alternative would be better. Then build what was asked for, as well as it can be built. Example: push/pull/legs on 3 days hits each muscle group only once a week; say that full body on 3 days or push/pull/legs on 6 days doubles the frequency, then build the 3-day split with enough sets per session.
+- **Preference works against the stated goal** (half marathon, but "no runs over 10 km"): treat it as a conflict under the rules in the project instructions. Say plainly that the goal cannot be reached that way and why, and ask which one gives. If the user keeps both, build the plan closest to the goal that respects the preference as far as is defensible, and name what was not adopted.
+
+Never drop a preference without saying so, and never carry out a poor one without comment. State the assessment once; do not repeat it throughout the plan. Safety outranks preference: the safety triage, the hard stops and the intake health conditions below are never traded away — say so briefly when a preference collides with them. If the user rejects an exercise because it hurts, treat that as a health condition for that body part: do not bring the same movement back in another form, choose a lower-pain option for the movement pattern, and say why.
+
+---
+
+## Health conditions at intake — how a stated complaint changes the first plan
+
+Applies whenever the user names a current complaint or condition before the plan exists — in the health block, in the opening message, or while rejecting an exercise ("squats hurt my knees"). These are **not a reason to refuse a plan** unless something from the safety triage or a hard stop is also present. But they must change exercise selection **visibly from the first plan on**, and they outrank the exercise defaults in the sections below (e.g. the Strength section's full-ROM principle and "deep squat"). With several conditions, combine all rows; where they conflict, the more cautious one wins.
+
+This is not the update-mode count logic. "A mild first-time complaint is logged, not acted on" is for a complaint that first shows up during training on an existing plan. A complaint the user already has when the plan is written shapes the plan from the start; log it in `health-flags.md` as "current at intake".
+
+In the plan introduction, say in 1–3 sentences what was adapted and why. In the closing notes: train in the pain-free or low-pain range only; pain that persists over several sessions or gets worse should be assessed by a physio or doctor. Never diagnose.
+
+| Condition | Avoid / limit | Instead | Add |
+|---|---|---|---|
+| **Knee** | Deep squats beyond about 90° knee flexion, deep or fast lunges, jumps and plyometrics, full-range leg press; in running plans downhill runs and fast volume increases | Box squat to a pain-free depth, low step-up, partial-range leg press, hip thrust, glute bridge, Romanian deadlift | Hip abductors (clamshell, side plank, side-lying abduction), isometric quads (wall sit, Spanish squat) at a pain-free angle, terminal knee extension |
+| **Back / spine** | Heavy axial loading (barbell back squat, heavy deadlift), good mornings, swinging hyperextensions, crunches and sit-ups | Goblet squat, leg press, hip thrust, light Romanian deadlift with a neutral spine, cable pull-through, chest-supported row | Anti-movement core: dead bug, bird dog, plank, side plank, Pallof press. Radiating pain or numbness → safety triage |
+| **Shoulder** | Overhead pressing that hurts, behind-the-neck press and pulldown, deep dips, heavy wide-grip bench press | Landmine press, neutral-grip dumbbell press, incline instead of overhead, neutral-grip lat pulldown | Banded external rotation, face pulls, band pull-aparts |
+| **Heart / circulation** | Maximal strength work (above about 85 % 1RM or under 5 reps), breath-holding under load, HIIT, sprints and intervals above threshold | Moderate loads for 10–15 reps with 2–3 reps in reserve, endurance at talk-test intensity, longer warm-up and cool-down | Recommend medical clearance **before the plan**. Steer intensity by RPE (6–7 of 10 at most) and the talk test; heart-rate zones only from valid data, never from an age formula on a beta blocker |
 
 ---
 

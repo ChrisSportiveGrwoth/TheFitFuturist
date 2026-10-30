@@ -1,10 +1,10 @@
 # Deviations from the Claude edition
 
 This file lists every difference between the ChatGPT edition
-(`chatgpt-skills/tff-training-coach`, 2.6.0-chatgpt.1) and the Claude edition
+(`chatgpt-skills/tff-training-coach`, 2.7.0-chatgpt.1) and the Claude edition
 (`claude-skills/tff-trainingsplan-skill`, v2.5.1). Nothing else was changed:
 the assessment, the planning logic, the goal files and the validation rules are
-the v2.5.1 content, plus the v2.6.0 changes listed in section E. Version numbers named further down refer to the release that
+the v2.5.1 content, plus the v2.6.0 changes listed in section E and the v2.7.0 changes in section F. Version numbers named further down refer to the release that
 introduced a given change and are deliberately historical.
 
 **Testing status:** the v2.4.0 content was evaluated against 41 test personas on Claude. The
@@ -274,3 +274,46 @@ analysis-mode sentence and the mixed-loading note.
 project path in particular depends on the model retrieving the reference file's
 update rules, which the Claude tests do not cover.
 
+
+## F. Ported from the Claude edition v2.7.0
+
+Taken over unchanged in substance. Background is in the Claude edition's CHANGELOG
+under v2.7.0: a web-tool rating ("what do you think of push/pull/legs? squats hurt")
+showed a wished split dropped without a word and a stated knee complaint reaching
+the model as a bare label.
+
+| Change | Skill path (`SKILL.md`) | Project path |
+|---|---|---|
+| A stated preference outranks the default split; fits → do it, worse → say once what it costs and build it, against the goal → conflict, ask, then build the closest defensible plan and name what was not adopted | Rule 20 | "Stated preferences" section in the reference; one "Preferences" line in the instructions |
+| Block 3 asks for a wished split and exercises to avoid | Block 3 | Availability block |
+| Avoid / instead / add rows for knee, back, shoulder and heart; they outrank the goal sections' exercise defaults (full ROM) | new section HEALTH CONDITIONS AT INTAKE | "Health conditions at intake" section in the reference; "current ones shape the first plan" in the health block |
+| A complaint current at intake shapes the first plan and is not subject to the count logic; logged as "current at intake" | HEALTH CONDITIONS AT INTAKE + count semantics | same reference section |
+
+**Why the project path differs in form.** The instructions were at 7,978 of 8,000
+characters. The rules live in the reference file; the instructions carry pointers,
+and the load line now names the preference and intake rules. To make room, existing
+sentences were shortened without dropping a rule: the arithmetic example
+("6 × 800 m …"), the data-boundary sentence, a duplicated pregnancy bpm clause, the
+mixed-loading note, the disclaimer and tracking-file wording, and a few words in
+the role line, analysis mode and complementary block. Now at 7,999 characters.
+
+**Testing status.** Skill path tested on Codex CLI 0.165 (default model; the skill
+folder in the working directory, Codex reading `SKILL.md` itself), v2.6.0-chatgpt.1
+from `main` against this version, two runs per profile, the same six profiles as
+the Claude edition:
+
+- **Back** (disc herniation two years ago, "I squat and deadlift heavy"): the old
+  version kept heavy deadlifts in 2 of 2 plans and barbell back squats at 3–6 reps
+  in one; the new version dropped both in 2 of 2. Both first asked the radiating-pain
+  screening question and wrote no plan until it was answered — correct triage.
+- **Half marathon, "no runs over 10 km", user keeps both:** the old version refused
+  to write a plan in 2 of 2 runs, three turns in a row. The new version built a plan
+  with every run at 10 km and said plainly what that costs.
+- **Push/pull/legs on 3 days, user insists; knee complaint at intake; shoulder with
+  a fitting upper/lower wish; hypertension on a beta blocker:** both versions handled
+  these well — wish built with its cost stated, partial-range leg press, no
+  overhead pressing, medical clearance and no heart-rate zones. The new version logs
+  the knee complaint as "current at intake".
+
+The project path (instructions + reference file) has not been run; it depends on
+the model retrieving the reference's preference and intake sections.
